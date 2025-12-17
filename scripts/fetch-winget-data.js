@@ -1,6 +1,10 @@
-const { Octokit } = require('octokit')
-const fs = require('fs').promises
-const path = require('path')
+import { Octokit } from 'octokit'
+import fs from 'fs/promises'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const REPO_OWNER = 'microsoft'
