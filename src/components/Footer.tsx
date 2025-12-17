@@ -1,9 +1,14 @@
-import { GithubLogo, Database, Globe } from '@phosphor-icons/react'
+import { GithubLogo, Database, Globe, User } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 // Data do build gerada em tempo de compilação pelo Vite
 declare const __BUILD_DATE__: string
 const BUILD_DATE = typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : new Date().toISOString()
+
+// GitHub repo info para badges
+const GITHUB_REPO = 'pedrostefanogv/winget-package-explo'
+const WORKFLOW_BADGE_URL = `https://github.com/${GITHUB_REPO}/actions/workflows/fetch-winget-data.yml/badge.svg`
+const WORKFLOW_URL = `https://github.com/${GITHUB_REPO}/actions/workflows/fetch-winget-data.yml`
 
 interface FooterProps {
   dataGenerated?: string
@@ -71,7 +76,7 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
 
         {/* Links */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-border">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap justify-center">
             <a
               href="https://github.com/pedrostefanogv/winget-package-explo"
               target="_blank"
@@ -90,6 +95,36 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
               {t('footer.wingetPkgs')}
             </a>
           </div>
+        </div>
+
+        {/* Badge do Workflow */}
+        <div className="flex justify-center pt-4">
+          <a
+            href={WORKFLOW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={t('footer.workflowStatus')}
+          >
+            <img 
+              src={WORKFLOW_BADGE_URL} 
+              alt="Fetch Winget Package Data"
+              className="h-5"
+            />
+          </a>
+        </div>
+
+        {/* Desenvolvido por */}
+        <div className="flex items-center justify-center gap-2 pt-4 text-sm text-muted-foreground">
+          <User size={16} />
+          <span>{t('footer.developedBy')}</span>
+          <a
+            href="https://github.com/pedrostefanogv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground hover:text-primary transition-colors"
+          >
+            Pedro Stefano
+          </a>
         </div>
       </div>
     </footer>

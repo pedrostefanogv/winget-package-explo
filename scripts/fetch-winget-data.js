@@ -268,8 +268,23 @@ async function processAllPackages() {
 async function savePackages(packages) {
   await fs.mkdir(OUTPUT_DIR, { recursive: true })
   
-  // Ordenar: pacotes com �cone primeiro, depois alfabeticamente por nome
-  const sortedPackages = packages.sort((a, b) => {
+  // Remover duplicados pelo ID (manter o primeiro encontrado)
+  const seen = new Set()
+  const uniquePackages = packages.filter(pkg => {
+    if (seen.has(pkg.id)) {
+      return false
+    }
+    seen.add(pkg.id)
+    return true
+  })
+  
+  const duplicatesRemoved = packages.length - uniquePackages.length
+  if (duplicatesRemoved > 0) {
+    console.log(`\nRemoved ${duplicatesRemoved} duplicate packages`)
+  }
+  
+  // Ordenar: pacotes com ícone primeiro, depois alfabeticamente por nome
+  const sortedPackages = uniquePackages.sort((a, b) => {
     const aHasIcon = a.icon ? 1 : 0
     const bHasIcon = b.icon ? 1 : 0
     if (bHasIcon !== aHasIcon) return bHasIcon - aHasIcon

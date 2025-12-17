@@ -53,8 +53,8 @@ jobs:
         run: |
           # Data para tag (sem espaços)
           echo "tag=$(TZ='America/Sao_Paulo' date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
-          # Data formatada para exibição
-          echo "display=$(TZ='America/Sao_Paulo' date +'%d/%m/%Y às %H:%M (Brasília)')" >> $GITHUB_OUTPUT
+          # Data formatada para exibição: DD/MM/YYYY - HH:MM - GMT-3
+          echo "display=$(TZ='America/Sao_Paulo' date +'%d/%m/%Y - %H:%M - GMT-3')" >> $GITHUB_OUTPUT
       
       - name: Commit and push data
         id: commit

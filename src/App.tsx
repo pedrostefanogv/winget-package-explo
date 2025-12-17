@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Input } from '@/components/ui/input'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, Package } from '@phosphor-icons/react'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
+import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, Package, CaretUpDown, Check } from '@phosphor-icons/react'
 import { PackageCard } from '@/components/PackageCard'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
@@ -16,9 +16,20 @@ import { WingetPackage } from '@/lib/types'
 import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
+import { cn } from '@/lib/utils'
 
 const HOME_PACKAGES_LIMIT = 20
 const DEBOUNCE_DELAY = 300 // ms
+
+// Função para embaralhar array (Fisher-Yates)
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
 
 function AppContent() {
   const { t } = useLanguage()
@@ -26,6 +37,7 @@ function AppContent() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [categoryOpen, setCategoryOpen] = useState(false)
   
   const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
 
@@ -65,22 +77,28 @@ function AppContent() {
     })
   }, [packages, searchQuery, selectedCategory])
 
-  // Pacotes a exibir (limitado na home, todos quando buscando)
+  // Pacotes aleatórios para a home (recalcula apenas quando packages mudam)
+  const randomHomePackages = useMemo(() => {
+    return shuffleArray(packages).slice(0, HOME_PACKAGES_LIMIT)
+  }, [packages])
+
+  // Pacotes a exibir (aleatórios na home, filtrados quando buscando)
   const displayedPackages = useMemo(() => {
     const isSearching = searchQuery !== '' || selectedCategory !== null
     if (isSearching) return filteredPackages
-    return filteredPackages.slice(0, HOME_PACKAGES_LIMIT)
-  }, [filteredPackages, searchQuery, selectedCategory])
+    return randomHomePackages
+  }, [filteredPackages, searchQuery, selectedCategory, randomHomePackages])
 
-  const isShowingLimited = searchQuery === '' && selectedCategory === null && filteredPackages.length > HOME_PACKAGES_LIMIT
+  const isShowingLimited = searchQuery === '' && selectedCategory === null && packages.length > HOME_PACKAGES_LIMIT
 
   const clearSearch = () => {
     setSearchInput('')
     setSearchQuery('')
   }
 
-  const handleCategoryChange = (value: string) => {
-    setSelectedCategory(value === 'all' ? null : value)
+  const handleCategorySelect = (categoryName: string) => {
+    setSelectedCategory(categoryName === selectedCategory ? null : categoryName)
+    setCategoryOpen(false)
   }
 
   return (
@@ -132,19 +150,61 @@ function AppContent() {
                 <span className="font-medium">{t('search.categories')}:</span>
               </div>
               
-              <Select value={selectedCategory || 'all'} onValueChange={handleCategoryChange}>
-                <SelectTrigger className="w-[280px]">
-                  <SelectValue placeholder={t('search.allCategories')} />
-                </SelectTrigger>
-                <SelectContent className="max-h-[300px]">
-                  <SelectItem value="all">{t('search.allCategories')} ({categoriesWithCount.length})</SelectItem>
-                  {categoriesWithCount.map((category) => (
-                    <SelectItem key={category.name} value={category.name}>
-                      {category.name} ({category.count})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Popover open={categoryOpen} onOpenChange={setCategoryOpen}>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={categoryOpen}
+                    className="w-[280px] justify-between"
+                  >
+                    {selectedCategory
+                      ? `${selectedCategory} (${categoriesWithCount.find(c => c.name === selectedCategory)?.count || 0})`
+                      : t('search.allCategories')}
+                    <CaretUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-[280px] p-0">
+                  <Command>
+                    <CommandInput placeholder={t('search.searchCategory')} />
+                    <CommandList>
+                      <CommandEmpty>{t('search.noCategoryFound')}</CommandEmpty>
+                      <CommandGroup>
+                        <CommandItem
+                          value="all"
+                          onSelect={() => {
+                            setSelectedCategory(null)
+                            setCategoryOpen(false)
+                          }}
+                        >
+                          <Check
+                            className={cn(
+                              "mr-2 h-4 w-4",
+                              !selectedCategory ? "opacity-100" : "opacity-0"
+                            )}
+                          />
+                          {t('search.allCategories')} ({categoriesWithCount.length})
+                        </CommandItem>
+                        {categoriesWithCount.map((category) => (
+                          <CommandItem
+                            key={category.name}
+                            value={category.name}
+                            onSelect={() => handleCategorySelect(category.name)}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                selectedCategory === category.name ? "opacity-100" : "opacity-0"
+                              )}
+                            />
+                            {category.name} ({category.count})
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
               
               {selectedCategory && (
                 <Button
