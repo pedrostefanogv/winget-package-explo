@@ -10,6 +10,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const REPO_OWNER = 'microsoft'
 const REPO_NAME = 'winget-pkgs'
 const MAX_PACKAGES = 500
+const BATCH_SIZE = 15 // Processar 15 pacotes em paralelo
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'packages.json')
 
@@ -110,16 +111,15 @@ async function getPackageManifests(folderPath) {
     
     if (!localeFile) return null
     
-    const localeResponse = await fetch(localeFile.download_url)
-    const localeYaml = await localeResponse.text()
-    const localeManifest = parseYaml(localeYaml)
-    
-    let installerManifest = null
+    // Fetch arquivos em paralelo
+    const fetchPromises = [fetch(localeFile.download_url).then(r => r.text())]
     if (installerFile) {
-      const installerResponse = await fetch(installerFile.download_url)
-      const installerYaml = await installerResponse.text()
-      installerManifest = parseYaml(installerYaml)
+      fetchPromises.push(fetch(installerFile.download_url).then(r => r.text()))
     }
+    
+    const [localeYaml, installerYaml] = await Promise.all(fetchPromises)
+    const localeManifest = parseYaml(localeYaml)
+    const installerManifest = installerYaml ? parseYaml(installerYaml) : null
     
     return { locale: localeManifest, installer: installerManifest, version: latestVersion.name }
   } catch (error) {
@@ -144,60 +144,77 @@ function extractIconUrl(manifest) {
 
 async function processPackages() {
   console.log('Starting package processing...')
+  const startTime = Date.now()
   
   const folders = await getManifestFolders()
   const packages = []
   const errors = []
   
-  for (let i = 0; i < folders.length; i++) {
-    const folder = folders[i]
+  // Processar em lotes paralelos
+  for (let i = 0; i < folders.length; i += BATCH_SIZE) {
+    const batch = folders.slice(i, i + BATCH_SIZE)
+    const batchNumber = Math.floor(i / BATCH_SIZE) + 1
+    const totalBatches = Math.ceil(folders.length / BATCH_SIZE)
     
-    if (i % 10 === 0) {
-      console.log(`Processing ${i + 1}/${folders.length} packages...`)
+    console.log(`Processing batch ${batchNumber}/${totalBatches} (packages ${i + 1}-${Math.min(i + BATCH_SIZE, folders.length)})...`)
+    
+    const batchResults = await Promise.allSettled(
+      batch.map(async (folder) => {
+        try {
+          const manifests = await getPackageManifests(folder.path)
+          
+          if (!manifests || !manifests.locale) {
+            return null
+          }
+          
+          const { locale, installer, version } = manifests
+          const parts = folder.path.split('/')
+          const packageId = locale.PackageIdentifier || `${parts[1]}.${parts[2]}`
+          
+          const iconUrl = extractIconUrl({ locale, installer })
+          
+          const category = locale.Tags && Array.isArray(locale.Tags) && locale.Tags.length > 0
+            ? locale.Tags[0].charAt(0).toUpperCase() + locale.Tags[0].slice(1)
+            : locale.Tags && typeof locale.Tags === 'string'
+            ? locale.Tags.charAt(0).toUpperCase() + locale.Tags.slice(1)
+            : undefined
+          
+          return {
+            id: packageId,
+            name: locale.PackageName || packageId,
+            publisher: locale.Publisher || 'Unknown',
+            version: locale.PackageVersion || version,
+            description: locale.ShortDescription || locale.Description,
+            homepage: locale.PackageUrl || locale.PublisherUrl,
+            license: locale.License || 'Not specified',
+            tags: Array.isArray(locale.Tags) ? locale.Tags : (locale.Tags ? [locale.Tags] : []),
+            installCommand: `winget install --id ${packageId}`,
+            category,
+            icon: iconUrl,
+            lastUpdated: new Date().toISOString()
+          }
+        } catch (error) {
+          errors.push({ folder: folder.path, error: error.message })
+          return null
+        }
+      })
+    )
+    
+    // Coletar resultados bem-sucedidos
+    for (const result of batchResults) {
+      if (result.status === 'fulfilled' && result.value) {
+        packages.push(result.value)
+      }
     }
     
-    try {
-      const manifests = await getPackageManifests(folder.path)
-      
-      if (!manifests || !manifests.locale) {
-        continue
-      }
-      
-      const { locale, installer, version } = manifests
-      const parts = folder.path.split('/')
-      const packageId = locale.PackageIdentifier || `${parts[1]}.${parts[2]}`
-      
-      const iconUrl = extractIconUrl({ locale, installer })
-      
-      const category = locale.Tags && Array.isArray(locale.Tags) && locale.Tags.length > 0
-        ? locale.Tags[0].charAt(0).toUpperCase() + locale.Tags[0].slice(1)
-        : locale.Tags && typeof locale.Tags === 'string'
-        ? locale.Tags.charAt(0).toUpperCase() + locale.Tags.slice(1)
-        : undefined
-      
-      packages.push({
-        id: packageId,
-        name: locale.PackageName || packageId,
-        publisher: locale.Publisher || 'Unknown',
-        version: locale.PackageVersion || version,
-        description: locale.ShortDescription || locale.Description,
-        homepage: locale.PackageUrl || locale.PublisherUrl,
-        license: locale.License || 'Not specified',
-        tags: Array.isArray(locale.Tags) ? locale.Tags : (locale.Tags ? [locale.Tags] : []),
-        installCommand: `winget install --id ${packageId}`,
-        category,
-        icon: iconUrl,
-        lastUpdated: new Date().toISOString()
-      })
-      
-      await new Promise(resolve => setTimeout(resolve, 100))
-      
-    } catch (error) {
-      errors.push({ folder: folder.path, error: error.message })
+    // Pequeno delay entre lotes para evitar rate limiting
+    if (i + BATCH_SIZE < folders.length) {
+      await new Promise(resolve => setTimeout(resolve, 50))
     }
   }
   
-  console.log(`Successfully processed ${packages.length} packages`)
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+  console.log(`Successfully processed ${packages.length} packages in ${elapsed}s`)
   console.log(`Errors: ${errors.length}`)
   
   return packages
