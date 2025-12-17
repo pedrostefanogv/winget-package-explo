@@ -1,11 +1,12 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, CaretDown, CaretUp, Package } from '@phosphor-icons/react'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, Package } from '@phosphor-icons/react'
 import { PackageCard } from '@/components/PackageCard'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
@@ -16,16 +17,26 @@ import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
 
-const INITIAL_CATEGORIES_SHOWN = 8
+const HOME_PACKAGES_LIMIT = 20
+const DEBOUNCE_DELAY = 300 // ms
 
 function AppContent() {
   const { t } = useLanguage()
+  const [searchInput, setSearchInput] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [showAllCategories, setShowAllCategories] = useState(false)
   
   const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
+
+  // Debounce para pesquisa
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchQuery(searchInput)
+    }, DEBOUNCE_DELAY)
+    
+    return () => clearTimeout(timer)
+  }, [searchInput])
 
   // Categorias com contagem de pacotes, ordenadas por quantidade
   const categoriesWithCount = useMemo(() => {
@@ -39,14 +50,6 @@ function AppContent() {
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count) // Ordenar por quantidade (maior primeiro)
   }, [packages])
-
-  // Categorias a exibir (limitadas ou todas)
-  const displayedCategories = useMemo(() => {
-    if (showAllCategories) return categoriesWithCount
-    return categoriesWithCount.slice(0, INITIAL_CATEGORIES_SHOWN)
-  }, [categoriesWithCount, showAllCategories])
-
-  const hasMoreCategories = categoriesWithCount.length > INITIAL_CATEGORIES_SHOWN
 
   const filteredPackages = useMemo(() => {
     return packages.filter(pkg => {
@@ -62,12 +65,22 @@ function AppContent() {
     })
   }, [packages, searchQuery, selectedCategory])
 
+  // Pacotes a exibir (limitado na home, todos quando buscando)
+  const displayedPackages = useMemo(() => {
+    const isSearching = searchQuery !== '' || selectedCategory !== null
+    if (isSearching) return filteredPackages
+    return filteredPackages.slice(0, HOME_PACKAGES_LIMIT)
+  }, [filteredPackages, searchQuery, selectedCategory])
+
+  const isShowingLimited = searchQuery === '' && selectedCategory === null && filteredPackages.length > HOME_PACKAGES_LIMIT
+
   const clearSearch = () => {
+    setSearchInput('')
     setSearchQuery('')
   }
 
-  const toggleCategory = (category: string) => {
-    setSelectedCategory(selectedCategory === category ? null : category)
+  const handleCategoryChange = (value: string) => {
+    setSelectedCategory(value === 'all' ? null : value)
   }
 
   return (
@@ -97,11 +110,11 @@ function AppContent() {
               <Input
                 type="text"
                 placeholder={t('search.placeholder')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
                 className="pl-10 pr-10 h-12 text-base"
               />
-              {searchQuery && (
+              {searchInput && (
                 <Button
                   variant="ghost"
                   size="icon"
@@ -113,47 +126,25 @@ function AppContent() {
               )}
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <FunnelSimple size={16} />
                 <span className="font-medium">{t('search.categories')}:</span>
-                <Badge variant="secondary" className="text-xs">
-                  {categoriesWithCount.length}
-                </Badge>
               </div>
               
-              {displayedCategories.map((category) => (
-                <Badge
-                  key={category.name}
-                  variant={selectedCategory === category.name ? "default" : "outline"}
-                  className="cursor-pointer transition-all hover:scale-105"
-                  onClick={() => toggleCategory(category.name)}
-                >
-                  {category.name}
-                  <span className="ml-1 opacity-70">({category.count})</span>
-                </Badge>
-              ))}
-              
-              {hasMoreCategories && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setShowAllCategories(!showAllCategories)}
-                  className="text-xs gap-1"
-                >
-                  {showAllCategories ? (
-                    <>
-                      <CaretUp size={14} />
-                      {t('search.showLess')}
-                    </>
-                  ) : (
-                    <>
-                      <CaretDown size={14} />
-                      {t('search.showMore', { count: categoriesWithCount.length - INITIAL_CATEGORIES_SHOWN })}
-                    </>
-                  )}
-                </Button>
-              )}
+              <Select value={selectedCategory || 'all'} onValueChange={handleCategoryChange}>
+                <SelectTrigger className="w-[280px]">
+                  <SelectValue placeholder={t('search.allCategories')} />
+                </SelectTrigger>
+                <SelectContent className="max-h-[300px]">
+                  <SelectItem value="all">{t('search.allCategories')} ({categoriesWithCount.length})</SelectItem>
+                  {categoriesWithCount.map((category) => (
+                    <SelectItem key={category.name} value={category.name}>
+                      {category.name} ({category.count})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               
               {selectedCategory && (
                 <Button
@@ -221,6 +212,8 @@ function AppContent() {
         <div className="mb-4 text-sm text-muted-foreground">
           {isLoading ? (
             t('search.loading')
+          ) : isShowingLimited ? (
+            t('search.showingLimited', { showing: HOME_PACKAGES_LIMIT, total: filteredPackages.length })
           ) : (
             t('search.resultsCount', { count: filteredPackages.length })
           )}
@@ -245,7 +238,7 @@ function AppContent() {
           <EmptyState searchQuery={searchQuery} />
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredPackages.map((pkg) => (
+            {displayedPackages.map((pkg) => (
               <PackageCard
                 key={pkg.id}
                 package={pkg}

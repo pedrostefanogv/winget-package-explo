@@ -5,12 +5,12 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Caminho do repositório clonado (definido via variável de ambiente ou default)
+// Caminho do repositï¿½rio clonado (definido via variï¿½vel de ambiente ou default)
 const WINGET_REPO_PATH = process.env.WINGET_REPO_PATH || path.join(process.cwd(), 'winget-pkgs')
 const MANIFESTS_PATH = path.join(WINGET_REPO_PATH, 'manifests')
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'packages.json')
-const BATCH_SIZE = 100 // Processar 100 pacotes em paralelo (é local, pode ser mais rápido)
+const BATCH_SIZE = 100 // Processar 100 pacotes em paralelo (ï¿½ local, pode ser mais rï¿½pido)
 
 function parseYaml(yamlText) {
   const lines = yamlText.split('\n')
@@ -72,14 +72,14 @@ async function findAllPackageFolders() {
           const pkgStat = await fs.stat(pkgPath)
           if (!pkgStat.isDirectory()) continue
           
-          // Verificar se é um pacote (tem versões) ou subpacote
+          // Verificar se ï¿½ um pacote (tem versï¿½es) ou subpacote
           const contents = await fs.readdir(pkgPath)
           const hasYamlOrVersion = contents.some(c => c.endsWith('.yaml') || /^\d/.test(c))
           
           if (hasYamlOrVersion) {
             packageFolders.push(pkgPath)
           } else {
-            // É um grupo de subpacotes (ex: Microsoft/VisualStudio/Community)
+            // ï¿½ um grupo de subpacotes (ex: Microsoft/VisualStudio/Community)
             for (const subPkg of contents) {
               const subPkgPath = path.join(pkgPath, subPkg)
               const subPkgStat = await fs.stat(subPkgPath)
@@ -104,7 +104,7 @@ async function processPackage(packagePath) {
   try {
     const contents = await fs.readdir(packagePath)
     
-    // Filtrar apenas diretórios (versões)
+    // Filtrar apenas diretï¿½rios (versï¿½es)
     const versionDirs = []
     for (const item of contents) {
       const itemPath = path.join(packagePath, item)
@@ -116,18 +116,26 @@ async function processPackage(packagePath) {
     
     if (versionDirs.length === 0) return null
     
-    // Ordenar e pegar a versão mais recente
+    // Ordenar e pegar a versï¿½o mais recente
     versionDirs.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
     const latestVersion = versionDirs[versionDirs.length - 1]
     const versionPath = path.join(packagePath, latestVersion)
     
-    // Listar arquivos da versão
+    // Listar arquivos da versï¿½o
     const versionContents = await fs.readdir(versionPath)
     
     // Encontrar arquivos de manifesto
-    const localeFile = versionContents.find(f => 
+    // Prioridade: arquivo .locale. > arquivo principal .yaml (sem installer/locale)
+    let localeFile = versionContents.find(f => 
       f.includes('.locale.') && f.endsWith('.yaml')
     )
+    
+    // Se nÃ£o tem arquivo .locale., tentar arquivo principal (formato antigo/simples)
+    if (!localeFile) {
+      localeFile = versionContents.find(f => 
+        f.endsWith('.yaml') && !f.includes('.installer.') && !f.includes('.locale.')
+      )
+    }
     
     const installerFile = versionContents.find(f => 
       f.includes('.installer.') && f.endsWith('.yaml')
@@ -149,7 +157,7 @@ async function processPackage(packagePath) {
     const packageId = localeManifest.PackageIdentifier || 
       packagePath.split(path.sep).slice(-2).join('.')
     
-    // Extrair ícone
+    // Extrair ï¿½cone
     const iconUrl = extractIconUrl({ locale: localeManifest, installer: installerManifest })
     
     // Extrair categoria
@@ -195,7 +203,7 @@ function extractIconUrl(manifest) {
       const url = new URL(locale.PackageUrl)
       return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
     } catch {
-      // URL inválida
+      // URL invï¿½lida
     }
   }
   
@@ -205,7 +213,7 @@ function extractIconUrl(manifest) {
       const url = new URL(locale.PublisherUrl)
       return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
     } catch {
-      // URL inválida
+      // URL invï¿½lida
     }
   }
   
@@ -260,7 +268,7 @@ async function processAllPackages() {
 async function savePackages(packages) {
   await fs.mkdir(OUTPUT_DIR, { recursive: true })
   
-  // Ordenar: pacotes com ícone primeiro, depois alfabeticamente por nome
+  // Ordenar: pacotes com ï¿½cone primeiro, depois alfabeticamente por nome
   const sortedPackages = packages.sort((a, b) => {
     const aHasIcon = a.icon ? 1 : 0
     const bHasIcon = b.icon ? 1 : 0
@@ -282,7 +290,7 @@ async function savePackages(packages) {
 
 async function main() {
   try {
-    // Verificar se o repositório existe
+    // Verificar se o repositï¿½rio existe
     try {
       await fs.access(MANIFESTS_PATH)
     } catch {
