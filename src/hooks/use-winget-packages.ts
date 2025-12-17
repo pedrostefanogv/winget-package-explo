@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { WingetPackage } from '@/lib/types'
-import { fetchStaticPackageData } from '@/lib/staticDataApi'
+import { fetchStaticPackageData, fetchPackageDataWithMeta } from '@/lib/staticDataApi'
 import { fetchWingetPackages } from '@/lib/wingetApi'
 import { mockPackages } from '@/lib/mockData'
 import { toast } from 'sonner'
@@ -10,6 +10,7 @@ interface UseWingetPackagesResult {
   isLoading: boolean
   error: string | null
   dataSource: 'static' | 'api' | 'mock'
+  dataGenerated: string | null
   retry: () => Promise<void>
 }
 
@@ -18,27 +19,31 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [dataSource, setDataSource] = useState<'static' | 'api' | 'mock'>('mock')
+  const [dataGenerated, setDataGenerated] = useState<string | null>(null)
 
   const loadPackages = async () => {
     setIsLoading(true)
     setError(null)
     
     try {
-      const data = await fetchStaticPackageData()
-      setPackages(data)
+      const result = await fetchPackageDataWithMeta()
+      setPackages(result.packages)
+      setDataGenerated(result.generated)
       setDataSource('static')
-      toast.success(`Loaded ${data.length} packages from pre-processed data`)
+      toast.success(`Loaded ${result.packages.length} packages from pre-processed data`)
     } catch (staticErr) {
       console.error('Failed to load static data, trying GitHub API:', staticErr)
       
       try {
         const data = await fetchWingetPackages(limit)
         setPackages(data)
+        setDataGenerated(null)
         setDataSource('api')
         toast.success(`Loaded ${data.length} packages from GitHub API`)
       } catch (apiErr) {
         console.error('Failed to load from GitHub API, using mock data:', apiErr)
         setPackages(mockPackages)
+        setDataGenerated(null)
         setDataSource('mock')
         setError('Could not load package data. Showing sample data.')
       }
@@ -52,14 +57,16 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
     setError(null)
     
     try {
-      const data = await fetchStaticPackageData()
-      setPackages(data)
+      const result = await fetchPackageDataWithMeta()
+      setPackages(result.packages)
+      setDataGenerated(result.generated)
       setDataSource('static')
-      toast.success(`Loaded ${data.length} packages from pre-processed data`)
+      toast.success(`Loaded ${result.packages.length} packages from pre-processed data`)
     } catch (staticErr) {
       try {
         const data = await fetchWingetPackages(limit)
         setPackages(data)
+        setDataGenerated(null)
         setDataSource('api')
         toast.success(`Loaded ${data.length} packages from GitHub API`)
       } catch (apiErr) {
@@ -80,6 +87,7 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
     isLoading,
     error,
     dataSource,
+    dataGenerated,
     retry,
   }
 }

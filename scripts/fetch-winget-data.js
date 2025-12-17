@@ -128,15 +128,35 @@ async function getPackageManifests(folderPath) {
 }
 
 function extractIconUrl(manifest) {
-  if (!manifest || !manifest.installer) return null
+  if (!manifest) return null
   
-  if (manifest.installer.PackageFamilyName) {
-    return `https://store-images.s-microsoft.com/image/apps.${manifest.installer.PackageFamilyName.split('_')[0]}`
+  const { locale, installer } = manifest
+  
+  // 1. Tentar buscar do Microsoft Store (mais confiável)
+  if (installer?.PackageFamilyName) {
+    const pfn = installer.PackageFamilyName.split('_')[0]
+    return `https://store-images.s-microsoft.com/image/apps.${pfn}.png`
   }
   
-  if (manifest.locale && manifest.locale.PackageUrl) {
-    const domain = new URL(manifest.locale.PackageUrl).hostname
-    return `https://logo.clearbit.com/${domain}`
+  // 2. Usar favicon do site oficial
+  if (locale?.PackageUrl) {
+    try {
+      const url = new URL(locale.PackageUrl)
+      // Google Favicon API - mais confiável que clearbit
+      return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
+    } catch {
+      // URL inválida, ignora
+    }
+  }
+  
+  // 3. Usar favicon do site do publisher
+  if (locale?.PublisherUrl) {
+    try {
+      const url = new URL(locale.PublisherUrl)
+      return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
+    } catch {
+      // URL inválida, ignora
+    }
   }
   
   return null

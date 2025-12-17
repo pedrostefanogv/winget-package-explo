@@ -5,28 +5,48 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown } from '@phosphor-icons/react'
+import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, CaretDown, CaretUp, Package } from '@phosphor-icons/react'
 import { PackageCard } from '@/components/PackageCard'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
 import { LanguageSelector } from '@/components/LanguageSelector'
+import { Footer } from '@/components/Footer'
 import { WingetPackage } from '@/lib/types'
 import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
+
+const INITIAL_CATEGORIES_SHOWN = 8
 
 function AppContent() {
   const { t } = useLanguage()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [showAllCategories, setShowAllCategories] = useState(false)
   
-  const { packages, isLoading, error, dataSource, retry } = useWingetPackages(100)
+  const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
 
-  const categories = useMemo(() => {
-    const cats = new Set(packages.map(pkg => pkg.category).filter(Boolean))
-    return Array.from(cats).sort()
+  // Categorias com contagem de pacotes, ordenadas por quantidade
+  const categoriesWithCount = useMemo(() => {
+    const catMap = new Map<string, number>()
+    packages.forEach(pkg => {
+      if (pkg.category) {
+        catMap.set(pkg.category, (catMap.get(pkg.category) || 0) + 1)
+      }
+    })
+    return Array.from(catMap.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count) // Ordenar por quantidade (maior primeiro)
   }, [packages])
+
+  // Categorias a exibir (limitadas ou todas)
+  const displayedCategories = useMemo(() => {
+    if (showAllCategories) return categoriesWithCount
+    return categoriesWithCount.slice(0, INITIAL_CATEGORIES_SHOWN)
+  }, [categoriesWithCount, showAllCategories])
+
+  const hasMoreCategories = categoriesWithCount.length > INITIAL_CATEGORIES_SHOWN
 
   const filteredPackages = useMemo(() => {
     return packages.filter(pkg => {
@@ -51,7 +71,7 @@ function AppContent() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Toaster position="top-right" />
       
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -97,17 +117,44 @@ function AppContent() {
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <FunnelSimple size={16} />
                 <span className="font-medium">{t('search.categories')}:</span>
+                <Badge variant="secondary" className="text-xs">
+                  {categoriesWithCount.length}
+                </Badge>
               </div>
-              {categories.map((category) => (
+              
+              {displayedCategories.map((category) => (
                 <Badge
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
+                  key={category.name}
+                  variant={selectedCategory === category.name ? "default" : "outline"}
                   className="cursor-pointer transition-all hover:scale-105"
-                  onClick={() => category && toggleCategory(category)}
+                  onClick={() => toggleCategory(category.name)}
                 >
-                  {category}
+                  {category.name}
+                  <span className="ml-1 opacity-70">({category.count})</span>
                 </Badge>
               ))}
+              
+              {hasMoreCategories && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowAllCategories(!showAllCategories)}
+                  className="text-xs gap-1"
+                >
+                  {showAllCategories ? (
+                    <>
+                      <CaretUp size={14} />
+                      {t('search.showLess')}
+                    </>
+                  ) : (
+                    <>
+                      <CaretDown size={14} />
+                      {t('search.showMore', { count: categoriesWithCount.length - INITIAL_CATEGORIES_SHOWN })}
+                    </>
+                  )}
+                </Button>
+              )}
+              
               {selectedCategory && (
                 <Button
                   variant="ghost"
@@ -115,6 +162,7 @@ function AppContent() {
                   onClick={() => setSelectedCategory(null)}
                   className="text-xs"
                 >
+                  <X size={14} className="mr-1" />
                   {t('search.clear')}
                 </Button>
               )}
@@ -123,7 +171,18 @@ function AppContent() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1">
+        {/* Total de pacotes catalogados */}
+        {!isLoading && (
+          <div className="flex items-center gap-2 mb-4 p-3 bg-muted/50 rounded-lg">
+            <Package size={20} className="text-primary" />
+            <span className="text-sm">
+              <span className="font-semibold text-foreground">{packages.length.toLocaleString()}</span>
+              <span className="text-muted-foreground"> {t('search.totalCataloged')}</span>
+            </span>
+          </div>
+        )}
+
         {error && dataSource === 'mock' && (
           <Alert className="mb-6 border-accent/50 bg-accent/5">
             <Warning size={20} className="text-accent" />
@@ -207,6 +266,11 @@ function AppContent() {
           )}
         </SheetContent>
       </Sheet>
+
+      <Footer 
+        dataGenerated={dataGenerated || undefined} 
+        packageCount={packages.length} 
+      />
     </div>
   )
 }
