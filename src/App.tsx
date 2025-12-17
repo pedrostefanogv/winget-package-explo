@@ -4,27 +4,29 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import { Skeleton } from '@/components/ui/skeleton'
-import { MagnifyingGlass, X, FunnelSimple } from '@phosphor-icons/react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown } from '@phosphor-icons/react'
 import { PackageCard } from '@/components/PackageCard'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
-import { mockPackages } from '@/lib/mockData'
 import { WingetPackage } from '@/lib/types'
+import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [isLoading] = useState(false)
+  
+  const { packages, isLoading, error, usingMockData, retry } = useWingetPackages(100)
 
   const categories = useMemo(() => {
-    const cats = new Set(mockPackages.map(pkg => pkg.category).filter(Boolean))
+    const cats = new Set(packages.map(pkg => pkg.category).filter(Boolean))
     return Array.from(cats).sort()
-  }, [])
+  }, [packages])
 
   const filteredPackages = useMemo(() => {
-    return mockPackages.filter(pkg => {
+    return packages.filter(pkg => {
       const matchesSearch = searchQuery === '' || 
         pkg.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pkg.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -35,7 +37,7 @@ function App() {
 
       return matchesSearch && matchesCategory
     })
-  }, [searchQuery, selectedCategory])
+  }, [packages, searchQuery, selectedCategory])
 
   const clearSearch = () => {
     setSearchQuery('')
@@ -116,6 +118,34 @@ function App() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        {error && usingMockData && (
+          <Alert className="mb-6 border-accent/50 bg-accent/5">
+            <Warning size={20} className="text-accent" />
+            <AlertDescription className="ml-2">
+              {error}
+              {!usingMockData && (
+                <Button
+                  variant="link"
+                  size="sm"
+                  onClick={retry}
+                  className="ml-2 h-auto p-0 text-accent"
+                >
+                  Retry
+                </Button>
+              )}
+            </AlertDescription>
+          </Alert>
+        )}
+
+        {!isLoading && !usingMockData && packages.length > 0 && (
+          <Alert className="mb-6 border-primary/50 bg-primary/5">
+            <CloudArrowDown size={20} className="text-primary" />
+            <AlertDescription className="ml-2">
+              Connected to GitHub API - showing live data from microsoft/winget-pkgs
+            </AlertDescription>
+          </Alert>
+        )}
+
         <div className="mb-4 text-sm text-muted-foreground">
           {isLoading ? (
             'Loading packages...'
