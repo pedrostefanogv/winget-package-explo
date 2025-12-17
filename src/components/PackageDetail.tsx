@@ -6,6 +6,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Copy, Check, Globe, Download, X, Package } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { toast } from 'sonner'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface PackageDetailProps {
   package: WingetPackage
@@ -13,6 +14,7 @@ interface PackageDetailProps {
 }
 
 export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
+  const { t } = useLanguage()
   const [copied, setCopied] = useState(false)
   const [imageError, setImageError] = useState(false)
   const showIcon = pkg.icon && !imageError
@@ -20,7 +22,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
   const copyCommand = () => {
     navigator.clipboard.writeText(pkg.installCommand)
     setCopied(true)
-    toast.success('Install command copied to clipboard')
+    toast.success(t('alerts.copied'))
     setTimeout(() => setCopied(false), 2000)
   }
 
@@ -61,7 +63,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
         </div>
         
         <div className="flex flex-wrap gap-2">
-          <Badge variant="secondary">v{pkg.version}</Badge>
+          <Badge variant="secondary">{t('packageCard.version', { version: pkg.version })}</Badge>
           {pkg.category && <Badge variant="outline">{pkg.category}</Badge>}
           {pkg.license && <Badge variant="outline">{pkg.license}</Badge>}
         </div>
@@ -71,7 +73,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
         <div className="p-6 space-y-6">
           <div>
             <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground mb-2">
-              Publisher
+              {t('packageDetail.publisher')}
             </h3>
             <p className="text-base text-foreground">{pkg.publisher}</p>
           </div>
@@ -81,7 +83,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
               <Separator />
               <div>
                 <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground mb-2">
-                  Description
+                  {t('packageDetail.description')}
                 </h3>
                 <p className="text-base text-foreground leading-relaxed">
                   {pkg.description}
@@ -95,7 +97,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
               <Separator />
               <div>
                 <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground mb-2">
-                  Homepage
+                  {t('packageDetail.homepage')}
                 </h3>
                 <a
                   href={pkg.homepage}
@@ -115,7 +117,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
               <Separator />
               <div>
                 <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground mb-3">
-                  Tags
+                  {t('packageDetail.tags')}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {pkg.tags.map((tag) => (
@@ -131,7 +133,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
           <Separator />
           <div>
             <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground mb-3">
-              Install Command
+              {t('packageDetail.installCommand')}
             </h3>
             <div className="code-block flex items-center justify-between gap-3">
               <code className="flex-1 break-all">{pkg.installCommand}</code>
@@ -159,7 +161,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
           onClick={copyCommand}
         >
           <Download size={20} className="mr-2" />
-          Copy Install Command
+          {t('packageDetail.copyCommand')}
         </Button>
       </div>
     </div>

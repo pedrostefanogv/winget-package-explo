@@ -13,11 +13,18 @@ A web application that allows users to search, browse, and view detailed informa
 ## Essential Features
 
 ### Package Search
-- **Functionality**: Search winget packages by name, ID, or publisher using real-time filtering
-- **Purpose**: Enable quick discovery of packages without requiring command-line access
+- **Functionality**: Search winget packages by name, ID, or publisher using real-time filtering with multi-language support
+- **Purpose**: Enable quick discovery of packages without requiring command-line access in user's preferred language
 - **Trigger**: User types into the search input field
 - **Progression**: User enters search term → Results filter in real-time → User sees matching packages → User clicks package for details
 - **Success criteria**: Search results update within 100ms and accurately match package names, IDs, and publishers
+
+### Multi-Language Support
+- **Functionality**: Switch between Portuguese (Brazil) and English (USA) interface languages with persistent preference
+- **Purpose**: Make the application accessible to international users, with Portuguese as the default for Brazilian developers
+- **Trigger**: User clicks language selector in header or loads app for first time
+- **Progression**: User clicks language selector → Dropdown shows available languages → User selects language → All UI text updates → Preference saved for future visits
+- **Success criteria**: All interface text translates instantly, user preference persists across sessions via KV storage, no page reload required
 
 ### Package List View
 - **Functionality**: Display a scrollable list of winget packages with key metadata (name, ID, publisher, version) and package icons
@@ -49,15 +56,16 @@ A web application that allows users to search, browse, and view detailed informa
 
 ## Edge Case Handling
 
-- **No Search Results**: Display a helpful empty state with suggestions to try different search terms or clear filters
-- **Package Without Description**: Show a placeholder message indicating description is unavailable in the manifest
+- **Language Not Set**: Default to Portuguese (Brazil) on first visit
+- **No Search Results**: Display a helpful empty state with suggestions to try different search terms or clear filters (translated)
+- **Package Without Description**: Show a placeholder message indicating description is unavailable in the manifest (translated)
 - **Package Without Icon**: Display a default package icon when no icon URL is available or image fails to load
 - **Long Package Names/IDs**: Truncate with ellipsis and show full text on hover with tooltip
-- **Missing Package Metadata**: Gracefully handle missing fields by showing "Not specified" or hiding the field entirely
-- **Slow Network**: Show loading skeletons while data fetches to maintain perceived performance
-- **Static Data Unavailable**: Automatically fall back to live GitHub API, then mock data if necessary
-- **GitHub API Errors**: Display error alert with retry button, automatically fall back to mock data for demo purposes
-- **Rate Limiting**: Handle GitHub API rate limits gracefully with informative error messages
+- **Missing Package Metadata**: Gracefully handle missing fields by showing "Not specified" or hiding the field entirely (translated)
+- **Slow Network**: Show loading skeletons while data fetches to maintain perceived performance (translated loading text)
+- **Static Data Unavailable**: Automatically fall back to live GitHub API, then mock data if necessary (translated alerts)
+- **GitHub API Errors**: Display error alert with retry button, automatically fall back to mock data for demo purposes (translated)
+- **Rate Limiting**: Handle GitHub API rate limits gracefully with informative error messages (translated)
 - **Invalid YAML Manifests**: Skip packages with malformed manifests and continue processing others
 - **CORS Issues with Icons**: Handle image loading errors and display fallback icon
 
@@ -120,6 +128,7 @@ Animations should feel snappy and responsive, reinforcing the technical efficien
   - Code block component for install commands with syntax highlighting
   - Filter chip component with dismiss button using Toggle or custom Badge
   - Empty state illustration component for no results
+  - Language selector dropdown with flag emojis and localized language names
 
 - **States**:
   - Search input: default border, focused with cyan glow ring, filled with clear button visible
@@ -137,6 +146,7 @@ Animations should feel snappy and responsive, reinforcing the technical efficien
   - ArrowRight: Navigate to details
   - Check: Success state for copy action
   - FunnelSimple: Filter indicator
+  - Translate: Language selector button
 
 - **Spacing**:
   - Container padding: px-6 py-8 on desktop, px-4 py-6 on mobile

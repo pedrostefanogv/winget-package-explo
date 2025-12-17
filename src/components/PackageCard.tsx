@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Package } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface PackageCardProps {
   package: WingetPackage
@@ -11,6 +12,7 @@ interface PackageCardProps {
 }
 
 export function PackageCard({ package: pkg, onClick }: PackageCardProps) {
+  const { t } = useLanguage()
   const [imageError, setImageError] = useState(false)
   const showIcon = pkg.icon && !imageError
 
@@ -49,12 +51,12 @@ export function PackageCard({ package: pkg, onClick }: PackageCardProps) {
                 </p>
               </div>
               <Badge variant="secondary" className="flex-shrink-0">
-                v{pkg.version}
+                {t('packageCard.version', { version: pkg.version })}
               </Badge>
             </div>
             
             <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-              {pkg.description || 'No description available'}
+              {pkg.description || t('packageCard.noDescription')}
             </p>
             
             <div className="flex items-center gap-2 text-xs text-muted-foreground">

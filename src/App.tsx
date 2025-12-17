@@ -9,11 +9,14 @@ import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown } from '@phos
 import { PackageCard } from '@/components/PackageCard'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
+import { LanguageSelector } from '@/components/LanguageSelector'
 import { WingetPackage } from '@/lib/types'
 import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
 
-function App() {
+function AppContent() {
+  const { t } = useLanguage()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -53,13 +56,16 @@ function App() {
       
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-          <div className="mb-6">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-2" style={{ letterSpacing: '-0.02em' }}>
-              Winget Package Explorer
-            </h1>
-            <p className="text-muted-foreground">
-              Search and explore Windows Package Manager applications
-            </p>
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <div className="flex-1">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-2" style={{ letterSpacing: '-0.02em' }}>
+                {t('app.title')}
+              </h1>
+              <p className="text-muted-foreground">
+                {t('app.subtitle')}
+              </p>
+            </div>
+            <LanguageSelector />
           </div>
 
           <div className="space-y-4">
@@ -70,7 +76,7 @@ function App() {
               />
               <Input
                 type="text"
-                placeholder="Search packages by name, ID, or publisher..."
+                placeholder={t('search.placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 pr-10 h-12 text-base"
@@ -90,7 +96,7 @@ function App() {
             <div className="flex items-center gap-2 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <FunnelSimple size={16} />
-                <span className="font-medium">Categories:</span>
+                <span className="font-medium">{t('search.categories')}:</span>
               </div>
               {categories.map((category) => (
                 <Badge
@@ -109,7 +115,7 @@ function App() {
                   onClick={() => setSelectedCategory(null)}
                   className="text-xs"
                 >
-                  Clear
+                  {t('search.clear')}
                 </Button>
               )}
             </div>
@@ -122,14 +128,14 @@ function App() {
           <Alert className="mb-6 border-accent/50 bg-accent/5">
             <Warning size={20} className="text-accent" />
             <AlertDescription className="ml-2">
-              {error}
+              {t('alerts.mockData')}
               <Button
                 variant="link"
                 size="sm"
                 onClick={retry}
                 className="ml-2 h-auto p-0 text-accent"
               >
-                Retry
+                {t('alerts.retry')}
               </Button>
             </AlertDescription>
           </Alert>
@@ -139,7 +145,7 @@ function App() {
           <Alert className="mb-6 border-primary/50 bg-primary/5">
             <CloudArrowDown size={20} className="text-primary" />
             <AlertDescription className="ml-2">
-              Showing pre-processed package data - updated weekly
+              {t('alerts.staticData')}
             </AlertDescription>
           </Alert>
         )}
@@ -148,16 +154,16 @@ function App() {
           <Alert className="mb-6 border-primary/50 bg-primary/5">
             <CloudArrowDown size={20} className="text-primary" />
             <AlertDescription className="ml-2">
-              Connected to GitHub API - showing live data from microsoft/winget-pkgs
+              {t('alerts.apiData')}
             </AlertDescription>
           </Alert>
         )}
 
         <div className="mb-4 text-sm text-muted-foreground">
           {isLoading ? (
-            'Loading packages...'
+            t('search.loading')
           ) : (
-            `${filteredPackages.length} package${filteredPackages.length !== 1 ? 's' : ''} found`
+            t('search.resultsCount', { count: filteredPackages.length })
           )}
         </div>
 
@@ -202,6 +208,14 @@ function App() {
         </SheetContent>
       </Sheet>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   )
 }
 
