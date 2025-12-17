@@ -161,20 +161,49 @@ async function processPackage(packagePath) {
     const latestVersion = versionDirs[versionDirs.length - 1]
     const versionPath = path.join(packagePath, latestVersion)
     
-    // Listar arquivos da vers�o
+    // Listar arquivos da versão
     const versionContents = await fs.readdir(versionPath)
     
     // Encontrar arquivos de manifesto
-    // Prioridade: arquivo .locale. > arquivo principal .yaml (sem installer/locale)
+    // Prioridade para locale:
+    // 1. .locale.en-US.yaml (padrão em inglês)
+    // 2. Qualquer outro .locale.*.yaml
+    // 3. Arquivo principal sem .installer. ou .locale. (formato antigo)
     let localeFile = versionContents.find(f => 
-      f.includes('.locale.') && f.endsWith('.yaml')
+      f.includes('.locale.en-US.') && f.endsWith('.yaml')
     )
     
-    // Se não tem arquivo .locale., tentar arquivo principal (formato antigo/simples)
+    // Se não tem en-US, tentar defaultLocale ou qualquer locale
     if (!localeFile) {
       localeFile = versionContents.find(f => 
-        f.endsWith('.yaml') && !f.includes('.installer.') && !f.includes('.locale.')
+        f.includes('.locale.') && f.endsWith('.yaml')
       )
+    }
+    
+    // Se não tem arquivo .locale., tentar arquivo principal (formato antigo/simples)
+    // Excluir arquivos .installer. e .yaml que é apenas version manifest
+    if (!localeFile) {
+      // Primeiro tentar arquivos que NÃO são apenas o version manifest
+      const yamlFiles = versionContents.filter(f => 
+        f.endsWith('.yaml') && 
+        !f.includes('.installer.') && 
+        !f.includes('.locale.')
+      )
+      
+      // Preferir arquivos com mais conteúdo (não apenas version manifest)
+      for (const file of yamlFiles) {
+        const content = await fs.readFile(path.join(versionPath, file), 'utf-8')
+        // Se tem PackageName ou ShortDescription, é um arquivo útil
+        if (content.includes('PackageName:') || content.includes('ShortDescription:')) {
+          localeFile = file
+          break
+        }
+      }
+      
+      // Se nenhum arquivo útil, pegar qualquer yaml que não seja installer
+      if (!localeFile && yamlFiles.length > 0) {
+        localeFile = yamlFiles[0]
+      }
     }
     
     const installerFile = versionContents.find(f => 
