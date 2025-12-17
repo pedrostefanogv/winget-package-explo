@@ -36,8 +36,8 @@ function AppContent() {
   const [searchInput, setSearchInput] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [categoryOpen, setCategoryOpen] = useState(false)
+  const [selectedTag, setSelectedTag] = useState<string | null>(null)
+  const [tagOpen, setTagOpen] = useState(false)
   
   const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
 
@@ -50,15 +50,22 @@ function AppContent() {
     return () => clearTimeout(timer)
   }, [searchInput])
 
-  // Categorias com contagem de pacotes, ordenadas por quantidade
-  const categoriesWithCount = useMemo(() => {
-    const catMap = new Map<string, number>()
+  // Tags com contagem de pacotes, normalizadas e ordenadas por quantidade
+  const tagsWithCount = useMemo(() => {
+    const tagMap = new Map<string, number>()
     packages.forEach(pkg => {
-      if (pkg.category) {
-        catMap.set(pkg.category, (catMap.get(pkg.category) || 0) + 1)
+      if (pkg.tags && Array.isArray(pkg.tags)) {
+        pkg.tags.forEach(tag => {
+          // Normalizar: lowercase e capitalizar primeira letra
+          const normalizedTag = tag.toLowerCase().trim()
+          if (normalizedTag) {
+            const displayTag = normalizedTag.charAt(0).toUpperCase() + normalizedTag.slice(1)
+            tagMap.set(displayTag, (tagMap.get(displayTag) || 0) + 1)
+          }
+        })
       }
     })
-    return Array.from(catMap.entries())
+    return Array.from(tagMap.entries())
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count) // Ordenar por quantidade (maior primeiro)
   }, [packages])
@@ -71,11 +78,15 @@ function AppContent() {
         pkg.publisher.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pkg.description?.toLowerCase().includes(searchQuery.toLowerCase())
 
-      const matchesCategory = !selectedCategory || pkg.category === selectedCategory
+      // Verificar se alguma tag do pacote corresponde à tag selecionada (case-insensitive)
+      const matchesTag = !selectedTag || 
+        (pkg.tags && pkg.tags.some(tag => 
+          tag.toLowerCase().trim() === selectedTag.toLowerCase()
+        ))
 
-      return matchesSearch && matchesCategory
+      return matchesSearch && matchesTag
     })
-  }, [packages, searchQuery, selectedCategory])
+  }, [packages, searchQuery, selectedTag])
 
   // Pacotes aleatórios para a home (recalcula apenas quando packages mudam)
   const randomHomePackages = useMemo(() => {
@@ -84,21 +95,21 @@ function AppContent() {
 
   // Pacotes a exibir (aleatórios na home, filtrados quando buscando)
   const displayedPackages = useMemo(() => {
-    const isSearching = searchQuery !== '' || selectedCategory !== null
+    const isSearching = searchQuery !== '' || selectedTag !== null
     if (isSearching) return filteredPackages
     return randomHomePackages
-  }, [filteredPackages, searchQuery, selectedCategory, randomHomePackages])
+  }, [filteredPackages, searchQuery, selectedTag, randomHomePackages])
 
-  const isShowingLimited = searchQuery === '' && selectedCategory === null && packages.length > HOME_PACKAGES_LIMIT
+  const isShowingLimited = searchQuery === '' && selectedTag === null && packages.length > HOME_PACKAGES_LIMIT
 
   const clearSearch = () => {
     setSearchInput('')
     setSearchQuery('')
   }
 
-  const handleCategorySelect = (categoryName: string) => {
-    setSelectedCategory(categoryName === selectedCategory ? null : categoryName)
-    setCategoryOpen(false)
+  const handleTagSelect = (tagName: string) => {
+    setSelectedTag(tagName === selectedTag ? null : tagName)
+    setTagOpen(false)
   }
 
   return (
@@ -147,57 +158,57 @@ function AppContent() {
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <FunnelSimple size={16} />
-                <span className="font-medium">{t('search.categories')}:</span>
+                <span className="font-medium">{t('search.tags')}:</span>
               </div>
               
-              <Popover open={categoryOpen} onOpenChange={setCategoryOpen}>
+              <Popover open={tagOpen} onOpenChange={setTagOpen}>
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
                     role="combobox"
-                    aria-expanded={categoryOpen}
+                    aria-expanded={tagOpen}
                     className="w-[280px] justify-between"
                   >
-                    {selectedCategory
-                      ? `${selectedCategory} (${categoriesWithCount.find(c => c.name === selectedCategory)?.count || 0})`
-                      : t('search.allCategories')}
+                    {selectedTag
+                      ? `${selectedTag} (${tagsWithCount.find(t => t.name === selectedTag)?.count || 0})`
+                      : t('search.allTags')}
                     <CaretUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-[280px] p-0">
                   <Command>
-                    <CommandInput placeholder={t('search.searchCategory')} />
+                    <CommandInput placeholder={t('search.searchTag')} />
                     <CommandList>
-                      <CommandEmpty>{t('search.noCategoryFound')}</CommandEmpty>
+                      <CommandEmpty>{t('search.noTagFound')}</CommandEmpty>
                       <CommandGroup>
                         <CommandItem
                           value="all"
                           onSelect={() => {
-                            setSelectedCategory(null)
-                            setCategoryOpen(false)
+                            setSelectedTag(null)
+                            setTagOpen(false)
                           }}
                         >
                           <Check
                             className={cn(
                               "mr-2 h-4 w-4",
-                              !selectedCategory ? "opacity-100" : "opacity-0"
+                              !selectedTag ? "opacity-100" : "opacity-0"
                             )}
                           />
-                          {t('search.allCategories')} ({categoriesWithCount.length})
+                          {t('search.allTags')} ({tagsWithCount.length})
                         </CommandItem>
-                        {categoriesWithCount.map((category) => (
+                        {tagsWithCount.map((tag) => (
                           <CommandItem
-                            key={category.name}
-                            value={category.name}
-                            onSelect={() => handleCategorySelect(category.name)}
+                            key={tag.name}
+                            value={tag.name}
+                            onSelect={() => handleTagSelect(tag.name)}
                           >
                             <Check
                               className={cn(
                                 "mr-2 h-4 w-4",
-                                selectedCategory === category.name ? "opacity-100" : "opacity-0"
+                                selectedTag === tag.name ? "opacity-100" : "opacity-0"
                               )}
                             />
-                            {category.name} ({category.count})
+                            {tag.name} ({tag.count})
                           </CommandItem>
                         ))}
                       </CommandGroup>
@@ -206,11 +217,11 @@ function AppContent() {
                 </PopoverContent>
               </Popover>
               
-              {selectedCategory && (
+              {selectedTag && (
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => setSelectedCategory(null)}
+                  onClick={() => setSelectedTag(null)}
                   className="text-xs"
                 >
                   <X size={14} className="mr-1" />

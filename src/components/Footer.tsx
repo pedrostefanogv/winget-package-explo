@@ -74,36 +74,37 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
           )}
         </div>
 
-        {/* Links */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-border">
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <a
-              href="https://github.com/pedrostefanogv/winget-package-explo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <GithubLogo size={20} />
-              <span>{t('footer.viewOnGithub')}</span>
-            </a>
-            <a
-              href="https://github.com/microsoft/winget-pkgs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t('footer.wingetPkgs')}
-            </a>
-          </div>
-        </div>
+        {/* Links - em linha */}
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-4 border-t border-border">
+          {/* Ver no GitHub */}
+          <a
+            href="https://github.com/pedrostefanogv/winget-package-explo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <GithubLogo size={16} className="text-primary" />
+            <span>{t('footer.viewOnGithub')}</span>
+          </a>
 
-        {/* Badge do Workflow */}
-        <div className="flex justify-center pt-4">
+          {/* winget-pkgs */}
+          <a
+            href="https://github.com/microsoft/winget-pkgs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <GithubLogo size={16} className="text-primary" />
+            <span>{t('footer.wingetPkgs')}</span>
+          </a>
+
+          {/* Badge do Workflow */}
           <a
             href={WORKFLOW_URL}
             target="_blank"
             rel="noopener noreferrer"
             title={t('footer.workflowStatus')}
+            className="flex items-center"
           >
             <img 
               src={WORKFLOW_BADGE_URL} 
@@ -111,20 +112,20 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
               className="h-5"
             />
           </a>
-        </div>
 
-        {/* Desenvolvido por */}
-        <div className="flex items-center justify-center gap-2 pt-4 text-sm text-muted-foreground">
-          <User size={16} />
-          <span>{t('footer.developedBy')}</span>
-          <a
-            href="https://github.com/pedrostefanogv"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-foreground hover:text-primary transition-colors"
-          >
-            Pedro Stefano
-          </a>
+          {/* Desenvolvido por */}
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <User size={16} className="text-primary" />
+            <span>{t('footer.developedBy')}</span>
+            <a
+              href="https://github.com/pedrostefanogv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Pedro Stefano
+            </a>
+          </div>
         </div>
       </div>
     </footer>
