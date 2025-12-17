@@ -1,5 +1,5 @@
 {
-  "generated": "2025-12-17T20:50:17.341Z",
+  "generated": "2025-12-17T20:58:03.414Z",
   "count": 439,
   "packages": [
     {
@@ -17,8 +17,8 @@
       ],
       "installCommand": "winget install --id 0x192.UniversalAndroidDebloaterGUI",
       "category": "Android",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:55.480Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.101Z"
     },
     {
       "id": "0xGingi.Browser",
@@ -34,8 +34,8 @@
       ],
       "installCommand": "winget install --id 0xGingi.Browser",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:55.485Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.243Z"
     },
     {
       "id": "0xJacky.nginx-ui",
@@ -65,8 +65,8 @@
       ],
       "installCommand": "winget install --id 0xJacky.nginx-ui",
       "category": "Chatgpt-app",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:55.527Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.260Z"
     },
     {
       "id": "108thecitizen.DesktopTileLauncher",
@@ -78,8 +78,8 @@
       "license": "Apache-2.0",
       "tags": [],
       "installCommand": "winget install --id 108thecitizen.DesktopTileLauncher",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:55.471Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.186Z"
     },
     {
       "id": "115.115Chrome",
@@ -107,7 +107,7 @@
       "installCommand": "winget install --id 115.115Chrome",
       "category": "Backup",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:55.508Z"
+      "lastUpdated": "2025-12-17T20:57:30.344Z"
     },
     {
       "id": "123.123pan",
@@ -131,8 +131,8 @@
       ],
       "installCommand": "winget install --id 123.123pan",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/www.123pan.com",
-      "lastUpdated": "2025-12-17T20:49:55.573Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.123pan.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.272Z"
     },
     {
       "id": "1357310795.JboxTransfer",
@@ -149,8 +149,8 @@
       ],
       "installCommand": "winget install --id 1357310795.JboxTransfer",
       "category": "Jbox",
-      "icon": "https://logo.clearbit.com/pan.sjtu.edu.cn",
-      "lastUpdated": "2025-12-17T20:49:55.556Z"
+      "icon": "https://www.google.com/s2/favicons?domain=pan.sjtu.edu.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.324Z"
     },
     {
       "id": "1357310795.TboxWebdav",
@@ -166,8 +166,8 @@
       ],
       "installCommand": "winget install --id 1357310795.TboxWebdav",
       "category": "Pan",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:55.580Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.196Z"
     },
     {
       "id": "15722UsefulApp.WorkspaceLauncherForVSCode",
@@ -188,8 +188,8 @@
       ],
       "installCommand": "winget install --id 15722UsefulApp.WorkspaceLauncherForVSCode",
       "category": "Windows-commandpalette-extension",
-      "icon": "https://store-images.s-microsoft.com/image/apps.15722UsefulApp.WorkspaceLauncherforVSCode",
-      "lastUpdated": "2025-12-17T20:49:55.551Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.15722UsefulApp.WorkspaceLauncherforVSCode.png",
+      "lastUpdated": "2025-12-17T20:57:30.255Z"
     },
     {
       "id": "1History.1History",
@@ -206,8 +206,8 @@
       ],
       "installCommand": "winget install --id 1History.1History",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:55.534Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.324Z"
     },
     {
       "id": "1IC.BPMN-RPAStudio",
@@ -231,8 +231,8 @@
       ],
       "installCommand": "winget install --id 1IC.BPMN-RPAStudio",
       "category": "Develop",
-      "icon": "https://logo.clearbit.com/1ic.nl",
-      "lastUpdated": "2025-12-17T20:49:55.636Z"
+      "icon": "https://www.google.com/s2/favicons?domain=1ic.nl&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.371Z"
     },
     {
       "id": "1zilc.FishingFunds",
@@ -254,8 +254,8 @@
       ],
       "installCommand": "winget install --id 1zilc.FishingFunds",
       "category": "Cryptocurrency",
-      "icon": "https://logo.clearbit.com/ff.1zilc.top",
-      "lastUpdated": "2025-12-17T20:49:55.592Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ff.1zilc.top&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.431Z"
     },
     {
       "id": "2BrightSparks.SyncBackFree",
@@ -271,8 +271,8 @@
       ],
       "installCommand": "winget install --id 2BrightSparks.SyncBackFree",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/www.2brightsparks.com",
-      "lastUpdated": "2025-12-17T20:49:55.632Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.2brightsparks.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.376Z"
     },
     {
       "id": "2BrightSparks.SyncBackPro",
@@ -288,8 +288,8 @@
       ],
       "installCommand": "winget install --id 2BrightSparks.SyncBackPro",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/www.2brightsparks.com",
-      "lastUpdated": "2025-12-17T20:49:55.655Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.2brightsparks.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.576Z"
     },
     {
       "id": "2BrightSparks.SyncBackSE",
@@ -305,8 +305,8 @@
       ],
       "installCommand": "winget install --id 2BrightSparks.SyncBackSE",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/www.2brightsparks.com",
-      "lastUpdated": "2025-12-17T20:49:55.617Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.2brightsparks.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:30.463Z"
     },
     {
       "id": "2dust.v2rayN",
@@ -331,8 +331,8 @@
       ],
       "installCommand": "winget install --id 2dust.v2rayN",
       "category": "Proxy",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:56.081Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.415Z"
     },
     {
       "id": "34u.MultiBaseCSBirdBase",
@@ -344,8 +344,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 34u.MultiBaseCSBirdBase",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:56.100Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.multibasecs.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.234Z"
     },
     {
       "id": "34u.MultiBaseCSHome",
@@ -357,8 +357,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 34u.MultiBaseCSHome",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:56.208Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.multibasecs.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.450Z"
     },
     {
       "id": "34u.MultiBaseCSProfessional",
@@ -370,8 +370,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 34u.MultiBaseCSProfessional",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:56.198Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.multibasecs.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.230Z"
     },
     {
       "id": "34u.MultiBaseCSServer",
@@ -383,8 +383,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 34u.MultiBaseCSServer",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:56.081Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.multibasecs.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.421Z"
     },
     {
       "id": "360.360AlbumViewer",
@@ -403,8 +403,8 @@
       ],
       "installCommand": "winget install --id 360.360AlbumViewer",
       "category": "Image",
-      "icon": "https://logo.clearbit.com/pic.360.cn",
-      "lastUpdated": "2025-12-17T20:49:56.192Z"
+      "icon": "https://www.google.com/s2/favicons?domain=pic.360.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.274Z"
     },
     {
       "id": "360.360CleanMaster",
@@ -429,8 +429,8 @@
       ],
       "installCommand": "winget install --id 360.360CleanMaster",
       "category": "Accelerate",
-      "icon": "https://logo.clearbit.com/bbs.360.cn",
-      "lastUpdated": "2025-12-17T20:49:56.085Z"
+      "icon": "https://www.google.com/s2/favicons?domain=bbs.360.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.218Z"
     },
     {
       "id": "360.360DesktopLite",
@@ -445,8 +445,8 @@
       ],
       "installCommand": "winget install --id 360.360DesktopLite",
       "category": "Desktop",
-      "icon": "https://logo.clearbit.com/www.360.cn",
-      "lastUpdated": "2025-12-17T20:49:56.060Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.360.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.190Z"
     },
     {
       "id": "360.360DocProtect",
@@ -463,8 +463,8 @@
       ],
       "installCommand": "winget install --id 360.360DocProtect",
       "category": "Protect",
-      "icon": "https://logo.clearbit.com/www.360totalsecurity.com",
-      "lastUpdated": "2025-12-17T20:49:56.232Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.360totalsecurity.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.343Z"
     },
     {
       "id": "360.360Ent",
@@ -484,8 +484,8 @@
       ],
       "installCommand": "winget install --id 360.360Ent",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/browser.360.net",
-      "lastUpdated": "2025-12-17T20:49:56.251Z"
+      "icon": "https://www.google.com/s2/favicons?domain=browser.360.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.429Z"
     },
     {
       "id": "360.360File",
@@ -507,8 +507,8 @@
       ],
       "installCommand": "winget install --id 360.360File",
       "category": "Directory",
-      "icon": "https://logo.clearbit.com/bbs.360.cn",
-      "lastUpdated": "2025-12-17T20:49:56.217Z"
+      "icon": "https://www.google.com/s2/favicons?domain=bbs.360.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.444Z"
     },
     {
       "id": "360.360GT",
@@ -528,8 +528,8 @@
       ],
       "installCommand": "winget install --id 360.360GT",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/browser.360.cn",
-      "lastUpdated": "2025-12-17T20:49:56.232Z"
+      "icon": "https://www.google.com/s2/favicons?domain=browser.360.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.494Z"
     },
     {
       "id": "360.360SE",
@@ -549,8 +549,8 @@
       ],
       "installCommand": "winget install --id 360.360SE",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/browser.360.cn",
-      "lastUpdated": "2025-12-17T20:49:56.275Z"
+      "icon": "https://www.google.com/s2/favicons?domain=browser.360.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.681Z"
     },
     {
       "id": "360.360VirtualVault",
@@ -562,8 +562,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 360.360VirtualVault",
-      "icon": "https://logo.clearbit.com/www.360totalsecurity.com",
-      "lastUpdated": "2025-12-17T20:49:56.226Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.360totalsecurity.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:31.428Z"
     },
     {
       "id": "360.360Zip",
@@ -587,8 +587,8 @@
       ],
       "installCommand": "winget install --id 360.360Zip",
       "category": "Archive",
-      "icon": "https://logo.clearbit.com/www.360totalsecurity.com",
-      "lastUpdated": "2025-12-17T20:49:56.884Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.360totalsecurity.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.319Z"
     },
     {
       "id": "360.NamiAI",
@@ -606,7 +606,7 @@
       "installCommand": "winget install --id 360.NamiAI",
       "category": "Ai",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:56.697Z"
+      "lastUpdated": "2025-12-17T20:57:32.327Z"
     },
     {
       "id": "360.PalmInput",
@@ -624,8 +624,8 @@
       ],
       "installCommand": "winget install --id 360.PalmInput",
       "category": "Chinese",
-      "icon": "https://logo.clearbit.com/www.xinshuru.com",
-      "lastUpdated": "2025-12-17T20:49:56.751Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.xinshuru.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.488Z"
     },
     {
       "id": "3CX.CallFlowDesigner",
@@ -642,8 +642,8 @@
       ],
       "installCommand": "winget install --id 3CX.CallFlowDesigner",
       "category": "3cx",
-      "icon": "https://logo.clearbit.com/www.3cx.com",
-      "lastUpdated": "2025-12-17T20:49:56.696Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.3cx.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.477Z"
     },
     {
       "id": "3CX.MultilineTAPI",
@@ -655,8 +655,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 3CX.MultilineTAPI",
-      "icon": "https://logo.clearbit.com/www.3cx.com",
-      "lastUpdated": "2025-12-17T20:49:56.772Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.3cx.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.491Z"
     },
     {
       "id": "3CX.PhoneSystem",
@@ -674,8 +674,8 @@
       ],
       "installCommand": "winget install --id 3CX.PhoneSystem",
       "category": "Sip",
-      "icon": "https://logo.clearbit.com/www.3cx.com",
-      "lastUpdated": "2025-12-17T20:49:56.818Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.3cx.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.333Z"
     },
     {
       "id": "3CX.Softphone",
@@ -693,8 +693,8 @@
       ],
       "installCommand": "winget install --id 3CX.Softphone",
       "category": "Sip",
-      "icon": "https://store-images.s-microsoft.com/image/apps.3CXDMCC.3CX",
-      "lastUpdated": "2025-12-17T20:49:56.726Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.3CXDMCC.3CX.png",
+      "lastUpdated": "2025-12-17T20:57:32.369Z"
     },
     {
       "id": "3DVista.VirtualTour",
@@ -706,8 +706,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 3DVista.VirtualTour",
-      "icon": "https://logo.clearbit.com/www.3dvista.com",
-      "lastUpdated": "2025-12-17T20:49:56.785Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.3dvista.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.344Z"
     },
     {
       "id": "3TSoftwareLabs.Robo3T",
@@ -719,8 +719,8 @@
       "license": "GPLv3",
       "tags": [],
       "installCommand": "winget install --id 3TSoftwareLabs.Robo3T",
-      "icon": "https://logo.clearbit.com/robomongo.org",
-      "lastUpdated": "2025-12-17T20:49:56.920Z"
+      "icon": "https://www.google.com/s2/favicons?domain=robomongo.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.540Z"
     },
     {
       "id": "3TSoftwareLabs.Studio3T",
@@ -738,8 +738,8 @@
       ],
       "installCommand": "winget install --id 3TSoftwareLabs.Studio3T",
       "category": "Database",
-      "icon": "https://logo.clearbit.com/studio3t.com",
-      "lastUpdated": "2025-12-17T20:49:56.879Z"
+      "icon": "https://www.google.com/s2/favicons?domain=studio3t.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.518Z"
     },
     {
       "id": "3d-io.Exr-IO",
@@ -756,8 +756,8 @@
       ],
       "installCommand": "winget install --id 3d-io.Exr-IO",
       "category": "Image",
-      "icon": "https://logo.clearbit.com/www.exr-io.com",
-      "lastUpdated": "2025-12-17T20:49:56.842Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.exr-io.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.542Z"
     },
     {
       "id": "3ll3d00d.beqdesigner",
@@ -775,8 +775,8 @@
       ],
       "installCommand": "winget install --id 3ll3d00d.beqdesigner",
       "category": "Audio-analysis",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:56.870Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:32.549Z"
     },
     {
       "id": "4gray.iptvnator",
@@ -788,7 +788,7 @@
       "tags": [],
       "installCommand": "winget install --id 4gray.iptvnator",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:56.820Z"
+      "lastUpdated": "2025-12-17T20:57:32.594Z"
     },
     {
       "id": "4ngel2769.MessyOrganizer",
@@ -811,8 +811,8 @@
       ],
       "installCommand": "winget install --id 4ngel2769.MessyOrganizer",
       "category": "Download-manager",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.355Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.362Z"
     },
     {
       "id": "4tNiagaraSoftware.4tTrayMinimizer",
@@ -824,8 +824,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 4tNiagaraSoftware.4tTrayMinimizer",
-      "icon": "https://logo.clearbit.com/www.4t-niagara.com",
-      "lastUpdated": "2025-12-17T20:49:57.441Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.4t-niagara.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.396Z"
     },
     {
       "id": "5E.5EClient",
@@ -843,7 +843,7 @@
       "installCommand": "winget install --id 5E.5EClient",
       "category": "Csgo",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:57.337Z"
+      "lastUpdated": "2025-12-17T20:57:33.216Z"
     },
     {
       "id": "5mdt.WinGoDarkTray",
@@ -855,8 +855,8 @@
       "license": "GPL-3.0",
       "tags": [],
       "installCommand": "winget install --id 5mdt.WinGoDarkTray",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.376Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.190Z"
     },
     {
       "id": "5rahim.Seanime",
@@ -885,8 +885,8 @@
       ],
       "installCommand": "winget install --id 5rahim.Seanime",
       "category": "Anilist",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.336Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.230Z"
     },
     {
       "id": "64Gram.64Gram",
@@ -901,8 +901,8 @@
       ],
       "installCommand": "winget install --id 64Gram.64Gram",
       "category": "Telegram",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.481Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.387Z"
     },
     {
       "id": "720kb.ndm",
@@ -922,8 +922,8 @@
       ],
       "installCommand": "winget install --id 720kb.ndm",
       "category": "Cross-platform",
-      "icon": "https://logo.clearbit.com/720kb.github.io",
-      "lastUpdated": "2025-12-17T20:49:57.381Z"
+      "icon": "https://www.google.com/s2/favicons?domain=720kb.github.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.234Z"
     },
     {
       "id": "7gxycn08.WinGetCreateGui",
@@ -942,8 +942,8 @@
       ],
       "installCommand": "winget install --id 7gxycn08.WinGetCreateGui",
       "category": "Python",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.448Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.373Z"
     },
     {
       "id": "7room.Aya",
@@ -961,8 +961,8 @@
       ],
       "installCommand": "winget install --id 7room.Aya",
       "category": "Disk-space",
-      "icon": "https://logo.clearbit.com/getaya.co",
-      "lastUpdated": "2025-12-17T20:49:57.442Z"
+      "icon": "https://www.google.com/s2/favicons?domain=getaya.co&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.398Z"
     },
     {
       "id": "7zip.7zr",
@@ -988,8 +988,8 @@
       ],
       "installCommand": "winget install --id 7zip.7zr",
       "category": "Requirescmd",
-      "icon": "https://logo.clearbit.com/www.7-zip.org",
-      "lastUpdated": "2025-12-17T20:49:57.488Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.7-zip.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.451Z"
     },
     {
       "id": "8051Enthusiast.biodiff",
@@ -1001,8 +1001,8 @@
       "license": "MIT",
       "tags": [],
       "installCommand": "winget install --id 8051Enthusiast.biodiff",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.499Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.460Z"
     },
     {
       "id": "86Box.86Box",
@@ -1014,8 +1014,8 @@
       "license": "GPL-2.0",
       "tags": [],
       "installCommand": "winget install --id 86Box.86Box",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.516Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.572Z"
     },
     {
       "id": "86Box.86BoxManager",
@@ -1036,8 +1036,8 @@
       ],
       "installCommand": "winget install --id 86Box.86BoxManager",
       "category": "86box",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:57.517Z"
+      "icon": "https://www.google.com/s2/favicons?domain=86box.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:33.416Z"
     },
     {
       "id": "8BitDo.UltimateSoftwareV2",
@@ -1049,7 +1049,7 @@
       "tags": [],
       "installCommand": "winget install --id 8BitDo.UltimateSoftwareV2",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:57.956Z"
+      "lastUpdated": "2025-12-17T20:57:34.204Z"
     },
     {
       "id": "8x8.QualityManagement",
@@ -1061,8 +1061,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 8x8.QualityManagement",
-      "icon": "https://logo.clearbit.com/support-portal.8x8.com",
-      "lastUpdated": "2025-12-17T20:49:57.926Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support-portal.8x8.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.210Z"
     },
     {
       "id": "8x8.Work",
@@ -1074,8 +1074,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id 8x8.Work",
-      "icon": "https://logo.clearbit.com/support.8x8.com",
-      "lastUpdated": "2025-12-17T20:49:57.980Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.8x8.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.474Z"
     },
     {
       "id": "9001.copyparty",
@@ -1097,8 +1097,8 @@
       ],
       "installCommand": "winget install --id 9001.copyparty",
       "category": "Copyparty",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.998Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.234Z"
     },
     {
       "id": "99designs.aws-vault",
@@ -1113,8 +1113,8 @@
       ],
       "installCommand": "winget install --id 99designs.aws-vault",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.953Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.190Z"
     },
     {
       "id": "99natmar99.Windows11Fixer",
@@ -1129,8 +1129,8 @@
       ],
       "installCommand": "winget install --id 99natmar99.Windows11Fixer",
       "category": "Debloater",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:58.024Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.354Z"
     },
     {
       "id": "A-SIT.PDF-Over",
@@ -1147,8 +1147,8 @@
       ],
       "installCommand": "winget install --id A-SIT.PDF-Over",
       "category": "Pdf",
-      "icon": "https://logo.clearbit.com/technology.a-sit.at",
-      "lastUpdated": "2025-12-17T20:49:58.057Z"
+      "icon": "https://www.google.com/s2/favicons?domain=technology.a-sit.at&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.411Z"
     },
     {
       "id": "A2-Ai.rv",
@@ -1163,8 +1163,8 @@
       ],
       "installCommand": "winget install --id A2-Ai.rv",
       "category": "R",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:57.940Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.220Z"
     },
     {
       "id": "AAAInternetPublishing.WTFast",
@@ -1184,8 +1184,8 @@
       ],
       "installCommand": "winget install --id AAAInternetPublishing.WTFast",
       "category": "Accelerate",
-      "icon": "https://logo.clearbit.com/www.wtfast.com",
-      "lastUpdated": "2025-12-17T20:49:58.132Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.wtfast.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.338Z"
     },
     {
       "id": "AAS.WorldWideTelescope",
@@ -1202,8 +1202,8 @@
       ],
       "installCommand": "winget install --id AAS.WorldWideTelescope",
       "category": "Astronomy",
-      "icon": "https://logo.clearbit.com/worldwidetelescope.org",
-      "lastUpdated": "2025-12-17T20:49:58.062Z"
+      "icon": "https://www.google.com/s2/favicons?domain=worldwidetelescope.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.362Z"
     },
     {
       "id": "AB0WV.PinPoint",
@@ -1215,7 +1215,7 @@
       "tags": [],
       "installCommand": "winget install --id AB0WV.PinPoint",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:58.065Z"
+      "lastUpdated": "2025-12-17T20:57:34.385Z"
     },
     {
       "id": "ABB.RobotStudio",
@@ -1227,8 +1227,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id ABB.RobotStudio",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:58.093Z"
+      "icon": "https://www.google.com/s2/favicons?domain=robotstudio.abb.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.437Z"
     },
     {
       "id": "ABB.e-Design",
@@ -1240,8 +1240,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id ABB.e-Design",
-      "icon": "https://logo.clearbit.com/new.abb.com",
-      "lastUpdated": "2025-12-17T20:49:58.077Z"
+      "icon": "https://www.google.com/s2/favicons?domain=new.abb.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.438Z"
     },
     {
       "id": "ABB.i-busTool",
@@ -1253,8 +1253,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id ABB.i-busTool",
-      "icon": "https://logo.clearbit.com/new.abb.com",
-      "lastUpdated": "2025-12-17T20:49:58.097Z"
+      "icon": "https://www.google.com/s2/favicons?domain=new.abb.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.428Z"
     },
     {
       "id": "ABC.ABCEBankAssistant",
@@ -1272,8 +1272,8 @@
       ],
       "installCommand": "winget install --id ABC.ABCEBankAssistant",
       "category": "Abc",
-      "icon": "https://logo.clearbit.com/perbank.abchina.com",
-      "lastUpdated": "2025-12-17T20:49:58.118Z"
+      "icon": "https://www.google.com/s2/favicons?domain=perbank.abchina.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:34.421Z"
     },
     {
       "id": "ABC.PowerExtension",
@@ -1291,8 +1291,8 @@
       ],
       "installCommand": "winget install --id ABC.PowerExtension",
       "category": "Abc",
-      "icon": "https://logo.clearbit.com/perbank.abchina.com",
-      "lastUpdated": "2025-12-17T20:49:58.626Z"
+      "icon": "https://www.google.com/s2/favicons?domain=perbank.abchina.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.097Z"
     },
     {
       "id": "ACDSystems.ACDSeeGemstone",
@@ -1309,8 +1309,8 @@
       ],
       "installCommand": "winget install --id ACDSystems.ACDSeeGemstone",
       "category": "Trial",
-      "icon": "https://logo.clearbit.com/www.acdsee.com",
-      "lastUpdated": "2025-12-17T20:49:58.525Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.acdsee.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.107Z"
     },
     {
       "id": "ACEStudio.ACEStudio",
@@ -1322,8 +1322,8 @@
       "license": "ACE Studio Software License",
       "tags": [],
       "installCommand": "winget install --id ACEStudio.ACEStudio",
-      "icon": "https://logo.clearbit.com/ace-studio.timedomain.cn",
-      "lastUpdated": "2025-12-17T20:49:58.644Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ace-studio.timedomain.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.084Z"
     },
     {
       "id": "ACLAP.DownloadHelperCoApp",
@@ -1339,8 +1339,8 @@
       ],
       "installCommand": "winget install --id ACLAP.DownloadHelperCoApp",
       "category": "Downloadhelper",
-      "icon": "https://logo.clearbit.com/www.downloadhelper.net",
-      "lastUpdated": "2025-12-17T20:49:58.536Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.downloadhelper.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.102Z"
     },
     {
       "id": "ACROSSecurity.0patch",
@@ -1352,8 +1352,8 @@
       "license": "Copyright (c) 1999-2020 ACROS Security",
       "tags": [],
       "installCommand": "winget install --id ACROSSecurity.0patch",
-      "icon": "https://logo.clearbit.com/0patch.com",
-      "lastUpdated": "2025-12-17T20:49:58.640Z"
+      "icon": "https://www.google.com/s2/favicons?domain=0patch.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.259Z"
     },
     {
       "id": "ACS.CCIDPCSCDriver",
@@ -1370,8 +1370,8 @@
       ],
       "installCommand": "winget install --id ACS.CCIDPCSCDriver",
       "category": "Smartcardreader",
-      "icon": "https://logo.clearbit.com/www.acs.com.hk",
-      "lastUpdated": "2025-12-17T20:49:58.802Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.acs.com.hk&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.103Z"
     },
     {
       "id": "ACS.UnifiedPCSCDriver",
@@ -1389,8 +1389,8 @@
       ],
       "installCommand": "winget install --id ACS.UnifiedPCSCDriver",
       "category": "Advancedcardsystems",
-      "icon": "https://logo.clearbit.com/www.acs.com.hk",
-      "lastUpdated": "2025-12-17T20:49:58.562Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.acs.com.hk&sz=64",
+      "lastUpdated": "2025-12-17T20:57:35.293Z"
     },
     {
       "id": "ADInstruments.ConfigSoft",
@@ -1405,7 +1405,7 @@
       "installCommand": "winget install --id ADInstruments.ConfigSoft",
       "category": "Kaha",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:58.658Z"
+      "lastUpdated": "2025-12-17T20:57:35.294Z"
     },
     {
       "id": "ADInstruments.GLPClient",
@@ -1417,7 +1417,7 @@
       "tags": [],
       "installCommand": "winget install --id ADInstruments.GLPClient",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:58.679Z"
+      "lastUpdated": "2025-12-17T20:57:35.292Z"
     },
     {
       "id": "ADInstruments.LabChartLightning",
@@ -1429,7 +1429,7 @@
       "tags": [],
       "installCommand": "winget install --id ADInstruments.LabChartLightning",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:58.694Z"
+      "lastUpdated": "2025-12-17T20:57:35.360Z"
     },
     {
       "id": "ADInstruments.LabChartReader",
@@ -1441,7 +1441,7 @@
       "tags": [],
       "installCommand": "winget install --id ADInstruments.LabChartReader",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:58.701Z"
+      "lastUpdated": "2025-12-17T20:57:35.317Z"
     },
     {
       "id": "ADInstruments.LtSampling",
@@ -1452,8 +1452,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id ADInstruments.LtSampling",
-      "icon": "https://store-images.s-microsoft.com/image/apps.ADInstrumentsLimited.LtSampling",
-      "lastUpdated": "2025-12-17T20:49:58.757Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.ADInstrumentsLimited.LtSampling.png",
+      "lastUpdated": "2025-12-17T20:57:35.363Z"
     },
     {
       "id": "ADInstruments.kuraCloudDesktop",
@@ -1465,7 +1465,7 @@
       "tags": [],
       "installCommand": "winget install --id ADInstruments.kuraCloudDesktop",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.214Z"
+      "lastUpdated": "2025-12-17T20:57:36.112Z"
     },
     {
       "id": "AETEurope.SafeSignICMiniDriver",
@@ -1477,8 +1477,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AETEurope.SafeSignICMiniDriver",
-      "icon": "https://logo.clearbit.com/www.uziregister.nl",
-      "lastUpdated": "2025-12-17T20:49:59.235Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.uziregister.nl&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.137Z"
     },
     {
       "id": "AETEurope.SafeSignICStandard",
@@ -1490,7 +1490,7 @@
       "tags": [],
       "installCommand": "winget install --id AETEurope.SafeSignICStandard",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.218Z"
+      "lastUpdated": "2025-12-17T20:57:36.010Z"
     },
     {
       "id": "AETMobile.ZORG-IDDesktopApp",
@@ -1506,7 +1506,7 @@
       "installCommand": "winget install --id AETMobile.ZORG-IDDesktopApp",
       "category": "Smartcard",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.312Z"
+      "lastUpdated": "2025-12-17T20:57:35.978Z"
     },
     {
       "id": "AGFEO.AGFEODashboard",
@@ -1518,8 +1518,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AGFEO.AGFEODashboard",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.324Z"
+      "icon": "https://www.google.com/s2/favicons?domain=agfeo.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.211Z"
     },
     {
       "id": "AGILELEAP.SlideBrowser",
@@ -1538,8 +1538,8 @@
       ],
       "installCommand": "winget install --id AGILELEAP.SlideBrowser",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/deepthinkapps.com",
-      "lastUpdated": "2025-12-17T20:49:59.292Z"
+      "icon": "https://www.google.com/s2/favicons?domain=deepthinkapps.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.308Z"
     },
     {
       "id": "AGProjects.Blink",
@@ -1551,8 +1551,8 @@
       "license": "GPL-3.0",
       "tags": [],
       "installCommand": "winget install --id AGProjects.Blink",
-      "icon": "https://logo.clearbit.com/icanblink.com",
-      "lastUpdated": "2025-12-17T20:49:59.347Z"
+      "icon": "https://www.google.com/s2/favicons?domain=icanblink.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.078Z"
     },
     {
       "id": "AGSProjectTeam.AdventureGameStudio",
@@ -1564,8 +1564,8 @@
       "license": "Artistic License 2.0",
       "tags": [],
       "installCommand": "winget install --id AGSProjectTeam.AdventureGameStudio",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:49:59.348Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.184Z"
     },
     {
       "id": "AGTEK.Gradework",
@@ -1580,8 +1580,8 @@
       ],
       "installCommand": "winget install --id AGTEK.Gradework",
       "category": "Takeoff",
-      "icon": "https://logo.clearbit.com/agtek.com",
-      "lastUpdated": "2025-12-17T20:49:59.318Z"
+      "icon": "https://www.google.com/s2/favicons?domain=agtek.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.004Z"
     },
     {
       "id": "AGTEK.MaterialsSA",
@@ -1597,8 +1597,8 @@
       ],
       "installCommand": "winget install --id AGTEK.MaterialsSA",
       "category": "Construction",
-      "icon": "https://logo.clearbit.com/agtek.com",
-      "lastUpdated": "2025-12-17T20:49:59.371Z"
+      "icon": "https://www.google.com/s2/favicons?domain=agtek.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.215Z"
     },
     {
       "id": "AGTEK.Reveal",
@@ -1615,8 +1615,8 @@
       ],
       "installCommand": "winget install --id AGTEK.Reveal",
       "category": "Construction",
-      "icon": "https://store-images.s-microsoft.com/image/apps.Hexagon.AGTEK.Reveal",
-      "lastUpdated": "2025-12-17T20:49:59.481Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.Hexagon.AGTEK.Reveal.png",
+      "lastUpdated": "2025-12-17T20:57:36.285Z"
     },
     {
       "id": "AGTEK.RevealClassify",
@@ -1634,8 +1634,8 @@
       ],
       "installCommand": "winget install --id AGTEK.RevealClassify",
       "category": "Construction",
-      "icon": "https://store-images.s-microsoft.com/image/apps.Hexagon-Agtek-Classification-Engine",
-      "lastUpdated": "2025-12-17T20:49:59.363Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.Hexagon-Agtek-Classification-Engine.png",
+      "lastUpdated": "2025-12-17T20:57:36.204Z"
     },
     {
       "id": "AGTEK.Trackwork",
@@ -1651,8 +1651,8 @@
       ],
       "installCommand": "winget install --id AGTEK.Trackwork",
       "category": "Construction",
-      "icon": "https://logo.clearbit.com/agtek.com",
-      "lastUpdated": "2025-12-17T20:49:59.404Z"
+      "icon": "https://www.google.com/s2/favicons?domain=agtek.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.302Z"
     },
     {
       "id": "AGTEK.UndergroundSA",
@@ -1667,8 +1667,8 @@
       ],
       "installCommand": "winget install --id AGTEK.UndergroundSA",
       "category": "Construction",
-      "icon": "https://logo.clearbit.com/agtek.com",
-      "lastUpdated": "2025-12-17T20:49:59.380Z"
+      "icon": "https://www.google.com/s2/favicons?domain=agtek.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:36.284Z"
     },
     {
       "id": "AHS.HanakumaChifuyu",
@@ -1680,7 +1680,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.HanakumaChifuyu",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.906Z"
+      "lastUpdated": "2025-12-17T20:57:36.947Z"
     },
     {
       "id": "AHS.KoharuRikka",
@@ -1692,7 +1692,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.KoharuRikka",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.923Z"
+      "lastUpdated": "2025-12-17T20:57:37.212Z"
     },
     {
       "id": "AHS.NatsukiKarin",
@@ -1704,7 +1704,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.NatsukiKarin",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.902Z"
+      "lastUpdated": "2025-12-17T20:57:37.126Z"
     },
     {
       "id": "AHS.TohokuItako",
@@ -1716,7 +1716,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.TohokuItako",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:00.084Z"
+      "lastUpdated": "2025-12-17T20:57:37.131Z"
     },
     {
       "id": "AHS.TohokuKiritan",
@@ -1728,7 +1728,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.TohokuKiritan",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:00.011Z"
+      "lastUpdated": "2025-12-17T20:57:36.973Z"
     },
     {
       "id": "AHS.TohokuZunko",
@@ -1740,7 +1740,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.TohokuZunko",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.930Z"
+      "lastUpdated": "2025-12-17T20:57:36.955Z"
     },
     {
       "id": "AHS.TsurumakiMaki",
@@ -1752,7 +1752,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.TsurumakiMaki",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:00.020Z"
+      "lastUpdated": "2025-12-17T20:57:37.169Z"
     },
     {
       "id": "AHS.TsurumakiMakiJPN",
@@ -1764,7 +1764,7 @@
       "tags": [],
       "installCommand": "winget install --id AHS.TsurumakiMakiJPN",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:49:59.995Z"
+      "lastUpdated": "2025-12-17T20:57:37.106Z"
     },
     {
       "id": "AI-Shifu.ChatALL",
@@ -1791,8 +1791,8 @@
       ],
       "installCommand": "winget install --id AI-Shifu.ChatALL",
       "category": "Ai",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:00.011Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.042Z"
     },
     {
       "id": "AILight.AILZ80ASM",
@@ -1808,8 +1808,8 @@
       ],
       "installCommand": "winget install --id AILight.AILZ80ASM",
       "category": "Z80",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:00.010Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.083Z"
     },
     {
       "id": "AIMP.AIMP",
@@ -1829,8 +1829,8 @@
       ],
       "installCommand": "winget install --id AIMP.AIMP",
       "category": "Audio-player",
-      "icon": "https://logo.clearbit.com/www.aimp.ru",
-      "lastUpdated": "2025-12-17T20:50:00.037Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.aimp.ru&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.303Z"
     },
     {
       "id": "AIVOICE.BENISHOGA",
@@ -1845,8 +1845,8 @@
       ],
       "installCommand": "winget install --id AIVOICE.BENISHOGA",
       "category": "百花繚乱",
-      "icon": "https://logo.clearbit.com/aivoice.jp",
-      "lastUpdated": "2025-12-17T20:50:00.030Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aivoice.jp&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.186Z"
     },
     {
       "id": "AIVOICE.KURITA",
@@ -1862,8 +1862,8 @@
       ],
       "installCommand": "winget install --id AIVOICE.KURITA",
       "category": "栗田穣崇",
-      "icon": "https://logo.clearbit.com/aivoice.jp",
-      "lastUpdated": "2025-12-17T20:50:00.062Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aivoice.jp&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.189Z"
     },
     {
       "id": "ALCPU.CoreTemp",
@@ -1886,8 +1886,8 @@
       ],
       "installCommand": "winget install --id ALCPU.CoreTemp",
       "category": "Cpu",
-      "icon": "https://logo.clearbit.com/www.alcpu.com",
-      "lastUpdated": "2025-12-17T20:50:00.166Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.alcpu.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.241Z"
     },
     {
       "id": "ALE.Rainbow",
@@ -1915,8 +1915,8 @@
       ],
       "installCommand": "winget install --id ALE.Rainbow",
       "category": "Bussiness",
-      "icon": "https://logo.clearbit.com/www.openrainbow.com",
-      "lastUpdated": "2025-12-17T20:50:00.057Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.openrainbow.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.237Z"
     },
     {
       "id": "ALTEC.AltecDataPrint",
@@ -1928,7 +1928,7 @@
       "tags": [],
       "installCommand": "winget install --id ALTEC.AltecDataPrint",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:00.610Z"
+      "lastUpdated": "2025-12-17T20:57:37.959Z"
     },
     {
       "id": "ALTEC.QlickPrint",
@@ -1940,7 +1940,7 @@
       "tags": [],
       "installCommand": "winget install --id ALTEC.QlickPrint",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:00.711Z"
+      "lastUpdated": "2025-12-17T20:57:37.962Z"
     },
     {
       "id": "AList.AList",
@@ -1958,8 +1958,8 @@
       ],
       "installCommand": "winget install --id AList.AList",
       "category": "File",
-      "icon": "https://logo.clearbit.com/alist.nn.ci",
-      "lastUpdated": "2025-12-17T20:50:00.576Z"
+      "icon": "https://www.google.com/s2/favicons?domain=alist.nn.ci&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.106Z"
     },
     {
       "id": "AList.AListDesktop",
@@ -1977,8 +1977,8 @@
       ],
       "installCommand": "winget install --id AList.AListDesktop",
       "category": "File",
-      "icon": "https://logo.clearbit.com/ad.nn.ci",
-      "lastUpdated": "2025-12-17T20:50:00.589Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ad.nn.ci&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.019Z"
     },
     {
       "id": "AMD.AMDSoftwareCloudEdition",
@@ -1990,8 +1990,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AMD.AMDSoftwareCloudEdition",
-      "icon": "https://logo.clearbit.com/learn.microsoft.com",
-      "lastUpdated": "2025-12-17T20:50:00.792Z"
+      "icon": "https://www.google.com/s2/favicons?domain=learn.microsoft.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.074Z"
     },
     {
       "id": "AMD.OCAT",
@@ -2015,8 +2015,8 @@
       ],
       "installCommand": "winget install --id AMD.OCAT",
       "category": "Amd",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:00.602Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:37.990Z"
     },
     {
       "id": "AMSSoftware.BusinessCardMaker",
@@ -2028,8 +2028,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.BusinessCardMaker",
-      "icon": "https://logo.clearbit.com/ams-photo-software.com",
-      "lastUpdated": "2025-12-17T20:50:00.608Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ams-photo-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.129Z"
     },
     {
       "id": "AMSSoftware.Clipify",
@@ -2041,8 +2041,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.Clipify",
-      "icon": "https://logo.clearbit.com/clipify.net",
-      "lastUpdated": "2025-12-17T20:50:00.722Z"
+      "icon": "https://www.google.com/s2/favicons?domain=clipify.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.095Z"
     },
     {
       "id": "AMSSoftware.InteriorDesign3D",
@@ -2054,8 +2054,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.InteriorDesign3D",
-      "icon": "https://logo.clearbit.com/ams-photo-software.com",
-      "lastUpdated": "2025-12-17T20:50:00.715Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ams-photo-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.245Z"
     },
     {
       "id": "AMSSoftware.PassportPhotoMaker",
@@ -2067,8 +2067,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.PassportPhotoMaker",
-      "icon": "https://logo.clearbit.com/ams-photo-software.com",
-      "lastUpdated": "2025-12-17T20:50:00.740Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ams-photo-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.107Z"
     },
     {
       "id": "AMSSoftware.PhoenixFileRescue",
@@ -2080,8 +2080,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.PhoenixFileRescue",
-      "icon": "https://logo.clearbit.com/ams-phoenix.com",
-      "lastUpdated": "2025-12-17T20:50:00.855Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ams-phoenix.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.278Z"
     },
     {
       "id": "AMSSoftware.PhotoCalendarCreator",
@@ -2093,8 +2093,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.PhotoCalendarCreator",
-      "icon": "https://logo.clearbit.com/ams-photo-software.com",
-      "lastUpdated": "2025-12-17T20:50:00.718Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ams-photo-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.217Z"
     },
     {
       "id": "AMSSoftware.PhotoDiva",
@@ -2106,8 +2106,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.PhotoDiva",
-      "icon": "https://logo.clearbit.com/photodiva.net",
-      "lastUpdated": "2025-12-17T20:50:00.743Z"
+      "icon": "https://www.google.com/s2/favicons?domain=photodiva.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.192Z"
     },
     {
       "id": "AMSSoftware.PhotoWorks",
@@ -2119,8 +2119,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AMSSoftware.PhotoWorks",
-      "icon": "https://logo.clearbit.com/ams-photo-software.com",
-      "lastUpdated": "2025-12-17T20:50:00.780Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ams-photo-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.251Z"
     },
     {
       "id": "ANTOrg-Inc.ASCIIEngine",
@@ -2132,8 +2132,8 @@
       "license": "GPL-3.0",
       "tags": [],
       "installCommand": "winget install --id ANTOrg-Inc.ASCIIEngine",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:01.286Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.894Z"
     },
     {
       "id": "AOMEI.PartitionAssistant",
@@ -2163,8 +2163,8 @@
       ],
       "installCommand": "winget install --id AOMEI.PartitionAssistant",
       "category": "Bitlocker",
-      "icon": "https://logo.clearbit.com/www.aomeitech.com",
-      "lastUpdated": "2025-12-17T20:50:01.274Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.aomeitech.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.126Z"
     },
     {
       "id": "APIDocumentation.Scalar",
@@ -2190,8 +2190,8 @@
       ],
       "installCommand": "winget install --id APIDocumentation.Scalar",
       "category": "Api",
-      "icon": "https://logo.clearbit.com/scalar.com",
-      "lastUpdated": "2025-12-17T20:50:01.421Z"
+      "icon": "https://www.google.com/s2/favicons?domain=scalar.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.072Z"
     },
     {
       "id": "ART.ART",
@@ -2212,8 +2212,8 @@
       ],
       "installCommand": "winget install --id ART.ART",
       "category": "Image-editor",
-      "icon": "https://logo.clearbit.com/bitbucket.org",
-      "lastUpdated": "2025-12-17T20:50:01.404Z"
+      "icon": "https://www.google.com/s2/favicons?domain=bitbucket.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.899Z"
     },
     {
       "id": "ASGARDEXMaintainers.ASGARDEX",
@@ -2231,8 +2231,8 @@
       ],
       "installCommand": "winget install --id ASGARDEXMaintainers.ASGARDEX",
       "category": "Dex",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:01.337Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.303Z"
     },
     {
       "id": "ASIX.AX88179DriverSetup",
@@ -2252,8 +2252,8 @@
       ],
       "installCommand": "winget install --id ASIX.AX88179DriverSetup",
       "category": "Ethernet",
-      "icon": "https://logo.clearbit.com/www.asix.com.tw",
-      "lastUpdated": "2025-12-17T20:50:01.350Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.asix.com.tw&sz=64",
+      "lastUpdated": "2025-12-17T20:57:38.919Z"
     },
     {
       "id": "ATLauncher.ATLauncher",
@@ -2269,8 +2269,8 @@
       ],
       "installCommand": "winget install --id ATLauncher.ATLauncher",
       "category": "Minecraft",
-      "icon": "https://logo.clearbit.com/atlauncher.com",
-      "lastUpdated": "2025-12-17T20:50:01.385Z"
+      "icon": "https://www.google.com/s2/favicons?domain=atlauncher.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.090Z"
     },
     {
       "id": "ATNSOFT.KeyManager",
@@ -2282,7 +2282,7 @@
       "tags": [],
       "installCommand": "winget install --id ATNSOFT.KeyManager",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:01.332Z"
+      "lastUpdated": "2025-12-17T20:57:39.082Z"
     },
     {
       "id": "ATNSOFT.KeyRemapper",
@@ -2294,7 +2294,7 @@
       "tags": [],
       "installCommand": "winget install --id ATNSOFT.KeyRemapper",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:01.429Z"
+      "lastUpdated": "2025-12-17T20:57:39.083Z"
     },
     {
       "id": "ATNSOFT.TextPaster",
@@ -2306,7 +2306,7 @@
       "tags": [],
       "installCommand": "winget install --id ATNSOFT.TextPaster",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:01.478Z"
+      "lastUpdated": "2025-12-17T20:57:39.082Z"
     },
     {
       "id": "AVRDudes.AVRDUDE",
@@ -2327,8 +2327,8 @@
       ],
       "installCommand": "winget install --id AVRDudes.AVRDUDE",
       "category": "Arduino",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:01.421Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.137Z"
     },
     {
       "id": "AVer.AVerTouch",
@@ -2340,8 +2340,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AVer.AVerTouch",
-      "icon": "https://logo.clearbit.com/presentation.aver.com",
-      "lastUpdated": "2025-12-17T20:50:01.470Z"
+      "icon": "https://www.google.com/s2/favicons?domain=presentation.aver.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.152Z"
     },
     {
       "id": "AWP.AtlantisWordProcessor",
@@ -2353,8 +2353,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AWP.AtlantisWordProcessor",
-      "icon": "https://logo.clearbit.com/www.atlantiswordprocessor.com",
-      "lastUpdated": "2025-12-17T20:50:01.417Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.atlantiswordprocessor.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.293Z"
     },
     {
       "id": "AWP.AtlantisWordProcessorLite",
@@ -2366,8 +2366,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AWP.AtlantisWordProcessorLite",
-      "icon": "https://logo.clearbit.com/www.atlantiswordprocessor.com",
-      "lastUpdated": "2025-12-17T20:50:01.613Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.atlantiswordprocessor.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.124Z"
     },
     {
       "id": "AXIS.AXISDeviceManager",
@@ -2379,8 +2379,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AXIS.AXISDeviceManager",
-      "icon": "https://logo.clearbit.com/www.axis.com",
-      "lastUpdated": "2025-12-17T20:50:02.033Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.axis.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.009Z"
     },
     {
       "id": "AXIS.AxisDeviceCompatibilityTool",
@@ -2392,8 +2392,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AXIS.AxisDeviceCompatibilityTool",
-      "icon": "https://logo.clearbit.com/www.axis.com",
-      "lastUpdated": "2025-12-17T20:50:02.149Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.axis.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.092Z"
     },
     {
       "id": "AXIS.AxisIPUtility",
@@ -2405,8 +2405,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AXIS.AxisIPUtility",
-      "icon": "https://logo.clearbit.com/www.axis.com",
-      "lastUpdated": "2025-12-17T20:50:02.133Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.axis.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.943Z"
     },
     {
       "id": "Aakash.Swiss",
@@ -2418,8 +2418,8 @@
       "license": "MIT License",
       "tags": [],
       "installCommand": "winget install --id Aakash.Swiss",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:02.065Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:39.931Z"
     },
     {
       "id": "Aardappel.Cube",
@@ -2440,8 +2440,8 @@
       ],
       "installCommand": "winget install --id Aardappel.Cube",
       "category": "First-person",
-      "icon": "https://logo.clearbit.com/cubeengine.com",
-      "lastUpdated": "2025-12-17T20:50:02.123Z"
+      "icon": "https://www.google.com/s2/favicons?domain=cubeengine.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.062Z"
     },
     {
       "id": "Aardappel.lobster",
@@ -2457,8 +2457,8 @@
       ],
       "installCommand": "winget install --id Aardappel.lobster",
       "category": "Lobster",
-      "icon": "https://logo.clearbit.com/strlen.com",
-      "lastUpdated": "2025-12-17T20:50:02.080Z"
+      "icon": "https://www.google.com/s2/favicons?domain=strlen.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.119Z"
     },
     {
       "id": "Abacus.AbaClient",
@@ -2470,8 +2470,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Abacus.AbaClient",
-      "icon": "https://logo.clearbit.com/downloads.abacus.ch",
-      "lastUpdated": "2025-12-17T20:50:02.023Z"
+      "icon": "https://www.google.com/s2/favicons?domain=downloads.abacus.ch&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.136Z"
     },
     {
       "id": "Abbott.LibreViewDeviceDrivers",
@@ -2483,8 +2483,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Abbott.LibreViewDeviceDrivers",
-      "icon": "https://logo.clearbit.com/pro.libreview.io",
-      "lastUpdated": "2025-12-17T20:50:02.181Z"
+      "icon": "https://www.google.com/s2/favicons?domain=pro.libreview.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.159Z"
     },
     {
       "id": "AbdelrahmanBayoumi.Azkar",
@@ -2499,8 +2499,8 @@
       ],
       "installCommand": "winget install --id AbdelrahmanBayoumi.Azkar",
       "category": "Prayer-times",
-      "icon": "https://logo.clearbit.com/azkar-site.web.app",
-      "lastUpdated": "2025-12-17T20:50:02.153Z"
+      "icon": "https://www.google.com/s2/favicons?domain=azkar-site.web.app&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.135Z"
     },
     {
       "id": "Abdelrhman-AK.WinPaletter",
@@ -2530,8 +2530,8 @@
       ],
       "installCommand": "winget install --id Abdelrhman-AK.WinPaletter",
       "category": "Colors",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:02.192Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.147Z"
     },
     {
       "id": "Abelfubu.WindowsConfigBuilder",
@@ -2543,8 +2543,8 @@
       "license": "MIT",
       "tags": [],
       "installCommand": "winget install --id Abelfubu.WindowsConfigBuilder",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:02.218Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.133Z"
     },
     {
       "id": "Abelssoft.SSDFresh",
@@ -2556,7 +2556,7 @@
       "tags": [],
       "installCommand": "winget install --id Abelssoft.SSDFresh",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.190Z"
+      "lastUpdated": "2025-12-17T20:57:40.193Z"
     },
     {
       "id": "Abelssoft.YouTubeSongDownloader",
@@ -2568,7 +2568,7 @@
       "tags": [],
       "installCommand": "winget install --id Abelssoft.YouTubeSongDownloader",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.232Z"
+      "lastUpdated": "2025-12-17T20:57:40.260Z"
     },
     {
       "id": "AbleWord.AbleWord",
@@ -2580,7 +2580,7 @@
       "tags": [],
       "installCommand": "winget install --id AbleWord.AbleWord",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.793Z"
+      "lastUpdated": "2025-12-17T20:57:40.869Z"
     },
     {
       "id": "Ableton.AbletonLive10Suite",
@@ -2592,7 +2592,7 @@
       "tags": [],
       "installCommand": "winget install --id Ableton.AbletonLive10Suite",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.667Z"
+      "lastUpdated": "2025-12-17T20:57:40.860Z"
     },
     {
       "id": "AbstractSpoon.ToDoList",
@@ -2604,8 +2604,8 @@
       "license": "Eclipse-1.0",
       "tags": [],
       "installCommand": "winget install --id AbstractSpoon.ToDoList",
-      "icon": "https://logo.clearbit.com/www.abstractspoon.com",
-      "lastUpdated": "2025-12-17T20:50:02.712Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.abstractspoon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:40.928Z"
     },
     {
       "id": "Abyss.AbyssOverlay",
@@ -2617,8 +2617,8 @@
       "license": "GPL-3.0",
       "tags": [],
       "installCommand": "winget install --id Abyss.AbyssOverlay",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:02.700Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.283Z"
     },
     {
       "id": "AcFun.ARLiveForAcfunLive",
@@ -2641,8 +2641,8 @@
       ],
       "installCommand": "winget install --id AcFun.ARLiveForAcfunLive",
       "category": "Ar",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.816Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.acfun.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.060Z"
     },
     {
       "id": "AcFun.AcFunVirtualTool",
@@ -2665,8 +2665,8 @@
       ],
       "installCommand": "winget install --id AcFun.AcFunVirtualTool",
       "category": "Ar",
-      "icon": "https://logo.clearbit.com/www.acfun.cn",
-      "lastUpdated": "2025-12-17T20:50:02.792Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.acfun.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.124Z"
     },
     {
       "id": "Acer.AutoDetectSerialNumber",
@@ -2678,7 +2678,7 @@
       "tags": [],
       "installCommand": "winget install --id Acer.AutoDetectSerialNumber",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.788Z"
+      "lastUpdated": "2025-12-17T20:57:41.054Z"
     },
     {
       "id": "AcornLabs.Acorn",
@@ -2690,7 +2690,7 @@
       "tags": [],
       "installCommand": "winget install --id AcornLabs.Acorn",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.839Z"
+      "lastUpdated": "2025-12-17T20:57:41.139Z"
     },
     {
       "id": "AcoustID.Chromaprint",
@@ -2710,8 +2710,8 @@
       ],
       "installCommand": "winget install --id AcoustID.Chromaprint",
       "category": "Chromaprint",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:02.874Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.114Z"
     },
     {
       "id": "AcroSoftware.CutePDFWriter",
@@ -2726,8 +2726,8 @@
       ],
       "installCommand": "winget install --id AcroSoftware.CutePDFWriter",
       "category": "Pdf",
-      "icon": "https://logo.clearbit.com/www.cutepdf.com",
-      "lastUpdated": "2025-12-17T20:50:02.808Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.cutepdf.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.258Z"
     },
     {
       "id": "Acronis.CyberProtectHomeOffice",
@@ -2739,8 +2739,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Acronis.CyberProtectHomeOffice",
-      "icon": "https://logo.clearbit.com/www.acronis.com",
-      "lastUpdated": "2025-12-17T20:50:02.841Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.acronis.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.206Z"
     },
     {
       "id": "Actifile.ActifileAgent",
@@ -2752,7 +2752,7 @@
       "tags": [],
       "installCommand": "winget install --id Actifile.ActifileAgent",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:02.834Z"
+      "lastUpdated": "2025-12-17T20:57:41.132Z"
     },
     {
       "id": "ActiveDatabaseSoftware.FlySpeedSQLQuery",
@@ -2764,8 +2764,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id ActiveDatabaseSoftware.FlySpeedSQLQuery",
-      "icon": "https://logo.clearbit.com/www.activedbsoft.com",
-      "lastUpdated": "2025-12-17T20:50:03.293Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.activedbsoft.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.049Z"
     },
     {
       "id": "ActiveDirectoryPro.365ProToolkit",
@@ -2781,8 +2781,8 @@
       ],
       "installCommand": "winget install --id ActiveDirectoryPro.365ProToolkit",
       "category": "Active-directory",
-      "icon": "https://logo.clearbit.com/activedirectorypro.com",
-      "lastUpdated": "2025-12-17T20:50:03.314Z"
+      "icon": "https://www.google.com/s2/favicons?domain=activedirectorypro.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.124Z"
     },
     {
       "id": "ActiveDirectoryPro.ADProToolkit",
@@ -2798,8 +2798,8 @@
       ],
       "installCommand": "winget install --id ActiveDirectoryPro.ADProToolkit",
       "category": "Active-directory",
-      "icon": "https://logo.clearbit.com/activedirectorypro.com",
-      "lastUpdated": "2025-12-17T20:50:03.340Z"
+      "icon": "https://www.google.com/s2/favicons?domain=activedirectorypro.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.934Z"
     },
     {
       "id": "ActiveState.KomodoEdit",
@@ -2811,7 +2811,7 @@
       "tags": [],
       "installCommand": "winget install --id ActiveState.KomodoEdit",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:03.458Z"
+      "lastUpdated": "2025-12-17T20:57:41.950Z"
     },
     {
       "id": "ActiveState.KomodoIDE",
@@ -2823,8 +2823,8 @@
       "license": "Mozilla Public License",
       "tags": [],
       "installCommand": "winget install --id ActiveState.KomodoIDE",
-      "icon": "https://logo.clearbit.com/www.activestate.com",
-      "lastUpdated": "2025-12-17T20:50:03.347Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.activestate.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.103Z"
     },
     {
       "id": "ActivityWatch.ActivityWatch",
@@ -2846,8 +2846,8 @@
       ],
       "installCommand": "winget install --id ActivityWatch.ActivityWatch",
       "category": "Cross-platform",
-      "icon": "https://logo.clearbit.com/activitywatch.net",
-      "lastUpdated": "2025-12-17T20:50:03.401Z"
+      "icon": "https://www.google.com/s2/favicons?domain=activitywatch.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:41.920Z"
     },
     {
       "id": "AdGuard.dnsproxy",
@@ -2869,8 +2869,8 @@
       ],
       "installCommand": "winget install --id AdGuard.dnsproxy",
       "category": "Dns",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:03.413Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.062Z"
     },
     {
       "id": "AdLock.AdLock",
@@ -2890,8 +2890,8 @@
       ],
       "installCommand": "winget install --id AdLock.AdLock",
       "category": "Adblock",
-      "icon": "https://logo.clearbit.com/adlock.com",
-      "lastUpdated": "2025-12-17T20:50:03.570Z"
+      "icon": "https://www.google.com/s2/favicons?domain=adlock.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.136Z"
     },
     {
       "id": "AdamMiskiewicz.GraphiQL",
@@ -2903,8 +2903,8 @@
       "license": "MIT",
       "tags": [],
       "installCommand": "winget install --id AdamMiskiewicz.GraphiQL",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:03.456Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.122Z"
     },
     {
       "id": "Adamant.Messenger",
@@ -2934,8 +2934,8 @@
       ],
       "installCommand": "winget install --id Adamant.Messenger",
       "category": "Anonymity",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:03.514Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.272Z"
     },
     {
       "id": "AderitoNeto.AfterLife",
@@ -2958,8 +2958,8 @@
       ],
       "installCommand": "winget install --id AderitoNeto.AfterLife",
       "category": "Desktop-app",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:03.461Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.112Z"
     },
     {
       "id": "Admobilize.admprovider",
@@ -2977,7 +2977,7 @@
       "installCommand": "winget install --id Admobilize.admprovider",
       "category": "Analytics",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:03.982Z"
+      "lastUpdated": "2025-12-17T20:57:43.091Z"
     },
     {
       "id": "Adobe.AdobeConnect",
@@ -2989,8 +2989,8 @@
       "license": "Proprietary, Freeware",
       "tags": [],
       "installCommand": "winget install --id Adobe.AdobeConnect",
-      "icon": "https://logo.clearbit.com/www.adobe.com",
-      "lastUpdated": "2025-12-17T20:50:04.090Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.adobe.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.903Z"
     },
     {
       "id": "Adobe.Brackets",
@@ -3005,8 +3005,8 @@
       ],
       "installCommand": "winget install --id Adobe.Brackets",
       "category": "Brackets",
-      "icon": "https://logo.clearbit.com/brackets.io",
-      "lastUpdated": "2025-12-17T20:50:04.163Z"
+      "icon": "https://www.google.com/s2/favicons?domain=brackets.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.058Z"
     },
     {
       "id": "Adobe.CreativeCloud",
@@ -3018,8 +3018,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Adobe.CreativeCloud",
-      "icon": "https://logo.clearbit.com/creativecloud.adobe.com",
-      "lastUpdated": "2025-12-17T20:50:04.129Z"
+      "icon": "https://www.google.com/s2/favicons?domain=creativecloud.adobe.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:42.924Z"
     },
     {
       "id": "Adobe.Cryptr",
@@ -3042,8 +3042,8 @@
       ],
       "installCommand": "winget install --id Adobe.Cryptr",
       "category": "Gui",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:04.111Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.075Z"
     },
     {
       "id": "Adobe.DNGConverter",
@@ -3060,8 +3060,8 @@
       ],
       "installCommand": "winget install --id Adobe.DNGConverter",
       "category": "Camera",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:04.107Z"
+      "icon": "https://www.google.com/s2/favicons?domain=adobe.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.038Z"
     },
     {
       "id": "Adobe.WorkfrontProof",
@@ -3073,8 +3073,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Adobe.WorkfrontProof",
-      "icon": "https://logo.clearbit.com/experienceleague.adobe.com",
-      "lastUpdated": "2025-12-17T20:50:04.000Z"
+      "icon": "https://www.google.com/s2/favicons?domain=experienceleague.adobe.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.058Z"
     },
     {
       "id": "AdoptOpenJDK.IcedTea-Web",
@@ -3086,7 +3086,7 @@
       "tags": [],
       "installCommand": "winget install --id AdoptOpenJDK.IcedTea-Web",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:04.150Z"
+      "lastUpdated": "2025-12-17T20:57:43.106Z"
     },
     {
       "id": "AdrienAllard.FileConverter",
@@ -3101,8 +3101,8 @@
       ],
       "installCommand": "winget install --id AdrienAllard.FileConverter",
       "category": "File-converter",
-      "icon": "https://logo.clearbit.com/file-converter.io",
-      "lastUpdated": "2025-12-17T20:50:04.283Z"
+      "icon": "https://www.google.com/s2/favicons?domain=file-converter.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.240Z"
     },
     {
       "id": "AdsPower.AdsPower",
@@ -3120,8 +3120,8 @@
       ],
       "installCommand": "winget install --id AdsPower.AdsPower",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/www.adspower.com",
-      "lastUpdated": "2025-12-17T20:50:04.125Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.adspower.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.127Z"
     },
     {
       "id": "Aegisub.Aegisub",
@@ -3139,8 +3139,8 @@
       ],
       "installCommand": "winget install --id Aegisub.Aegisub",
       "category": "Audio",
-      "icon": "https://logo.clearbit.com/aegisub.org",
-      "lastUpdated": "2025-12-17T20:50:04.750Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aegisub.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.857Z"
     },
     {
       "id": "Aerosoft.One",
@@ -3152,8 +3152,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id Aerosoft.One",
-      "icon": "https://logo.clearbit.com/one.aerosoft.com",
-      "lastUpdated": "2025-12-17T20:50:04.736Z"
+      "icon": "https://www.google.com/s2/favicons?domain=one.aerosoft.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.898Z"
     },
     {
       "id": "AfreetSoftware.HamVNA",
@@ -3165,8 +3165,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AfreetSoftware.HamVNA",
-      "icon": "https://logo.clearbit.com/dxatlas.com",
-      "lastUpdated": "2025-12-17T20:50:04.843Z"
+      "icon": "https://www.google.com/s2/favicons?domain=dxatlas.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.938Z"
     },
     {
       "id": "AfreetSoftware.OmniRig",
@@ -3178,8 +3178,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AfreetSoftware.OmniRig",
-      "icon": "https://logo.clearbit.com/www.dxatlas.com",
-      "lastUpdated": "2025-12-17T20:50:04.715Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.dxatlas.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.059Z"
     },
     {
       "id": "Agilent.LabAdvisor",
@@ -3196,7 +3196,7 @@
       "installCommand": "winget install --id Agilent.LabAdvisor",
       "category": "Agilent",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:04.724Z"
+      "lastUpdated": "2025-12-17T20:57:44.077Z"
     },
     {
       "id": "Agisoft.TextureDeLighter",
@@ -3208,8 +3208,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id Agisoft.TextureDeLighter",
-      "icon": "https://logo.clearbit.com/agisoft.freshdesk.com",
-      "lastUpdated": "2025-12-17T20:50:04.848Z"
+      "icon": "https://www.google.com/s2/favicons?domain=agisoft.freshdesk.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.299Z"
     },
     {
       "id": "Ahlyab.PasswordChecker",
@@ -3221,8 +3221,8 @@
       "license": "MIT",
       "tags": [],
       "installCommand": "winget install --id Ahlyab.PasswordChecker",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:04.718Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:43.870Z"
     },
     {
       "id": "Ahlyab.UdemyCouponFetcher",
@@ -3241,8 +3241,8 @@
       ],
       "installCommand": "winget install --id Ahlyab.UdemyCouponFetcher",
       "category": "Free-coupons",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:04.871Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.054Z"
     },
     {
       "id": "Ahoy.Ahoy",
@@ -3261,8 +3261,8 @@
       ],
       "installCommand": "winget install --id Ahoy.Ahoy",
       "category": "Bash",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:04.852Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.094Z"
     },
     {
       "id": "AhoyLabs.BackyardAI",
@@ -3281,8 +3281,8 @@
       ],
       "installCommand": "winget install --id AhoyLabs.BackyardAI",
       "category": "Ai",
-      "icon": "https://logo.clearbit.com/backyard.ai",
-      "lastUpdated": "2025-12-17T20:50:04.907Z"
+      "icon": "https://www.google.com/s2/favicons?domain=backyard.ai&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.072Z"
     },
     {
       "id": "Aignesberger.WebSiteWatcher",
@@ -3294,8 +3294,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Aignesberger.WebSiteWatcher",
-      "icon": "https://logo.clearbit.com/www.aignes.com",
-      "lastUpdated": "2025-12-17T20:50:04.855Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.aignes.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.152Z"
     },
     {
       "id": "Aignesberger.WebSiteWatcherFree",
@@ -3307,8 +3307,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id Aignesberger.WebSiteWatcherFree",
-      "icon": "https://logo.clearbit.com/www.aignes.com",
-      "lastUpdated": "2025-12-17T20:50:04.891Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.aignes.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.090Z"
     },
     {
       "id": "AirDroid.AirDroid",
@@ -3320,8 +3320,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AirDroid.AirDroid",
-      "icon": "https://logo.clearbit.com/www.airdroid.com",
-      "lastUpdated": "2025-12-17T20:50:05.425Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.airdroid.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.944Z"
     },
     {
       "id": "AirDroid.AirDroidBusinessDesktopClient",
@@ -3333,7 +3333,7 @@
       "tags": [],
       "installCommand": "winget install --id AirDroid.AirDroidBusinessDesktopClient",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:05.312Z"
+      "lastUpdated": "2025-12-17T20:57:45.111Z"
     },
     {
       "id": "AirExplorer.AirExplorer",
@@ -3358,8 +3358,8 @@
       ],
       "installCommand": "winget install --id AirExplorer.AirExplorer",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/www.airexplorer.net",
-      "lastUpdated": "2025-12-17T20:50:05.502Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.airexplorer.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.472Z"
     },
     {
       "id": "AirMyPC.AirMyPC",
@@ -3371,8 +3371,8 @@
       "license": "propriatary",
       "tags": [],
       "installCommand": "winget install --id AirMyPC.AirMyPC",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:05.341Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.airmypc.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.040Z"
     },
     {
       "id": "AirVPN.Eddie",
@@ -3391,8 +3391,8 @@
       ],
       "installCommand": "winget install --id AirVPN.Eddie",
       "category": "Airvpn",
-      "icon": "https://logo.clearbit.com/airvpn.org",
-      "lastUpdated": "2025-12-17T20:50:05.433Z"
+      "icon": "https://www.google.com/s2/favicons?domain=airvpn.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.057Z"
     },
     {
       "id": "Aircall.Aircall",
@@ -3404,8 +3404,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Aircall.Aircall",
-      "icon": "https://logo.clearbit.com/aircall.io",
-      "lastUpdated": "2025-12-17T20:50:05.503Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aircall.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.084Z"
     },
     {
       "id": "Aircall.AircallWorkspace",
@@ -3433,8 +3433,8 @@
       ],
       "installCommand": "winget install --id Aircall.AircallWorkspace",
       "category": "Bussiness",
-      "icon": "https://logo.clearbit.com/aircall.io",
-      "lastUpdated": "2025-12-17T20:50:05.340Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aircall.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.953Z"
     },
     {
       "id": "Airspy.AdsbSpy",
@@ -3446,8 +3446,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Airspy.AdsbSpy",
-      "icon": "https://logo.clearbit.com/airspy.com",
-      "lastUpdated": "2025-12-17T20:50:05.323Z"
+      "icon": "https://www.google.com/s2/favicons?domain=airspy.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:44.943Z"
     },
     {
       "id": "Airspy.SpyServer",
@@ -3467,8 +3467,8 @@
       ],
       "installCommand": "winget install --id Airspy.SpyServer",
       "category": "Rtlsdr",
-      "icon": "https://logo.clearbit.com/airspy.com",
-      "lastUpdated": "2025-12-17T20:50:05.444Z"
+      "icon": "https://www.google.com/s2/favicons?domain=airspy.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.364Z"
     },
     {
       "id": "Airsquared.Blobsaver",
@@ -3488,8 +3488,8 @@
       ],
       "installCommand": "winget install --id Airsquared.Blobsaver",
       "category": "Blobs",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:05.519Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.287Z"
     },
     {
       "id": "Airtame.Airtame",
@@ -3501,7 +3501,7 @@
       "tags": [],
       "installCommand": "winget install --id Airtame.Airtame",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:05.510Z"
+      "lastUpdated": "2025-12-17T20:57:45.167Z"
     },
     {
       "id": "Airytec.SwitchOff",
@@ -3513,8 +3513,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id Airytec.SwitchOff",
-      "icon": "https://logo.clearbit.com/www.airytec.com",
-      "lastUpdated": "2025-12-17T20:50:05.508Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.airytec.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.145Z"
     },
     {
       "id": "Airzone.Ductzone",
@@ -3526,8 +3526,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Airzone.Ductzone",
-      "icon": "https://logo.clearbit.com/www.airzonecontrol.com",
-      "lastUpdated": "2025-12-17T20:50:05.487Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.airzonecontrol.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.179Z"
     },
     {
       "id": "Aiursoft.Kahla",
@@ -3552,8 +3552,8 @@
       ],
       "installCommand": "winget install --id Aiursoft.Kahla",
       "category": "Android",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:05.575Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:45.496Z"
     },
     {
       "id": "AivarAnnamaa.Thonny",
@@ -3569,8 +3569,8 @@
       ],
       "installCommand": "winget install --id AivarAnnamaa.Thonny",
       "category": "Ide",
-      "icon": "https://logo.clearbit.com/thonny.org",
-      "lastUpdated": "2025-12-17T20:50:06.103Z"
+      "icon": "https://www.google.com/s2/favicons?domain=thonny.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.356Z"
     },
     {
       "id": "Akaere.whois",
@@ -3585,8 +3585,8 @@
       ],
       "installCommand": "winget install --id Akaere.whois",
       "category": "Whois",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.016Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.282Z"
     },
     {
       "id": "AkelPad.AkelPad",
@@ -3604,8 +3604,8 @@
       ],
       "installCommand": "winget install --id AkelPad.AkelPad",
       "category": "Text-editor",
-      "icon": "https://logo.clearbit.com/akelpad.sourceforge.net",
-      "lastUpdated": "2025-12-17T20:50:06.166Z"
+      "icon": "https://www.google.com/s2/favicons?domain=akelpad.sourceforge.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.118Z"
     },
     {
       "id": "Akiflow.Akiflow",
@@ -3630,8 +3630,8 @@
       ],
       "installCommand": "winget install --id Akiflow.Akiflow",
       "category": "Agenda",
-      "icon": "https://logo.clearbit.com/akiflow.com",
-      "lastUpdated": "2025-12-17T20:50:06.043Z"
+      "icon": "https://www.google.com/s2/favicons?domain=akiflow.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.122Z"
     },
     {
       "id": "Akka.AkkaCli",
@@ -3643,8 +3643,8 @@
       "license": "BSL 1.1",
       "tags": [],
       "installCommand": "winget install --id Akka.AkkaCli",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.026Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.127Z"
     },
     {
       "id": "Akko.CloudDriver",
@@ -3656,8 +3656,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Akko.CloudDriver",
-      "icon": "https://logo.clearbit.com/en.akkogear.com",
-      "lastUpdated": "2025-12-17T20:50:06.019Z"
+      "icon": "https://www.google.com/s2/favicons?domain=en.akkogear.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.316Z"
     },
     {
       "id": "AlDanial.Cloc",
@@ -3674,8 +3674,8 @@
       ],
       "installCommand": "winget install --id AlDanial.Cloc",
       "category": "Cloc",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.024Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.295Z"
     },
     {
       "id": "Alacritty.Alacritty",
@@ -3690,8 +3690,8 @@
       ],
       "installCommand": "winget install --id Alacritty.Alacritty",
       "category": "Terminal",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.192Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.328Z"
     },
     {
       "id": "Aladin.eBook",
@@ -3703,8 +3703,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Aladin.eBook",
-      "icon": "https://logo.clearbit.com/www.aladin.co.kr",
-      "lastUpdated": "2025-12-17T20:50:06.107Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.aladin.co.kr&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.149Z"
     },
     {
       "id": "AlanJhu.OXWUEEW",
@@ -3716,8 +3716,8 @@
       "license": "专有软件",
       "tags": [],
       "installCommand": "winget install --id AlanJhu.OXWUEEW",
-      "icon": "https://logo.clearbit.com/eew.earthquake.tw",
-      "lastUpdated": "2025-12-17T20:50:06.147Z"
+      "icon": "https://www.google.com/s2/favicons?domain=eew.earthquake.tw&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.235Z"
     },
     {
       "id": "Albion.Online",
@@ -3733,7 +3733,7 @@
       "installCommand": "winget install --id Albion.Online",
       "category": "Game",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:06.156Z"
+      "lastUpdated": "2025-12-17T20:57:46.334Z"
     },
     {
       "id": "AlbrechtL.WelleIO",
@@ -3754,8 +3754,8 @@
       ],
       "installCommand": "winget install --id AlbrechtL.WelleIO",
       "category": "Airspy",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.159Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.383Z"
     },
     {
       "id": "Aleab.Toastify",
@@ -3776,8 +3776,8 @@
       ],
       "installCommand": "winget install --id Aleab.Toastify",
       "category": "C-sharp",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.209Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.444Z"
     },
     {
       "id": "AlekseyHoffman.Sigma-File-Manager",
@@ -3798,8 +3798,8 @@
       ],
       "installCommand": "winget install --id AlekseyHoffman.Sigma-File-Manager",
       "category": "Cross-platform",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.173Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.307Z"
     },
     {
       "id": "Alex313031.Codium",
@@ -3828,8 +3828,8 @@
       ],
       "installCommand": "winget install --id Alex313031.Codium",
       "category": "Code-oss",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.161Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:46.389Z"
     },
     {
       "id": "Alex313031.Mercury",
@@ -3853,8 +3853,8 @@
       ],
       "installCommand": "winget install --id Alex313031.Mercury",
       "category": "Avx",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.647Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.072Z"
     },
     {
       "id": "AlexKaul.Freeter",
@@ -3872,8 +3872,8 @@
       ],
       "installCommand": "winget install --id AlexKaul.Freeter",
       "category": "Electron",
-      "icon": "https://logo.clearbit.com/freeter.io",
-      "lastUpdated": "2025-12-17T20:50:06.673Z"
+      "icon": "https://www.google.com/s2/favicons?domain=freeter.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.071Z"
     },
     {
       "id": "AlexRedden.G14ControlV2",
@@ -3893,8 +3893,8 @@
       ],
       "installCommand": "winget install --id AlexRedden.G14ControlV2",
       "category": "Amd-cpu",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.798Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.130Z"
     },
     {
       "id": "AlexShovkoplyas.SkyRoof",
@@ -3906,8 +3906,8 @@
       "license": "AGPL-3.0",
       "tags": [],
       "installCommand": "winget install --id AlexShovkoplyas.SkyRoof",
-      "icon": "https://logo.clearbit.com/ve3nea.github.io",
-      "lastUpdated": "2025-12-17T20:50:06.749Z"
+      "icon": "https://www.google.com/s2/favicons?domain=ve3nea.github.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.068Z"
     },
     {
       "id": "AlexThuering.DVDStyler",
@@ -3924,7 +3924,7 @@
       "installCommand": "winget install --id AlexThuering.DVDStyler",
       "category": "Burn",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:06.637Z"
+      "lastUpdated": "2025-12-17T20:57:47.257Z"
     },
     {
       "id": "AlexanderGorishnyak.APKEditorStudio",
@@ -3942,8 +3942,8 @@
       ],
       "installCommand": "winget install --id AlexanderGorishnyak.APKEditorStudio",
       "category": "Apk-decompiler",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.833Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.243Z"
     },
     {
       "id": "AlexanderGorishnyak.APKIconEditor",
@@ -3961,8 +3961,8 @@
       ],
       "installCommand": "winget install --id AlexanderGorishnyak.APKIconEditor",
       "category": "Apk",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.735Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.251Z"
     },
     {
       "id": "AlexanderKojevnikov.Spek",
@@ -3978,8 +3978,8 @@
       ],
       "installCommand": "winget install --id AlexanderKojevnikov.Spek",
       "category": "Audio",
-      "icon": "https://logo.clearbit.com/spek.cc",
-      "lastUpdated": "2025-12-17T20:50:06.620Z"
+      "icon": "https://www.google.com/s2/favicons?domain=spek.cc&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.262Z"
     },
     {
       "id": "AlexanderLitvinov.AutoText",
@@ -3998,8 +3998,8 @@
       ],
       "installCommand": "winget install --id AlexanderLitvinov.AutoText",
       "category": "Expander",
-      "icon": "https://logo.clearbit.com/sourceforge.net",
-      "lastUpdated": "2025-12-17T20:50:06.734Z"
+      "icon": "https://www.google.com/s2/favicons?domain=sourceforge.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.261Z"
     },
     {
       "id": "AlexanderPershin.lsdeer",
@@ -4011,8 +4011,8 @@
       "license": "Copyright © 2020 Alexander Pershin",
       "tags": [],
       "installCommand": "winget install --id AlexanderPershin.lsdeer",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.771Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.292Z"
     },
     {
       "id": "AlexanderPro.SmartSystemMenu",
@@ -4024,8 +4024,8 @@
       "license": "MIT License",
       "tags": [],
       "installCommand": "winget install --id AlexanderPro.SmartSystemMenu",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.852Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.275Z"
     },
     {
       "id": "AlexanderShaduri.GSmartControl",
@@ -4047,8 +4047,8 @@
       ],
       "installCommand": "winget install --id AlexanderShaduri.GSmartControl",
       "category": "Disk",
-      "icon": "https://logo.clearbit.com/gsmartcontrol.shaduri.dev",
-      "lastUpdated": "2025-12-17T20:50:06.748Z"
+      "icon": "https://www.google.com/s2/favicons?domain=gsmartcontrol.shaduri.dev&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.418Z"
     },
     {
       "id": "AlexanderSpiess.Ultramarinviewer",
@@ -4060,8 +4060,8 @@
       "license": "CC-BY-ND 4.0",
       "tags": [],
       "installCommand": "winget install --id AlexanderSpiess.Ultramarinviewer",
-      "icon": "https://logo.clearbit.com/www.ultramarinviewer.de",
-      "lastUpdated": "2025-12-17T20:50:06.812Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.ultramarinviewer.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.310Z"
     },
     {
       "id": "AlexandrSubbotin.Cerebro",
@@ -4080,8 +4080,8 @@
       ],
       "installCommand": "winget install --id AlexandrSubbotin.Cerebro",
       "category": "Calculator",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:06.794Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:47.279Z"
     },
     {
       "id": "AlexandreRouma.SDRPlusPlus",
@@ -4106,7 +4106,7 @@
       "installCommand": "winget install --id AlexandreRouma.SDRPlusPlus",
       "category": "Radio",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:07.441Z"
+      "lastUpdated": "2025-12-17T20:57:48.272Z"
     },
     {
       "id": "AlexandruCsete.Gpredict",
@@ -4124,8 +4124,8 @@
       ],
       "installCommand": "winget install --id AlexandruCsete.Gpredict",
       "category": "Satellitetracking",
-      "icon": "https://logo.clearbit.com/oz9aec.dk",
-      "lastUpdated": "2025-12-17T20:50:07.338Z"
+      "icon": "https://www.google.com/s2/favicons?domain=oz9aec.dk&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.052Z"
     },
     {
       "id": "Algento.Botim",
@@ -4149,8 +4149,8 @@
       ],
       "installCommand": "winget install --id Algento.Botim",
       "category": "Call",
-      "icon": "https://logo.clearbit.com/botim.me",
-      "lastUpdated": "2025-12-17T20:50:07.325Z"
+      "icon": "https://www.google.com/s2/favicons?domain=botim.me&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.043Z"
     },
     {
       "id": "AlgorandFoundation.AlgoKit",
@@ -4165,8 +4165,8 @@
       ],
       "installCommand": "winget install --id AlgorandFoundation.AlgoKit",
       "category": "Algokit",
-      "icon": "https://store-images.s-microsoft.com/image/apps.algokit",
-      "lastUpdated": "2025-12-17T20:50:07.315Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.algokit.png",
+      "lastUpdated": "2025-12-17T20:57:48.052Z"
     },
     {
       "id": "Algoryx.Algodoo",
@@ -4186,8 +4186,8 @@
       ],
       "installCommand": "winget install --id Algoryx.Algodoo",
       "category": "2d",
-      "icon": "https://logo.clearbit.com/www.algodoo.com",
-      "lastUpdated": "2025-12-17T20:50:07.313Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.algodoo.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.030Z"
     },
     {
       "id": "Alibaba.AliIM",
@@ -4214,8 +4214,8 @@
       ],
       "installCommand": "winget install --id Alibaba.AliIM",
       "category": "\"1688\"",
-      "icon": "https://logo.clearbit.com/pages.tmall.com",
-      "lastUpdated": "2025-12-17T20:50:07.404Z"
+      "icon": "https://www.google.com/s2/favicons?domain=pages.tmall.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.069Z"
     },
     {
       "id": "Alibaba.AliMail",
@@ -4232,8 +4232,8 @@
       ],
       "installCommand": "winget install --id Alibaba.AliMail",
       "category": "Email",
-      "icon": "https://logo.clearbit.com/mail.aliyun.com",
-      "lastUpdated": "2025-12-17T20:50:07.312Z"
+      "icon": "https://www.google.com/s2/favicons?domain=mail.aliyun.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.439Z"
     },
     {
       "id": "Alibaba.AliWorkbench",
@@ -4260,8 +4260,8 @@
       ],
       "installCommand": "winget install --id Alibaba.AliWorkbench",
       "category": "After-sales",
-      "icon": "https://logo.clearbit.com/work.taobao.com",
-      "lastUpdated": "2025-12-17T20:50:07.394Z"
+      "icon": "https://www.google.com/s2/favicons?domain=work.taobao.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.238Z"
     },
     {
       "id": "Alibaba.AlibabaCloudCLI",
@@ -4277,8 +4277,8 @@
       ],
       "installCommand": "winget install --id Alibaba.AlibabaCloudCLI",
       "category": "Alibaba-cloud",
-      "icon": "https://logo.clearbit.com/www.alibabacloud.com",
-      "lastUpdated": "2025-12-17T20:50:07.439Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.alibabacloud.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.261Z"
     },
     {
       "id": "Alibaba.AlipayKeyTool",
@@ -4301,8 +4301,8 @@
       ],
       "installCommand": "winget install --id Alibaba.AlipayKeyTool",
       "category": "Alipay",
-      "icon": "https://logo.clearbit.com/opendocs.alipay.com",
-      "lastUpdated": "2025-12-17T20:50:07.381Z"
+      "icon": "https://www.google.com/s2/favicons?domain=opendocs.alipay.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.254Z"
     },
     {
       "id": "Alibaba.DingTalk",
@@ -4332,8 +4332,8 @@
       ],
       "installCommand": "winget install --id Alibaba.DingTalk",
       "category": "Attendance",
-      "icon": "https://logo.clearbit.com/page.dingtalk.com",
-      "lastUpdated": "2025-12-17T20:50:07.480Z"
+      "icon": "https://www.google.com/s2/favicons?domain=page.dingtalk.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.293Z"
     },
     {
       "id": "Alibaba.LightProxy",
@@ -4356,8 +4356,8 @@
       ],
       "installCommand": "winget install --id Alibaba.LightProxy",
       "category": "Capture",
-      "icon": "https://logo.clearbit.com/lightproxy.org",
-      "lastUpdated": "2025-12-17T20:50:07.451Z"
+      "icon": "https://www.google.com/s2/favicons?domain=lightproxy.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.267Z"
     },
     {
       "id": "Alibaba.Lingma",
@@ -4378,8 +4378,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Lingma",
       "category": "Ai",
-      "icon": "https://logo.clearbit.com/www.alibabacloud.com",
-      "lastUpdated": "2025-12-17T20:50:07.499Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.alibabacloud.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.242Z"
     },
     {
       "id": "Alibaba.MiniProgramStudio",
@@ -4407,8 +4407,8 @@
       ],
       "installCommand": "winget install --id Alibaba.MiniProgramStudio",
       "category": "Alipay",
-      "icon": "https://logo.clearbit.com/opendocs.alipay.com",
-      "lastUpdated": "2025-12-17T20:50:07.480Z"
+      "icon": "https://www.google.com/s2/favicons?domain=opendocs.alipay.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:48.257Z"
     },
     {
       "id": "Alibaba.Qianwen",
@@ -4427,7 +4427,7 @@
       "installCommand": "winget install --id Alibaba.Qianwen",
       "category": "Ai",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:07.449Z"
+      "lastUpdated": "2025-12-17T20:57:48.639Z"
     },
     {
       "id": "Alibaba.Qoder",
@@ -4451,8 +4451,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Qoder",
       "category": "Agent",
-      "icon": "https://logo.clearbit.com/qoder.com",
-      "lastUpdated": "2025-12-17T20:50:08.038Z"
+      "icon": "https://www.google.com/s2/favicons?domain=qoder.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.259Z"
     },
     {
       "id": "Alibaba.Quark",
@@ -4471,8 +4471,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Quark",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/www.quark.cn",
-      "lastUpdated": "2025-12-17T20:50:08.016Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.quark.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.237Z"
     },
     {
       "id": "Alibaba.QuarkCloudDrive",
@@ -4496,8 +4496,8 @@
       ],
       "installCommand": "winget install --id Alibaba.QuarkCloudDrive",
       "category": "Backup",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:08.240Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.myquark.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.475Z"
     },
     {
       "id": "Alibaba.Qwen",
@@ -4516,8 +4516,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Qwen",
       "category": "Ai",
-      "icon": "https://logo.clearbit.com/qwen.ai",
-      "lastUpdated": "2025-12-17T20:50:07.972Z"
+      "icon": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.445Z"
     },
     {
       "id": "Alibaba.Taobao",
@@ -4533,8 +4533,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Taobao",
       "category": "Shopping",
-      "icon": "https://logo.clearbit.com/pc.taobao.com",
-      "lastUpdated": "2025-12-17T20:50:07.941Z"
+      "icon": "https://www.google.com/s2/favicons?domain=pc.taobao.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.265Z"
     },
     {
       "id": "Alibaba.Teambition",
@@ -4559,8 +4559,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Teambition",
       "category": "Billboard",
-      "icon": "https://logo.clearbit.com/www.teambition.com",
-      "lastUpdated": "2025-12-17T20:50:07.966Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.teambition.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.448Z"
     },
     {
       "id": "Alibaba.UC",
@@ -4579,7 +4579,7 @@
       "installCommand": "winget install --id Alibaba.UC",
       "category": "Browser",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:08.022Z"
+      "lastUpdated": "2025-12-17T20:57:49.475Z"
     },
     {
       "id": "Alibaba.UCCloudDrive",
@@ -4603,8 +4603,8 @@
       ],
       "installCommand": "winget install --id Alibaba.UCCloudDrive",
       "category": "Backup",
-      "icon": "https://logo.clearbit.com/drive.uc.cn",
-      "lastUpdated": "2025-12-17T20:50:08.034Z"
+      "icon": "https://www.google.com/s2/favicons?domain=drive.uc.cn&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.305Z"
     },
     {
       "id": "Alibaba.Yuque",
@@ -4634,8 +4634,8 @@
       ],
       "installCommand": "winget install --id Alibaba.Yuque",
       "category": "Blog",
-      "icon": "https://logo.clearbit.com/www.yuque.com",
-      "lastUpdated": "2025-12-17T20:50:08.030Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.yuque.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.395Z"
     },
     {
       "id": "Alibaba.aDrive",
@@ -4659,7 +4659,7 @@
       "installCommand": "winget install --id Alibaba.aDrive",
       "category": "Backup",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:08.033Z"
+      "lastUpdated": "2025-12-17T20:57:49.330Z"
     },
     {
       "id": "AlisterT.openjazz",
@@ -4677,8 +4677,8 @@
       ],
       "installCommand": "winget install --id AlisterT.openjazz",
       "category": "Classic",
-      "icon": "https://logo.clearbit.com/alister.eu",
-      "lastUpdated": "2025-12-17T20:50:08.092Z"
+      "icon": "https://www.google.com/s2/favicons?domain=alister.eu&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.475Z"
     },
     {
       "id": "AllanBoll.FilesRemote",
@@ -4690,8 +4690,8 @@
       "license": "MIT",
       "tags": [],
       "installCommand": "winget install --id AllanBoll.FilesRemote",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:08.114Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.424Z"
     },
     {
       "id": "AllanChain.SaneBreak",
@@ -4703,8 +4703,8 @@
       "license": "GNU GENERAL PUBLIC",
       "tags": [],
       "installCommand": "winget install --id AllanChain.SaneBreak",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:08.068Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.683Z"
     },
     {
       "id": "Allen&Heath.AvantisDirector",
@@ -4721,8 +4721,8 @@
       ],
       "installCommand": "winget install --id Allen&Heath.AvantisDirector",
       "category": "Audio-editing",
-      "icon": "https://logo.clearbit.com/www.allen-heath.com",
-      "lastUpdated": "2025-12-17T20:50:08.095Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.allen-heath.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.502Z"
     },
     {
       "id": "Allen&Heath.SQMixPad",
@@ -4734,8 +4734,8 @@
       "license": "Allen Heath General EULA",
       "tags": [],
       "installCommand": "winget install --id Allen&Heath.SQMixPad",
-      "icon": "https://logo.clearbit.com/www.allen-heath.com",
-      "lastUpdated": "2025-12-17T20:50:08.163Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.allen-heath.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:49.473Z"
     },
     {
       "id": "Allen&Heath.dLiveDirector",
@@ -4753,8 +4753,8 @@
       ],
       "installCommand": "winget install --id Allen&Heath.dLiveDirector",
       "category": "Audio",
-      "icon": "https://logo.clearbit.com/www.allen-heath.com",
-      "lastUpdated": "2025-12-17T20:50:08.658Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.allen-heath.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.525Z"
     },
     {
       "id": "AllroundAutomations.PLSQLDeveloper",
@@ -4773,8 +4773,8 @@
       ],
       "installCommand": "winget install --id AllroundAutomations.PLSQLDeveloper",
       "category": "Allround",
-      "icon": "https://logo.clearbit.com/www.allroundautomations.com",
-      "lastUpdated": "2025-12-17T20:50:08.682Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.allroundautomations.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.330Z"
     },
     {
       "id": "Allusion.Allusion",
@@ -4802,8 +4802,8 @@
       ],
       "installCommand": "winget install --id Allusion.Allusion",
       "category": "Asset",
-      "icon": "https://logo.clearbit.com/allusion-app.github.io",
-      "lastUpdated": "2025-12-17T20:50:08.647Z"
+      "icon": "https://www.google.com/s2/favicons?domain=allusion-app.github.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.358Z"
     },
     {
       "id": "Almico.SpeedFan",
@@ -4815,7 +4815,7 @@
       "tags": [],
       "installCommand": "winget install --id Almico.SpeedFan",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:08.772Z"
+      "lastUpdated": "2025-12-17T20:57:50.295Z"
     },
     {
       "id": "AlperAkca79.SkyNotepad",
@@ -4845,8 +4845,8 @@
       ],
       "installCommand": "winget install --id AlperAkca79.SkyNotepad",
       "category": "Csharp",
-      "icon": "https://store-images.s-microsoft.com/image/apps.41411AlperAkca79.704697DF414B",
-      "lastUpdated": "2025-12-17T20:50:08.758Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.41411AlperAkca79.704697DF414B.png",
+      "lastUpdated": "2025-12-17T20:57:50.328Z"
     },
     {
       "id": "AltDrag.AltDrag",
@@ -4861,8 +4861,8 @@
       ],
       "installCommand": "winget install --id AltDrag.AltDrag",
       "category": "Altdrag",
-      "icon": "https://logo.clearbit.com/stefansundin.github.io",
-      "lastUpdated": "2025-12-17T20:50:08.914Z"
+      "icon": "https://www.google.com/s2/favicons?domain=stefansundin.github.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.522Z"
     },
     {
       "id": "AltSnap.AltSnap",
@@ -4878,8 +4878,8 @@
       ],
       "installCommand": "winget install --id AltSnap.AltSnap",
       "category": "Altdrag",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:08.809Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.486Z"
     },
     {
       "id": "Altap.Salamander",
@@ -4894,8 +4894,8 @@
       ],
       "installCommand": "winget install --id Altap.Salamander",
       "category": "File-manager",
-      "icon": "https://logo.clearbit.com/www.altap.cz",
-      "lastUpdated": "2025-12-17T20:50:08.656Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.altap.cz&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.288Z"
     },
     {
       "id": "AltekaSolutions.Kards",
@@ -4907,7 +4907,7 @@
       "tags": [],
       "installCommand": "winget install --id AltekaSolutions.Kards",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:08.728Z"
+      "lastUpdated": "2025-12-17T20:57:50.487Z"
     },
     {
       "id": "AlterPhoto.AlterPhoto",
@@ -4919,8 +4919,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id AlterPhoto.AlterPhoto",
-      "icon": "https://logo.clearbit.com/www.alterphoto.net",
-      "lastUpdated": "2025-12-17T20:50:08.809Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.alterphoto.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:50.498Z"
     },
     {
       "id": "Altova.MobileTogetherDesigner",
@@ -4939,8 +4939,8 @@
       ],
       "installCommand": "winget install --id Altova.MobileTogetherDesigner",
       "category": "App",
-      "icon": "https://logo.clearbit.com/www.altova.com",
-      "lastUpdated": "2025-12-17T20:50:09.471Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.altova.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:51.440Z"
     },
     {
       "id": "AlveSvaren.Resizer2",
@@ -4956,8 +4956,8 @@
       ],
       "installCommand": "winget install --id AlveSvaren.Resizer2",
       "category": "Window-management",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:09.454Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:51.494Z"
     },
     {
       "id": "AmN.IconExtractor",
@@ -4977,8 +4977,8 @@
       ],
       "installCommand": "winget install --id AmN.IconExtractor",
       "category": "Extract-icons",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:09.454Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:51.582Z"
     },
     {
       "id": "AmN.KomoGUI",
@@ -5000,8 +5000,8 @@
       ],
       "installCommand": "winget install --id AmN.KomoGUI",
       "category": "Customization",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:09.932Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.220Z"
     },
     {
       "id": "AmN.yasb",
@@ -5017,8 +5017,8 @@
       ],
       "installCommand": "winget install --id AmN.yasb",
       "category": "Status bar",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:09.945Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.411Z"
     },
     {
       "id": "AmanHarwara.Altus",
@@ -5041,8 +5041,8 @@
       ],
       "installCommand": "winget install --id AmanHarwara.Altus",
       "category": "Dark-theme",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:10.084Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.374Z"
     },
     {
       "id": "AmarBego.Rscoop",
@@ -5057,8 +5057,8 @@
       ],
       "installCommand": "winget install --id AmarBego.Rscoop",
       "category": "Scoop",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:09.913Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.323Z"
     },
     {
       "id": "Amazon.AWSCLI",
@@ -5081,8 +5081,8 @@
       ],
       "installCommand": "winget install --id Amazon.AWSCLI",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.065Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.451Z"
     },
     {
       "id": "Amazon.AWSVPNClient",
@@ -5094,7 +5094,7 @@
       "tags": [],
       "installCommand": "winget install --id Amazon.AWSVPNClient",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:10.148Z"
+      "lastUpdated": "2025-12-17T20:57:52.432Z"
     },
     {
       "id": "Amazon.AppStream",
@@ -5106,8 +5106,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Amazon.AppStream",
-      "icon": "https://logo.clearbit.com/aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:09.991Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.230Z"
     },
     {
       "id": "Amazon.Chime",
@@ -5130,8 +5130,8 @@
       ],
       "installCommand": "winget install --id Amazon.Chime",
       "category": "Chat",
-      "icon": "https://logo.clearbit.com/aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.004Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.344Z"
     },
     {
       "id": "Amazon.CloudWatchAgent",
@@ -5146,8 +5146,8 @@
       ],
       "installCommand": "winget install --id Amazon.CloudWatchAgent",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/docs.aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.018Z"
+      "icon": "https://www.google.com/s2/favicons?domain=docs.aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.390Z"
     },
     {
       "id": "Amazon.CopilotCLI",
@@ -5165,8 +5165,8 @@
       ],
       "installCommand": "winget install --id Amazon.CopilotCLI",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/aws.github.io",
-      "lastUpdated": "2025-12-17T20:50:10.006Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aws.github.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.400Z"
     },
     {
       "id": "Amazon.EC2Launch",
@@ -5181,8 +5181,8 @@
       ],
       "installCommand": "winget install --id Amazon.EC2Launch",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/docs.aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.148Z"
+      "icon": "https://www.google.com/s2/favicons?domain=docs.aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.547Z"
     },
     {
       "id": "Amazon.Games",
@@ -5201,8 +5201,8 @@
       ],
       "installCommand": "winget install --id Amazon.Games",
       "category": "Amazon",
-      "icon": "https://logo.clearbit.com/gaming.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.115Z"
+      "icon": "https://www.google.com/s2/favicons?domain=gaming.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.680Z"
     },
     {
       "id": "Amazon.Kindle",
@@ -5227,8 +5227,8 @@
       ],
       "installCommand": "winget install --id Amazon.Kindle",
       "category": "Amazon",
-      "icon": "https://logo.clearbit.com/www.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.126Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:52.652Z"
     },
     {
       "id": "Amazon.KindlePreviewer",
@@ -5244,8 +5244,8 @@
       ],
       "installCommand": "winget install --id Amazon.KindlePreviewer",
       "category": "Ebook",
-      "icon": "https://logo.clearbit.com/kdp.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.638Z"
+      "icon": "https://www.google.com/s2/favicons?domain=kdp.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.316Z"
     },
     {
       "id": "Amazon.Kiro",
@@ -5266,8 +5266,8 @@
       ],
       "installCommand": "winget install --id Amazon.Kiro",
       "category": "Code",
-      "icon": "https://logo.clearbit.com/kiro.dev",
-      "lastUpdated": "2025-12-17T20:50:10.616Z"
+      "icon": "https://www.google.com/s2/favicons?domain=kiro.dev&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.541Z"
     },
     {
       "id": "Amazon.Music",
@@ -5279,7 +5279,7 @@
       "tags": [],
       "installCommand": "winget install --id Amazon.Music",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:10.718Z"
+      "lastUpdated": "2025-12-17T20:57:53.489Z"
     },
     {
       "id": "Amazon.NoSQLWorkbench",
@@ -5295,8 +5295,8 @@
       ],
       "installCommand": "winget install --id Amazon.NoSQLWorkbench",
       "category": "Dynamodb",
-      "icon": "https://logo.clearbit.com/docs.aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.620Z"
+      "icon": "https://www.google.com/s2/favicons?domain=docs.aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.288Z"
     },
     {
       "id": "Amazon.SAM-CLI",
@@ -5315,8 +5315,8 @@
       ],
       "installCommand": "winget install --id Amazon.SAM-CLI",
       "category": "Amazon",
-      "icon": "https://logo.clearbit.com/aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.708Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.520Z"
     },
     {
       "id": "Amazon.SSMAgent",
@@ -5331,8 +5331,8 @@
       ],
       "installCommand": "winget install --id Amazon.SSMAgent",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/docs.aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.593Z"
+      "icon": "https://www.google.com/s2/favicons?domain=docs.aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.525Z"
     },
     {
       "id": "Amazon.SendToKindle",
@@ -5355,8 +5355,8 @@
       ],
       "installCommand": "winget install --id Amazon.SendToKindle",
       "category": "Epub",
-      "icon": "https://logo.clearbit.com/www.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.697Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.342Z"
     },
     {
       "id": "Amazon.SessionManagerPlugin",
@@ -5372,8 +5372,8 @@
       ],
       "installCommand": "winget install --id Amazon.SessionManagerPlugin",
       "category": "Aws",
-      "icon": "https://logo.clearbit.com/docs.aws.amazon.com",
-      "lastUpdated": "2025-12-17T20:50:10.720Z"
+      "icon": "https://www.google.com/s2/favicons?domain=docs.aws.amazon.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.480Z"
     },
     {
       "id": "Amazon.WorkspacesClient",
@@ -5390,8 +5390,8 @@
       ],
       "installCommand": "winget install --id Amazon.WorkspacesClient",
       "category": "Amazon",
-      "icon": "https://logo.clearbit.com/clients.amazonworkspaces.com",
-      "lastUpdated": "2025-12-17T20:50:10.803Z"
+      "icon": "https://www.google.com/s2/favicons?domain=clients.amazonworkspaces.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.539Z"
     },
     {
       "id": "Amebis.ALicPos",
@@ -5403,8 +5403,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Amebis.ALicPos",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:10.750Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.amebis.si&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.532Z"
     },
     {
       "id": "Amebis.Besana",
@@ -5416,8 +5416,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Amebis.Besana",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:10.790Z"
+      "icon": "https://www.google.com/s2/favicons?domain=besana.amebis.si&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.713Z"
     },
     {
       "id": "Amebis.Hipsis",
@@ -5429,8 +5429,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Amebis.Hipsis",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:10.751Z"
+      "icon": "https://www.google.com/s2/favicons?domain=hipsis.amebis.si&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.559Z"
     },
     {
       "id": "AmericanRadioRelayLeague.TrustedQSL",
@@ -5447,8 +5447,8 @@
       ],
       "installCommand": "winget install --id AmericanRadioRelayLeague.TrustedQSL",
       "category": "Amateur-radio",
-      "icon": "https://logo.clearbit.com/sourceforge.net",
-      "lastUpdated": "2025-12-17T20:50:10.745Z"
+      "icon": "https://www.google.com/s2/favicons?domain=sourceforge.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:53.535Z"
     },
     {
       "id": "AmneziaVPN.AmneziaVPN",
@@ -5471,8 +5471,8 @@
       ],
       "installCommand": "winget install --id AmneziaVPN.AmneziaVPN",
       "category": "Cloak",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.342Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.325Z"
     },
     {
       "id": "AmrakSoftware.DMGExtractor",
@@ -5484,7 +5484,7 @@
       "tags": [],
       "installCommand": "winget install --id AmrakSoftware.DMGExtractor",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:11.471Z"
+      "lastUpdated": "2025-12-17T20:57:54.383Z"
     },
     {
       "id": "Amulet.Amulet",
@@ -5496,7 +5496,7 @@
       "tags": [],
       "installCommand": "winget install --id Amulet.Amulet",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:11.231Z"
+      "lastUpdated": "2025-12-17T20:57:54.413Z"
     },
     {
       "id": "AmyXun.AxGlyph",
@@ -5516,8 +5516,8 @@
       ],
       "installCommand": "winget install --id AmyXun.AxGlyph",
       "category": "Chart",
-      "icon": "https://logo.clearbit.com/www.axsoft.co",
-      "lastUpdated": "2025-12-17T20:50:11.319Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.axsoft.co&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.557Z"
     },
     {
       "id": "AmyXun.AxMath",
@@ -5535,8 +5535,8 @@
       ],
       "installCommand": "winget install --id AmyXun.AxMath",
       "category": "Calculator",
-      "icon": "https://logo.clearbit.com/www.axsoft.co",
-      "lastUpdated": "2025-12-17T20:50:11.233Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.axsoft.co&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.370Z"
     },
     {
       "id": "Anaconda.Anaconda3",
@@ -5553,8 +5553,8 @@
       ],
       "installCommand": "winget install --id Anaconda.Anaconda3",
       "category": "Anaconda",
-      "icon": "https://logo.clearbit.com/www.anaconda.com",
-      "lastUpdated": "2025-12-17T20:50:11.357Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.anaconda.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.518Z"
     },
     {
       "id": "Anaconda.Miniconda3",
@@ -5572,8 +5572,8 @@
       ],
       "installCommand": "winget install --id Anaconda.Miniconda3",
       "category": "Conda",
-      "icon": "https://logo.clearbit.com/docs.anaconda.com",
-      "lastUpdated": "2025-12-17T20:50:11.340Z"
+      "icon": "https://www.google.com/s2/favicons?domain=docs.anaconda.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.544Z"
     },
     {
       "id": "Anakin-bb8.NPTE",
@@ -5602,8 +5602,8 @@
       ],
       "installCommand": "winget install --id Anakin-bb8.NPTE",
       "category": "Batch-script",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.204Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.529Z"
     },
     {
       "id": "AnalogDevices.LTspice",
@@ -5615,7 +5615,7 @@
       "tags": [],
       "installCommand": "winget install --id AnalogDevices.LTspice",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:11.356Z"
+      "lastUpdated": "2025-12-17T20:57:54.517Z"
     },
     {
       "id": "Anchor.cli",
@@ -5627,8 +5627,8 @@
       "license": "mit",
       "tags": [],
       "installCommand": "winget install --id Anchor.cli",
-      "icon": "https://logo.clearbit.com/anchor.dev",
-      "lastUpdated": "2025-12-17T20:50:11.340Z"
+      "icon": "https://www.google.com/s2/favicons?domain=anchor.dev&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.708Z"
     },
     {
       "id": "AnchorFree.TouchVPN",
@@ -5640,7 +5640,7 @@
       "tags": [],
       "installCommand": "winget install --id AnchorFree.TouchVPN",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:11.377Z"
+      "lastUpdated": "2025-12-17T20:57:54.607Z"
     },
     {
       "id": "Anchore.Grype",
@@ -5669,8 +5669,8 @@
       ],
       "installCommand": "winget install --id Anchore.Grype",
       "category": "Container-image",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.441Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.717Z"
     },
     {
       "id": "Anchore.Quill",
@@ -5695,8 +5695,8 @@
       ],
       "installCommand": "winget install --id Anchore.Quill",
       "category": "Apple",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.369Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.589Z"
     },
     {
       "id": "Anchore.Syft",
@@ -5721,8 +5721,8 @@
       ],
       "installCommand": "winget install --id Anchore.Syft",
       "category": "Containers",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.358Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.624Z"
     },
     {
       "id": "Andekan.Kinship",
@@ -5741,8 +5741,8 @@
       ],
       "installCommand": "winget install --id Andekan.Kinship",
       "category": "Analytics",
-      "icon": "https://logo.clearbit.com/app.kinship.io",
-      "lastUpdated": "2025-12-17T20:50:11.420Z"
+      "icon": "https://www.google.com/s2/favicons?domain=app.kinship.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:54.598Z"
     },
     {
       "id": "Andersama.obs-asio",
@@ -5754,8 +5754,8 @@
       "license": "GPL-3.0",
       "tags": [],
       "installCommand": "winget install --id Andersama.obs-asio",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.924Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.490Z"
     },
     {
       "id": "AndreWiethoff.ExactAudioCopy",
@@ -5774,8 +5774,8 @@
       ],
       "installCommand": "winget install --id AndreWiethoff.ExactAudioCopy",
       "category": "Audio",
-      "icon": "https://logo.clearbit.com/www.exactaudiocopy.de",
-      "lastUpdated": "2025-12-17T20:50:11.899Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.exactaudiocopy.de&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.523Z"
     },
     {
       "id": "AndreaMarucci.HD2Arsenal",
@@ -5787,8 +5787,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id AndreaMarucci.HD2Arsenal",
-      "icon": "https://logo.clearbit.com/rsnl.gg",
-      "lastUpdated": "2025-12-17T20:50:11.910Z"
+      "icon": "https://www.google.com/s2/favicons?domain=rsnl.gg&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.400Z"
     },
     {
       "id": "AndreasWascher.RepoZ",
@@ -5804,8 +5804,8 @@
       ],
       "installCommand": "winget install --id AndreasWascher.RepoZ",
       "category": "Git",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.002Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.342Z"
     },
     {
       "id": "AndrejFogelton.eyeblink",
@@ -5817,7 +5817,7 @@
       "tags": [],
       "installCommand": "winget install --id AndrejFogelton.eyeblink",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:11.987Z"
+      "lastUpdated": "2025-12-17T20:57:55.518Z"
     },
     {
       "id": "Andrelouis.NokiaSPMIDIPlayer",
@@ -5829,7 +5829,7 @@
       "tags": [],
       "installCommand": "winget install --id Andrelouis.NokiaSPMIDIPlayer",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:12.021Z"
+      "lastUpdated": "2025-12-17T20:57:55.555Z"
     },
     {
       "id": "AndresMorelos.Invoncify",
@@ -5847,8 +5847,8 @@
       ],
       "installCommand": "winget install --id AndresMorelos.Invoncify",
       "category": "Electron",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.005Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.586Z"
     },
     {
       "id": "AndrewCalcutt.Vistumbler",
@@ -5863,8 +5863,8 @@
       ],
       "installCommand": "winget install --id AndrewCalcutt.Vistumbler",
       "category": "Wireless,scanner",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.038Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.369Z"
     },
     {
       "id": "AndrewCantino.McFly",
@@ -5881,8 +5881,8 @@
       ],
       "installCommand": "winget install --id AndrewCantino.McFly",
       "category": "History",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:11.995Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.378Z"
     },
     {
       "id": "AndrewWhewell.VirtualRadarServer",
@@ -5907,8 +5907,8 @@
       ],
       "installCommand": "winget install --id AndrewWhewell.VirtualRadarServer",
       "category": "Airplanemap",
-      "icon": "https://logo.clearbit.com/www.virtualradarserver.co.uk",
-      "lastUpdated": "2025-12-17T20:50:11.891Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.virtualradarserver.co.uk&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.626Z"
     },
     {
       "id": "Andromeda.Andromeda",
@@ -5931,8 +5931,8 @@
       ],
       "installCommand": "winget install --id Andromeda.Andromeda",
       "category": "Andromeda",
-      "icon": "https://logo.clearbit.com/tryandromeda.dev",
-      "lastUpdated": "2025-12-17T20:50:12.024Z"
+      "icon": "https://www.google.com/s2/favicons?domain=tryandromeda.dev&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.597Z"
     },
     {
       "id": "AndyFul.ConfigureDefender",
@@ -5950,8 +5950,8 @@
       ],
       "installCommand": "winget install --id AndyFul.ConfigureDefender",
       "category": "Windows Defender",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.036Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.703Z"
     },
     {
       "id": "AngeloConvento.OverKeys",
@@ -5972,8 +5972,8 @@
       ],
       "installCommand": "winget install --id AngeloConvento.OverKeys",
       "category": "Flutter",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.043Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.569Z"
     },
     {
       "id": "AngryMiao.AMMaster",
@@ -5988,8 +5988,8 @@
       ],
       "installCommand": "winget install --id AngryMiao.AMMaster",
       "category": "Angrymiao",
-      "icon": "https://logo.clearbit.com/www.angrymiao.com",
-      "lastUpdated": "2025-12-17T20:50:12.075Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.angrymiao.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.569Z"
     },
     {
       "id": "AngusJohnson.PDFTKBuilder",
@@ -6001,8 +6001,8 @@
       "license": "GNU General Public License ver 3",
       "tags": [],
       "installCommand": "winget install --id AngusJohnson.PDFTKBuilder",
-      "icon": "https://logo.clearbit.com/www.angusj.com",
-      "lastUpdated": "2025-12-17T20:50:12.059Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.angusj.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:55.580Z"
     },
     {
       "id": "AngusJohnson.ResourceHacker",
@@ -6021,8 +6021,8 @@
       ],
       "installCommand": "winget install --id AngusJohnson.ResourceHacker",
       "category": "Cli",
-      "icon": "https://logo.clearbit.com/www.angusj.com",
-      "lastUpdated": "2025-12-17T20:50:12.545Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.angusj.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.336Z"
     },
     {
       "id": "Anim8or.Anim8or",
@@ -6034,8 +6034,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id Anim8or.Anim8or",
-      "icon": "https://logo.clearbit.com/anim8or.com",
-      "lastUpdated": "2025-12-17T20:50:12.739Z"
+      "icon": "https://www.google.com/s2/favicons?domain=anim8or.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.605Z"
     },
     {
       "id": "Anjok07.UltimateVocalRemover",
@@ -6057,8 +6057,8 @@
       ],
       "installCommand": "winget install --id Anjok07.UltimateVocalRemover",
       "category": "Accompaniment",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.610Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.322Z"
     },
     {
       "id": "Ankama.AnkamaLauncher",
@@ -6070,7 +6070,7 @@
       "tags": [],
       "installCommand": "winget install --id Ankama.AnkamaLauncher",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:12.500Z"
+      "lastUpdated": "2025-12-17T20:57:56.658Z"
     },
     {
       "id": "Anker.AnkerMake",
@@ -6087,8 +6087,8 @@
       ],
       "installCommand": "winget install --id Anker.AnkerMake",
       "category": "Anker",
-      "icon": "https://logo.clearbit.com/www.ankermake.com",
-      "lastUpdated": "2025-12-17T20:50:12.482Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.ankermake.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.479Z"
     },
     {
       "id": "Anki.Anki",
@@ -6105,8 +6105,8 @@
       ],
       "installCommand": "winget install --id Anki.Anki",
       "category": "Education",
-      "icon": "https://logo.clearbit.com/apps.ankiweb.net",
-      "lastUpdated": "2025-12-17T20:50:12.571Z"
+      "icon": "https://www.google.com/s2/favicons?domain=apps.ankiweb.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.538Z"
     },
     {
       "id": "AnnyStudio.JPEGLosslessRotator",
@@ -6127,8 +6127,8 @@
       ],
       "installCommand": "winget install --id AnnyStudio.JPEGLosslessRotator",
       "category": "Image",
-      "icon": "https://logo.clearbit.com/annystudio.com",
-      "lastUpdated": "2025-12-17T20:50:12.508Z"
+      "icon": "https://www.google.com/s2/favicons?domain=annystudio.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.295Z"
     },
     {
       "id": "AntLab.AntConc",
@@ -6148,8 +6148,8 @@
       ],
       "installCommand": "winget install --id AntLab.AntConc",
       "category": "Analysis",
-      "icon": "https://logo.clearbit.com/www.laurenceanthony.net",
-      "lastUpdated": "2025-12-17T20:50:12.660Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.laurenceanthony.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.512Z"
     },
     {
       "id": "AntSoftware.AntRenamer",
@@ -6161,8 +6161,8 @@
       "license": "GPL-2.0-or-later",
       "tags": [],
       "installCommand": "winget install --id AntSoftware.AntRenamer",
-      "icon": "https://logo.clearbit.com/antp.be",
-      "lastUpdated": "2025-12-17T20:50:12.619Z"
+      "icon": "https://www.google.com/s2/favicons?domain=antp.be&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.416Z"
     },
     {
       "id": "AnthonyBeaumont.AchievementWatcher",
@@ -6181,8 +6181,8 @@
       ],
       "installCommand": "winget install --id AnthonyBeaumont.AchievementWatcher",
       "category": "Achievement",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.647Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.485Z"
     },
     {
       "id": "Anthropic.Claude",
@@ -6200,7 +6200,7 @@
       "installCommand": "winget install --id Anthropic.Claude",
       "category": "Ai",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:12.609Z"
+      "lastUpdated": "2025-12-17T20:57:56.554Z"
     },
     {
       "id": "Anthropic.ClaudeCode",
@@ -6224,7 +6224,7 @@
       "installCommand": "winget install --id Anthropic.ClaudeCode",
       "category": "Agent",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:12.720Z"
+      "lastUpdated": "2025-12-17T20:57:56.685Z"
     },
     {
       "id": "AntiMicro.AntiMicro",
@@ -6236,8 +6236,8 @@
       "license": "GNU GENERAL PUBLIC LICENSE",
       "tags": [],
       "installCommand": "winget install --id AntiMicro.AntiMicro",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.707Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.545Z"
     },
     {
       "id": "AntiMicroX.antimicrox",
@@ -6257,8 +6257,8 @@
       ],
       "installCommand": "winget install --id AntiMicroX.antimicrox",
       "category": "Controller",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.657Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.555Z"
     },
     {
       "id": "AntiMicroX.antimicroxPortable",
@@ -6278,8 +6278,8 @@
       ],
       "installCommand": "winget install --id AntiMicroX.antimicroxPortable",
       "category": "Controller",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:12.662Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:56.547Z"
     },
     {
       "id": "AntibodySoftware.WizFile",
@@ -6298,8 +6298,8 @@
       ],
       "installCommand": "winget install --id AntibodySoftware.WizFile",
       "category": "Directory",
-      "icon": "https://logo.clearbit.com/antibody-software.com",
-      "lastUpdated": "2025-12-17T20:50:13.156Z"
+      "icon": "https://www.google.com/s2/favicons?domain=antibody-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.467Z"
     },
     {
       "id": "AntibodySoftware.WizKey",
@@ -6318,8 +6318,8 @@
       ],
       "installCommand": "winget install --id AntibodySoftware.WizKey",
       "category": "Wizkey",
-      "icon": "https://logo.clearbit.com/antibody-software.com",
-      "lastUpdated": "2025-12-17T20:50:13.231Z"
+      "icon": "https://www.google.com/s2/favicons?domain=antibody-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.523Z"
     },
     {
       "id": "AntibodySoftware.WizMouse",
@@ -6335,8 +6335,8 @@
       ],
       "installCommand": "winget install --id AntibodySoftware.WizMouse",
       "category": "File",
-      "icon": "https://logo.clearbit.com/antibody-software.com",
-      "lastUpdated": "2025-12-17T20:50:13.238Z"
+      "icon": "https://www.google.com/s2/favicons?domain=antibody-software.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.371Z"
     },
     {
       "id": "AntibodySoftware.WizTree",
@@ -6354,8 +6354,8 @@
       ],
       "installCommand": "winget install --id AntibodySoftware.WizTree",
       "category": "Disk-analyzer",
-      "icon": "https://logo.clearbit.com/diskanalyzer.com",
-      "lastUpdated": "2025-12-17T20:50:13.285Z"
+      "icon": "https://www.google.com/s2/favicons?domain=diskanalyzer.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.397Z"
     },
     {
       "id": "AntoineAflalo.SoundSwitch",
@@ -6373,8 +6373,8 @@
       ],
       "installCommand": "winget install --id AntoineAflalo.SoundSwitch",
       "category": "Audio",
-      "icon": "https://logo.clearbit.com/soundswitch.aaflalo.me",
-      "lastUpdated": "2025-12-17T20:50:13.193Z"
+      "icon": "https://www.google.com/s2/favicons?domain=soundswitch.aaflalo.me&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.569Z"
     },
     {
       "id": "AntoniKepinski.ParsifyDesktop",
@@ -6386,8 +6386,8 @@
       "license": "MIT License",
       "tags": [],
       "installCommand": "winget install --id AntoniKepinski.ParsifyDesktop",
-      "icon": "https://logo.clearbit.com/parsify.app",
-      "lastUpdated": "2025-12-17T20:50:13.316Z"
+      "icon": "https://www.google.com/s2/favicons?domain=parsify.app&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.338Z"
     },
     {
       "id": "AntonyCourtney.Tad",
@@ -6411,8 +6411,8 @@
       ],
       "installCommand": "winget install --id AntonyCourtney.Tad",
       "category": "Csv",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:13.186Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.454Z"
     },
     {
       "id": "AntstreamLtd.Antstream",
@@ -6430,7 +6430,7 @@
       "installCommand": "winget install --id AntstreamLtd.Antstream",
       "category": "Arcade",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:13.300Z"
+      "lastUpdated": "2025-12-17T20:57:57.346Z"
     },
     {
       "id": "Antutu.AntutuBenchmark",
@@ -6449,8 +6449,8 @@
       ],
       "installCommand": "winget install --id Antutu.AntutuBenchmark",
       "category": "Benchmark",
-      "icon": "https://logo.clearbit.com/antutu.com",
-      "lastUpdated": "2025-12-17T20:50:13.314Z"
+      "icon": "https://www.google.com/s2/favicons?domain=antutu.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.515Z"
     },
     {
       "id": "Antutu.AntutuLLMBenchmark",
@@ -6469,8 +6469,8 @@
       ],
       "installCommand": "winget install --id Antutu.AntutuLLMBenchmark",
       "category": "Benchmark",
-      "icon": "https://logo.clearbit.com/www.antutu.com",
-      "lastUpdated": "2025-12-17T20:50:13.306Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.antutu.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.498Z"
     },
     {
       "id": "Anxcye.AnxReader",
@@ -6489,8 +6489,8 @@
       ],
       "installCommand": "winget install --id Anxcye.AnxReader",
       "category": "Ebook",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:13.331Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.597Z"
     },
     {
       "id": "AnyAssociation.Anytype",
@@ -6518,8 +6518,8 @@
       ],
       "installCommand": "winget install --id AnyAssociation.Anytype",
       "category": "Agenda",
-      "icon": "https://logo.clearbit.com/download.anytype.io",
-      "lastUpdated": "2025-12-17T20:50:13.422Z"
+      "icon": "https://www.google.com/s2/favicons?domain=download.anytype.io&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.665Z"
     },
     {
       "id": "AnyDesk.AnyDesk",
@@ -6536,7 +6536,7 @@
       "installCommand": "winget install --id AnyDesk.AnyDesk",
       "category": "Rdp",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:13.360Z"
+      "lastUpdated": "2025-12-17T20:57:57.569Z"
     },
     {
       "id": "AnyTXT.AnyTXTSearcher",
@@ -6552,8 +6552,8 @@
       ],
       "installCommand": "winget install --id AnyTXT.AnyTXTSearcher",
       "category": "Indexing",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:13.328Z"
+      "icon": "https://www.google.com/s2/favicons?domain=anytxt.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:57.579Z"
     },
     {
       "id": "Anydo.Anydo",
@@ -6578,8 +6578,8 @@
       ],
       "installCommand": "winget install --id Anydo.Anydo",
       "category": "Agenda",
-      "icon": "https://logo.clearbit.com/www.any.do",
-      "lastUpdated": "2025-12-17T20:50:13.887Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.any.do&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.327Z"
     },
     {
       "id": "Anysphere.Cursor",
@@ -6599,8 +6599,8 @@
       ],
       "installCommand": "winget install --id Anysphere.Cursor",
       "category": "Ai",
-      "icon": "https://logo.clearbit.com/www.cursor.com",
-      "lastUpdated": "2025-12-17T20:50:13.970Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.cursor.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.453Z"
     },
     {
       "id": "ApSIC.Xbench",
@@ -6616,8 +6616,8 @@
       ],
       "installCommand": "winget install --id ApSIC.Xbench",
       "category": "Translate",
-      "icon": "https://logo.clearbit.com/www.xbench.net",
-      "lastUpdated": "2025-12-17T20:50:13.848Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.xbench.net&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.356Z"
     },
     {
       "id": "Apache.DirectoryStudio",
@@ -6633,8 +6633,8 @@
       ],
       "installCommand": "winget install --id Apache.DirectoryStudio",
       "category": "Directory",
-      "icon": "https://logo.clearbit.com/directory.apache.org",
-      "lastUpdated": "2025-12-17T20:50:13.869Z"
+      "icon": "https://www.google.com/s2/favicons?domain=directory.apache.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.540Z"
     },
     {
       "id": "Apache.NetBeans",
@@ -6654,8 +6654,8 @@
       ],
       "installCommand": "winget install --id Apache.NetBeans",
       "category": "Code",
-      "icon": "https://logo.clearbit.com/installers.friendsofapachenetbeans.org",
-      "lastUpdated": "2025-12-17T20:50:13.959Z"
+      "icon": "https://www.google.com/s2/favicons?domain=installers.friendsofapachenetbeans.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.367Z"
     },
     {
       "id": "Apache.OpenOffice",
@@ -6681,8 +6681,8 @@
       ],
       "installCommand": "winget install --id Apache.OpenOffice",
       "category": "Docs",
-      "icon": "https://logo.clearbit.com/www.openoffice.org",
-      "lastUpdated": "2025-12-17T20:50:13.987Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.openoffice.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.553Z"
     },
     {
       "id": "ApacheLounge.httpd",
@@ -6694,8 +6694,8 @@
       "license": "Apache-2.0",
       "tags": [],
       "installCommand": "winget install --id ApacheLounge.httpd",
-      "icon": "https://logo.clearbit.com/www.apachelounge.com",
-      "lastUpdated": "2025-12-17T20:50:13.865Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.apachelounge.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.548Z"
     },
     {
       "id": "ApeCloud.kbcli",
@@ -6707,8 +6707,8 @@
       "license": "AGPL-3.0",
       "tags": [],
       "installCommand": "winget install --id ApeCloud.kbcli",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:13.932Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.299Z"
     },
     {
       "id": "Apipost.ApiPost",
@@ -6732,7 +6732,7 @@
       "installCommand": "winget install --id Apipost.ApiPost",
       "category": "Api",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:14.006Z"
+      "lastUpdated": "2025-12-17T20:57:58.537Z"
     },
     {
       "id": "AppByTroye.KoodoReader",
@@ -6751,8 +6751,8 @@
       ],
       "installCommand": "winget install --id AppByTroye.KoodoReader",
       "category": "Ebook",
-      "icon": "https://logo.clearbit.com/www.koodoreader.com",
-      "lastUpdated": "2025-12-17T20:50:14.004Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.koodoreader.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.556Z"
     },
     {
       "id": "AppDeployNews.SilentSwitchFinder",
@@ -6770,8 +6770,8 @@
       ],
       "installCommand": "winget install --id AppDeployNews.SilentSwitchFinder",
       "category": "Silent-install",
-      "icon": "https://logo.clearbit.com/www.appdeploynews.com",
-      "lastUpdated": "2025-12-17T20:50:14.021Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.appdeploynews.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.625Z"
     },
     {
       "id": "AppDynamic.AirServer",
@@ -6798,8 +6798,8 @@
       ],
       "installCommand": "winget install --id AppDynamic.AirServer",
       "category": "Airplay",
-      "icon": "https://logo.clearbit.com/www.airserver.com",
-      "lastUpdated": "2025-12-17T20:50:13.981Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.airserver.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.656Z"
     },
     {
       "id": "AppFlowy.AppFlowy",
@@ -6829,8 +6829,8 @@
       ],
       "installCommand": "winget install --id AppFlowy.AppFlowy",
       "category": "Content-management",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:14.037Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:58.642Z"
     },
     {
       "id": "AppSolves.TikTok-LIVE-Automation",
@@ -6857,8 +6857,8 @@
       ],
       "installCommand": "winget install --id AppSolves.TikTok-LIVE-Automation",
       "category": "Tiktok",
-      "icon": "https://logo.clearbit.com/tiktok-live-automation.appsolves.dev",
-      "lastUpdated": "2025-12-17T20:50:14.626Z"
+      "icon": "https://www.google.com/s2/favicons?domain=tiktok-live-automation.appsolves.dev&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.299Z"
     },
     {
       "id": "AppWork.JDownloader",
@@ -6870,8 +6870,8 @@
       "license": "Copyright © 2009-2020 AppWork GmbH",
       "tags": [],
       "installCommand": "winget install --id AppWork.JDownloader",
-      "icon": "https://logo.clearbit.com/jdownloader.org",
-      "lastUpdated": "2025-12-17T20:50:14.497Z"
+      "icon": "https://www.google.com/s2/favicons?domain=jdownloader.org&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.296Z"
     },
     {
       "id": "Appeon.PowerBuilder-2025-3683-EN-GA",
@@ -6888,7 +6888,7 @@
       "installCommand": "winget install --id Appeon.PowerBuilder-2025-3683-EN-GA",
       "category": "Appeon",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:14.573Z"
+      "lastUpdated": "2025-12-17T20:57:59.476Z"
     },
     {
       "id": "Appeon.PowerBuilderRuntime2022R3",
@@ -6900,7 +6900,7 @@
       "tags": [],
       "installCommand": "winget install --id Appeon.PowerBuilderRuntime2022R3",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:14.506Z"
+      "lastUpdated": "2025-12-17T20:57:59.345Z"
     },
     {
       "id": "Appeon.PowerServerToolkit2022R3-MR03",
@@ -6912,7 +6912,7 @@
       "tags": [],
       "installCommand": "winget install --id Appeon.PowerServerToolkit2022R3-MR03",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:14.517Z"
+      "lastUpdated": "2025-12-17T20:57:59.452Z"
     },
     {
       "id": "Appest.Dida",
@@ -6939,8 +6939,8 @@
       ],
       "installCommand": "winget install --id Appest.Dida",
       "category": "Agenda",
-      "icon": "https://logo.clearbit.com/www.dida365.com",
-      "lastUpdated": "2025-12-17T20:50:14.561Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.dida365.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.682Z"
     },
     {
       "id": "Appest.TickTick",
@@ -6968,8 +6968,8 @@
       ],
       "installCommand": "winget install --id Appest.TickTick",
       "category": "Agenda",
-      "icon": "https://logo.clearbit.com/www.ticktick.com",
-      "lastUpdated": "2025-12-17T20:50:14.533Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.ticktick.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.388Z"
     },
     {
       "id": "AppiumDevelopers.AppiumInspector",
@@ -6985,8 +6985,8 @@
       ],
       "installCommand": "winget install --id AppiumDevelopers.AppiumInspector",
       "category": "Appium",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:14.501Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.452Z"
     },
     {
       "id": "Apple.AirPort",
@@ -7012,8 +7012,8 @@
       ],
       "installCommand": "winget install --id Apple.AirPort",
       "category": "Appleairport",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:14.548Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.288Z"
     },
     {
       "id": "Apple.AppleMobileDeviceSupport",
@@ -7041,8 +7041,8 @@
       ],
       "installCommand": "winget install --id Apple.AppleMobileDeviceSupport",
       "category": "Ipad",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:14.639Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.520Z"
     },
     {
       "id": "Apple.AppleSoftwareUpdate",
@@ -7062,8 +7062,8 @@
       ],
       "installCommand": "winget install --id Apple.AppleSoftwareUpdate",
       "category": "Bootcamp",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:14.658Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.516Z"
     },
     {
       "id": "Apple.Bonjour",
@@ -7075,8 +7075,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Apple.Bonjour",
-      "icon": "https://logo.clearbit.com/developer.apple.com",
-      "lastUpdated": "2025-12-17T20:50:14.672Z"
+      "icon": "https://www.google.com/s2/favicons?domain=developer.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.516Z"
     },
     {
       "id": "Apple.BonjourPrintServices",
@@ -7098,8 +7098,8 @@
       ],
       "installCommand": "winget install --id Apple.BonjourPrintServices",
       "category": "Bonjour",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:14.680Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.532Z"
     },
     {
       "id": "Apple.DVDorCDSharing",
@@ -7111,8 +7111,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Apple.DVDorCDSharing",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:14.709Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:57:59.633Z"
     },
     {
       "id": "Apple.Pkl",
@@ -7131,8 +7131,8 @@
       ],
       "installCommand": "winget install --id Apple.Pkl",
       "category": "Config",
-      "icon": "https://logo.clearbit.com/pkl-lang.org",
-      "lastUpdated": "2025-12-17T20:50:15.143Z"
+      "icon": "https://www.google.com/s2/favicons?domain=pkl-lang.org&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.542Z"
     },
     {
       "id": "Apple.ProResRAWforWindows",
@@ -7158,8 +7158,8 @@
       ],
       "installCommand": "winget install --id Apple.ProResRAWforWindows",
       "category": "Videoformatplugin",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:15.177Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.315Z"
     },
     {
       "id": "Apple.QuickTime",
@@ -7179,8 +7179,8 @@
       ],
       "installCommand": "winget install --id Apple.QuickTime",
       "category": "Audio",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:15.322Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.335Z"
     },
     {
       "id": "Apple.Safari",
@@ -7196,8 +7196,8 @@
       ],
       "installCommand": "winget install --id Apple.Safari",
       "category": "Browser",
-      "icon": "https://logo.clearbit.com/apple.com",
-      "lastUpdated": "2025-12-17T20:50:15.169Z"
+      "icon": "https://www.google.com/s2/favicons?domain=apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.325Z"
     },
     {
       "id": "Apple.WindowsMigrationAssistant",
@@ -7209,8 +7209,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Apple.WindowsMigrationAssistant",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:15.229Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.316Z"
     },
     {
       "id": "Apple.iCloud",
@@ -7240,8 +7240,8 @@
       ],
       "installCommand": "winget install --id Apple.iCloud",
       "category": "Album",
-      "icon": "https://logo.clearbit.com/support.apple.com",
-      "lastUpdated": "2025-12-17T20:50:15.270Z"
+      "icon": "https://www.google.com/s2/favicons?domain=support.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.554Z"
     },
     {
       "id": "Apple.iTunes",
@@ -7258,8 +7258,8 @@
       ],
       "installCommand": "winget install --id Apple.iTunes",
       "category": "Ios",
-      "icon": "https://logo.clearbit.com/www.apple.com",
-      "lastUpdated": "2025-12-17T20:50:15.237Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.apple.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.651Z"
     },
     {
       "id": "AppleWin.AppleWin",
@@ -7276,8 +7276,8 @@
       ],
       "installCommand": "winget install --id AppleWin.AppleWin",
       "category": "'6502'",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:15.167Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.587Z"
     },
     {
       "id": "Approximatrix.SimplyFortran",
@@ -7294,8 +7294,8 @@
       ],
       "installCommand": "winget install --id Approximatrix.SimplyFortran",
       "category": "Development",
-      "icon": "https://logo.clearbit.com/simplyfortran.com",
-      "lastUpdated": "2025-12-17T20:50:15.242Z"
+      "icon": "https://www.google.com/s2/favicons?domain=simplyfortran.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.521Z"
     },
     {
       "id": "Approximatrix.WebFortran",
@@ -7311,8 +7311,8 @@
       ],
       "installCommand": "winget install --id Approximatrix.WebFortran",
       "category": "Fortran",
-      "icon": "https://store-images.s-microsoft.com/image/apps.ApproximatrixLLC.WebFortranCLI",
-      "lastUpdated": "2025-12-17T20:50:15.247Z"
+      "icon": "https://store-images.s-microsoft.com/image/apps.ApproximatrixLLC.WebFortranCLI.png",
+      "lastUpdated": "2025-12-17T20:58:00.462Z"
     },
     {
       "id": "AprelTech.HVManager",
@@ -7324,8 +7324,8 @@
       "license": "AprelTech Terms of Use",
       "tags": [],
       "installCommand": "winget install --id AprelTech.HVManager",
-      "icon": "https://logo.clearbit.com/apreltech.com",
-      "lastUpdated": "2025-12-17T20:50:15.289Z"
+      "icon": "https://www.google.com/s2/favicons?domain=apreltech.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.569Z"
     },
     {
       "id": "AprelTech.PowerManager",
@@ -7337,7 +7337,7 @@
       "tags": [],
       "installCommand": "winget install --id AprelTech.PowerManager",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:15.310Z"
+      "lastUpdated": "2025-12-17T20:58:00.560Z"
     },
     {
       "id": "Apryse.XodoPDFReader",
@@ -7349,8 +7349,8 @@
       "license": "Freeware",
       "tags": [],
       "installCommand": "winget install --id Apryse.XodoPDFReader",
-      "icon": "https://logo.clearbit.com/xodo.com",
-      "lastUpdated": "2025-12-17T20:50:15.359Z"
+      "icon": "https://www.google.com/s2/favicons?domain=xodo.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:00.666Z"
     },
     {
       "id": "AptosCore.aptos",
@@ -7368,8 +7368,8 @@
       ],
       "installCommand": "winget install --id AptosCore.aptos",
       "category": "Aptos",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:15.790Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.476Z"
     },
     {
       "id": "AquaSecurity.Trivy",
@@ -7396,8 +7396,8 @@
       ],
       "installCommand": "winget install --id AquaSecurity.Trivy",
       "category": "Cli",
-      "icon": "https://logo.clearbit.com/aquasecurity.github.io",
-      "lastUpdated": "2025-12-17T20:50:15.903Z"
+      "icon": "https://www.google.com/s2/favicons?domain=aquasecurity.github.io&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.534Z"
     },
     {
       "id": "ArashiVisionInc.Insta360Studio",
@@ -7409,7 +7409,7 @@
       "tags": [],
       "installCommand": "winget install --id ArashiVisionInc.Insta360Studio",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:15.836Z"
+      "lastUpdated": "2025-12-17T20:58:01.564Z"
     },
     {
       "id": "Araxis.Merge",
@@ -7439,8 +7439,8 @@
       ],
       "installCommand": "winget install --id Araxis.Merge",
       "category": "Diff",
-      "icon": "https://logo.clearbit.com/www.araxis.com",
-      "lastUpdated": "2025-12-17T20:50:15.900Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.araxis.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.407Z"
     },
     {
       "id": "ArcadeRenegade.SidebarDiagnostics",
@@ -7455,8 +7455,8 @@
       ],
       "installCommand": "winget install --id ArcadeRenegade.SidebarDiagnostics",
       "category": "Diagnostics",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:15.785Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.334Z"
     },
     {
       "id": "Archeb.OpenTrace",
@@ -7474,8 +7474,8 @@
       ],
       "installCommand": "winget install --id Archeb.OpenTrace",
       "category": "Network",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:15.940Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.834Z"
     },
     {
       "id": "Archi.Archi",
@@ -7491,8 +7491,8 @@
       ],
       "installCommand": "winget install --id Archi.Archi",
       "category": "Archimate",
-      "icon": "https://logo.clearbit.com/www.archimatetool.com",
-      "lastUpdated": "2025-12-17T20:50:15.911Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.archimatetool.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.578Z"
     },
     {
       "id": "ArcticLine.JetScreenshot",
@@ -7514,8 +7514,8 @@
       ],
       "installCommand": "winget install --id ArcticLine.JetScreenshot",
       "category": "Annotate",
-      "icon": "https://logo.clearbit.com/jetscreenshot.com",
-      "lastUpdated": "2025-12-17T20:50:15.933Z"
+      "icon": "https://www.google.com/s2/favicons?domain=jetscreenshot.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.611Z"
     },
     {
       "id": "Arctype.Arctype",
@@ -7532,8 +7532,8 @@
       ],
       "installCommand": "winget install --id Arctype.Arctype",
       "category": "Mysql",
-      "icon": null,
-      "lastUpdated": "2025-12-17T20:50:15.854Z"
+      "icon": "https://www.google.com/s2/favicons?domain=arctype.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.519Z"
     },
     {
       "id": "ArduinoSA.CLI",
@@ -7552,8 +7552,8 @@
       ],
       "installCommand": "winget install --id ArduinoSA.CLI",
       "category": "Arduino",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:15.939Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.616Z"
     },
     {
       "id": "Arelle.Arelle",
@@ -7565,8 +7565,8 @@
       "license": "Apache 2.0",
       "tags": [],
       "installCommand": "winget install --id Arelle.Arelle",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:15.917Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.730Z"
     },
     {
       "id": "Ares.Ares",
@@ -7578,7 +7578,7 @@
       "tags": [],
       "installCommand": "winget install --id Ares.Ares",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:16.003Z"
+      "lastUpdated": "2025-12-17T20:58:01.813Z"
     },
     {
       "id": "AresValley.Artemis",
@@ -7598,8 +7598,8 @@
       ],
       "installCommand": "winget install --id AresValley.Artemis",
       "category": "Radio",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:16.043Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:01.729Z"
     },
     {
       "id": "Argente.Utilities",
@@ -7611,8 +7611,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Argente.Utilities",
-      "icon": "https://logo.clearbit.com/argenteutilities.com",
-      "lastUpdated": "2025-12-17T20:50:16.590Z"
+      "icon": "https://www.google.com/s2/favicons?domain=argenteutilities.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.519Z"
     },
     {
       "id": "Argotronic.ArgusMonitor",
@@ -7635,8 +7635,8 @@
       ],
       "installCommand": "winget install --id Argotronic.ArgusMonitor",
       "category": "Cpu",
-      "icon": "https://logo.clearbit.com/www.argusmonitor.com",
-      "lastUpdated": "2025-12-17T20:50:16.449Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.argusmonitor.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.471Z"
     },
     {
       "id": "ArianesLine.Ariane",
@@ -7648,7 +7648,7 @@
       "tags": [],
       "installCommand": "winget install --id ArianesLine.Ariane",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:16.482Z"
+      "lastUpdated": "2025-12-17T20:58:02.609Z"
     },
     {
       "id": "Aries-Sciences-LLC.AI-Chess",
@@ -7660,7 +7660,7 @@
       "tags": [],
       "installCommand": "winget install --id Aries-Sciences-LLC.AI-Chess",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:16.474Z"
+      "lastUpdated": "2025-12-17T20:58:02.675Z"
     },
     {
       "id": "Arixcel.ArixcelExplorer",
@@ -7678,8 +7678,8 @@
       ],
       "installCommand": "winget install --id Arixcel.ArixcelExplorer",
       "category": "Add-in",
-      "icon": "https://logo.clearbit.com/www.arixcel.com",
-      "lastUpdated": "2025-12-17T20:50:16.603Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.arixcel.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.679Z"
     },
     {
       "id": "Arks-Layer.PSO2Tweaker",
@@ -7691,8 +7691,8 @@
       "license": "Proprietary",
       "tags": [],
       "installCommand": "winget install --id Arks-Layer.PSO2Tweaker",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:16.487Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.455Z"
     },
     {
       "id": "Arm.ArmGnuToolchain",
@@ -7704,7 +7704,7 @@
       "tags": [],
       "installCommand": "winget install --id Arm.ArmGnuToolchain",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:16.596Z"
+      "lastUpdated": "2025-12-17T20:58:02.683Z"
     },
     {
       "id": "Arm.ArmPerformanceLibraries",
@@ -7716,8 +7716,8 @@
       "license": "BSD-3",
       "tags": [],
       "installCommand": "winget install --id Arm.ArmPerformanceLibraries",
-      "icon": "https://logo.clearbit.com/developer.arm.com",
-      "lastUpdated": "2025-12-17T20:50:16.466Z"
+      "icon": "https://www.google.com/s2/favicons?domain=developer.arm.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.489Z"
     },
     {
       "id": "Arm.GnuArmEmbeddedToolchain",
@@ -7734,8 +7734,8 @@
       ],
       "installCommand": "winget install --id Arm.GnuArmEmbeddedToolchain",
       "category": "Aarch32",
-      "icon": "https://logo.clearbit.com/developer.arm.com",
-      "lastUpdated": "2025-12-17T20:50:16.583Z"
+      "icon": "https://www.google.com/s2/favicons?domain=developer.arm.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.680Z"
     },
     {
       "id": "ArmagetronAdvanced.ArmagetronAdvanced",
@@ -7753,8 +7753,8 @@
       ],
       "installCommand": "winget install --id ArmagetronAdvanced.ArmagetronAdvanced",
       "category": "Videogame",
-      "icon": "https://logo.clearbit.com/www.armagetronad.org",
-      "lastUpdated": "2025-12-17T20:50:16.604Z"
+      "icon": "https://www.google.com/s2/favicons?domain=www.armagetronad.org&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.689Z"
     },
     {
       "id": "Armaria.Armaria",
@@ -7769,8 +7769,8 @@
       ],
       "installCommand": "winget install --id Armaria.Armaria",
       "category": "Bookmarks",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:16.600Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.737Z"
     },
     {
       "id": "ArminOsaj.AutoDarkMode",
@@ -7788,8 +7788,8 @@
       ],
       "installCommand": "winget install --id ArminOsaj.AutoDarkMode",
       "category": "Dark-theme",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:16.640Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.683Z"
     },
     {
       "id": "Arnau478.hevi",
@@ -7810,8 +7810,8 @@
       ],
       "installCommand": "winget install --id Arnau478.hevi",
       "category": "Binary",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:16.622Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:02.697Z"
     },
     {
       "id": "ArrayFire.ArrayFire",
@@ -7829,8 +7829,8 @@
       ],
       "installCommand": "winget install --id ArrayFire.ArrayFire",
       "category": "Algorithm",
-      "icon": "https://logo.clearbit.com/arrayfire.com",
-      "lastUpdated": "2025-12-17T20:50:17.069Z"
+      "icon": "https://www.google.com/s2/favicons?domain=arrayfire.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:03.414Z"
     },
     {
       "id": "ArrayNetworks.MotionPro",
@@ -7842,7 +7842,7 @@
       "tags": [],
       "installCommand": "winget install --id ArrayNetworks.MotionPro",
       "icon": null,
-      "lastUpdated": "2025-12-17T20:50:17.024Z"
+      "lastUpdated": "2025-12-17T20:58:03.327Z"
     },
     {
       "id": "ArtemChepurnyi.Keyguard",
@@ -7861,8 +7861,8 @@
       ],
       "installCommand": "winget install --id ArtemChepurnyi.Keyguard",
       "category": "Credential",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:17.063Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:03.331Z"
     },
     {
       "id": "Artempyanykh.Marksman",
@@ -7884,8 +7884,8 @@
       ],
       "installCommand": "winget install --id Artempyanykh.Marksman",
       "category": "Emacs",
-      "icon": "https://logo.clearbit.com/github.com",
-      "lastUpdated": "2025-12-17T20:50:17.341Z"
+      "icon": "https://www.google.com/s2/favicons?domain=github.com&sz=64",
+      "lastUpdated": "2025-12-17T20:58:03.372Z"
     },
     {
       "id": "Artha.Artha",
@@ -7901,8 +7901,8 @@
       ],
       "installCommand": "winget install --id Artha.Artha",
       "category": "Artha",
-      "icon": "https://logo.clearbit.com/artha.sourceforge.net",
-      "lastUpdated": "2025-12-17T20:50:17.007Z"
+      "icon": "https://www.google.com/s2/favicons?domain=artha.sourceforge.net&sz=64",
+      "lastUpdated": "2025-12-17T20:58:03.395Z"
     }
   ]
 }
