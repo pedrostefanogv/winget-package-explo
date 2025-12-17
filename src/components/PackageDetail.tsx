@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Copy, Check, Globe, Download, X, Package } from '@phosphor-icons/react'
+import { Copy, Check, Globe, Download, Package } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -51,15 +51,6 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
               {pkg.id}
             </p>
           </div>
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            className="flex-shrink-0"
-          >
-            <X size={20} />
-          </Button>
         </div>
         
         <div className="flex flex-wrap gap-2">
