@@ -1,23 +1,33 @@
 import { WingetPackage, PackageDataResponse } from './types'
 
-// URL do release mais recente no GitHub
-const GITHUB_RELEASE_URL = 'https://github.com/pedrostefanogv/winget-package-explo/releases/latest/download/packages.json'
+// jsDelivr CDN - permite CORS e cacheia os arquivos do GitHub
+const JSDELIVR_URL = 'https://cdn.jsdelivr.net/gh/pedrostefanogv/winget-package-explo@main/public/data/packages.json'
+
 // Fallback para dados locais (desenvolvimento)
 const LOCAL_DATA_URL = '/data/packages.json'
 
 export async function fetchStaticPackageData(): Promise<WingetPackage[]> {
   try {
-    // Tenta buscar da release do GitHub primeiro
-    let response = await fetch(GITHUB_RELEASE_URL, {
-      cache: 'no-cache',
-    })
+    // Em produção, busca do jsDelivr CDN
+    // Em desenvolvimento, usa dados locais
+    const isProd = window.location.hostname !== 'localhost'
     
-    // Fallback para dados locais se a release não existir
-    if (!response.ok) {
-      console.log('Release not found, falling back to local data...')
-      response = await fetch(LOCAL_DATA_URL, {
+    let response: Response
+    
+    if (isProd) {
+      console.log('Fetching from jsDelivr CDN...')
+      // Adiciona timestamp para evitar cache agressivo do jsDelivr
+      response = await fetch(`${JSDELIVR_URL}?t=${Date.now()}`, {
         cache: 'no-cache',
       })
+      
+      // Fallback para dados locais se CDN falhar
+      if (!response.ok) {
+        console.log('CDN failed, falling back to local data...')
+        response = await fetch(LOCAL_DATA_URL, { cache: 'no-cache' })
+      }
+    } else {
+      response = await fetch(LOCAL_DATA_URL, { cache: 'no-cache' })
     }
     
     if (!response.ok) {
