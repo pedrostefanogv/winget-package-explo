@@ -17,6 +17,7 @@ concurrency:
 jobs:
   fetch-and-process:
     runs-on: ubuntu-latest
+    timeout-minutes: 60  # 1 hora deve ser suficiente para processamento local
     outputs:
       data_changed: ${{ steps.commit.outputs.changed }}
     
@@ -25,19 +26,27 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Clone winget-pkgs repository (sparse checkout - manifests only)
+        run: |
+          git clone --filter=blob:none --sparse https://github.com/microsoft/winget-pkgs.git winget-pkgs
+          cd winget-pkgs
+          git sparse-checkout set manifests
+          echo "Manifests folder cloned successfully"
+          ls -la manifests | head -20
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           
-      - name: Install dependencies
-        run: npm install js-yaml octokit
-          
-      - name: Fetch and process winget packages
+      - name: Fetch and process winget packages (local)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WINGET_REPO_PATH: ./winget-pkgs
         run: node scripts/fetch-winget-data.js
+      
+      - name: Cleanup winget-pkgs
+        run: rm -rf winget-pkgs
       
       - name: Get current date (Brasília GMT-3)
         id: date

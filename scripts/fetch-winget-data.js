@@ -1,4 +1,3 @@
-import { Octokit } from 'octokit'
 import fs from 'fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -6,23 +5,17 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO_OWNER = 'microsoft'
-const REPO_NAME = 'winget-pkgs'
-const MAX_PACKAGES = 500
-const BATCH_SIZE = 15 // Processar 15 pacotes em paralelo
+// Caminho do repositÛrio clonado (definido via vari·vel de ambiente ou default)
+const WINGET_REPO_PATH = process.env.WINGET_REPO_PATH || path.join(process.cwd(), 'winget-pkgs')
+const MANIFESTS_PATH = path.join(WINGET_REPO_PATH, 'manifests')
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'packages.json')
-
-const octokit = new Octokit({
-  auth: GITHUB_TOKEN
-})
+const BATCH_SIZE = 100 // Processar 100 pacotes em paralelo (È local, pode ser mais r·pido)
 
 function parseYaml(yamlText) {
   const lines = yamlText.split('\n')
   const result = {}
   let currentArray = null
-  let currentKey = null
   
   for (const line of lines) {
     if (!line.trim() || line.trim().startsWith('#')) continue
@@ -43,7 +36,6 @@ function parseYaml(yamlText) {
         result[key] = value.replace(/^["']|["']$/g, '')
       } else {
         currentArray = key
-        currentKey = key
       }
     }
   }
@@ -51,77 +43,136 @@ function parseYaml(yamlText) {
   return result
 }
 
-async function getManifestFolders() {
-  console.log('Fetching repository tree...')
+async function findAllPackageFolders() {
+  console.log(`Scanning manifests in: ${MANIFESTS_PATH}`)
+  const packageFolders = []
   
   try {
-    const { data } = await octokit.rest.git.getTree({
-      owner: REPO_OWNER,
-      repo: REPO_NAME,
-      tree_sha: 'master',
-      recursive: '1'
-    })
+    // Listar letras (a, b, c, ..., 0, 1, ...)
+    const letters = await fs.readdir(MANIFESTS_PATH)
     
-    const manifestFolders = data.tree
-      .filter(item => 
-        item.type === 'tree' && 
-        item.path.startsWith('manifests/') &&
-        item.path.split('/').length === 4
-      )
-      .slice(0, MAX_PACKAGES)
+    for (const letter of letters) {
+      const letterPath = path.join(MANIFESTS_PATH, letter)
+      const letterStat = await fs.stat(letterPath)
+      if (!letterStat.isDirectory()) continue
+      
+      // Listar publishers
+      const publishers = await fs.readdir(letterPath)
+      
+      for (const publisher of publishers) {
+        const publisherPath = path.join(letterPath, publisher)
+        const publisherStat = await fs.stat(publisherPath)
+        if (!publisherStat.isDirectory()) continue
+        
+        // Listar pacotes do publisher
+        const packages = await fs.readdir(publisherPath)
+        
+        for (const pkg of packages) {
+          const pkgPath = path.join(publisherPath, pkg)
+          const pkgStat = await fs.stat(pkgPath)
+          if (!pkgStat.isDirectory()) continue
+          
+          // Verificar se È um pacote (tem versıes) ou subpacote
+          const contents = await fs.readdir(pkgPath)
+          const hasYamlOrVersion = contents.some(c => c.endsWith('.yaml') || /^\d/.test(c))
+          
+          if (hasYamlOrVersion) {
+            packageFolders.push(pkgPath)
+          } else {
+            // … um grupo de subpacotes (ex: Microsoft/VisualStudio/Community)
+            for (const subPkg of contents) {
+              const subPkgPath = path.join(pkgPath, subPkg)
+              const subPkgStat = await fs.stat(subPkgPath)
+              if (subPkgStat.isDirectory()) {
+                packageFolders.push(subPkgPath)
+              }
+            }
+          }
+        }
+      }
+    }
     
-    console.log(`Found ${manifestFolders.length} manifest folders`)
-    return manifestFolders
+    console.log(`Found ${packageFolders.length} package folders`)
+    return packageFolders
   } catch (error) {
-    console.error('Error fetching tree:', error.message)
+    console.error('Error scanning manifests:', error.message)
     throw error
   }
 }
 
-async function getPackageManifests(folderPath) {
+async function processPackage(packagePath) {
   try {
-    const { data: contents } = await octokit.rest.repos.getContent({
-      owner: REPO_OWNER,
-      repo: REPO_NAME,
-      path: folderPath
-    })
+    const contents = await fs.readdir(packagePath)
     
-    if (!Array.isArray(contents)) return null
+    // Filtrar apenas diretÛrios (versıes)
+    const versionDirs = []
+    for (const item of contents) {
+      const itemPath = path.join(packagePath, item)
+      const stat = await fs.stat(itemPath)
+      if (stat.isDirectory()) {
+        versionDirs.push(item)
+      }
+    }
     
-    const versionFolders = contents.filter(item => item.type === 'dir')
-    if (versionFolders.length === 0) return null
+    if (versionDirs.length === 0) return null
     
-    const latestVersion = versionFolders[versionFolders.length - 1]
+    // Ordenar e pegar a vers„o mais recente
+    versionDirs.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    const latestVersion = versionDirs[versionDirs.length - 1]
+    const versionPath = path.join(packagePath, latestVersion)
     
-    const { data: versionContents } = await octokit.rest.repos.getContent({
-      owner: REPO_OWNER,
-      repo: REPO_NAME,
-      path: latestVersion.path
-    })
+    // Listar arquivos da vers„o
+    const versionContents = await fs.readdir(versionPath)
     
-    if (!Array.isArray(versionContents)) return null
-    
+    // Encontrar arquivos de manifesto
     const localeFile = versionContents.find(f => 
-      f.name.includes('.locale.') && f.name.endsWith('.yaml')
+      f.includes('.locale.') && f.endsWith('.yaml')
     )
     
     const installerFile = versionContents.find(f => 
-      f.name.includes('.installer.') && f.name.endsWith('.yaml')
+      f.includes('.installer.') && f.endsWith('.yaml')
     )
     
     if (!localeFile) return null
     
-    // Fetch arquivos em paralelo
-    const fetchPromises = [fetch(localeFile.download_url).then(r => r.text())]
+    // Ler arquivos
+    const localeYaml = await fs.readFile(path.join(versionPath, localeFile), 'utf-8')
+    const localeManifest = parseYaml(localeYaml)
+    
+    let installerManifest = null
     if (installerFile) {
-      fetchPromises.push(fetch(installerFile.download_url).then(r => r.text()))
+      const installerYaml = await fs.readFile(path.join(versionPath, installerFile), 'utf-8')
+      installerManifest = parseYaml(installerYaml)
     }
     
-    const [localeYaml, installerYaml] = await Promise.all(fetchPromises)
-    const localeManifest = parseYaml(localeYaml)
-    const installerManifest = installerYaml ? parseYaml(installerYaml) : null
+    // Extrair ID do pacote
+    const packageId = localeManifest.PackageIdentifier || 
+      packagePath.split(path.sep).slice(-2).join('.')
     
-    return { locale: localeManifest, installer: installerManifest, version: latestVersion.name }
+    // Extrair Ìcone
+    const iconUrl = extractIconUrl({ locale: localeManifest, installer: installerManifest })
+    
+    // Extrair categoria
+    const category = localeManifest.Tags && Array.isArray(localeManifest.Tags) && localeManifest.Tags.length > 0
+      ? localeManifest.Tags[0].charAt(0).toUpperCase() + localeManifest.Tags[0].slice(1)
+      : localeManifest.Tags && typeof localeManifest.Tags === 'string'
+      ? localeManifest.Tags.charAt(0).toUpperCase() + localeManifest.Tags.slice(1)
+      : undefined
+    
+    return {
+      id: packageId,
+      name: localeManifest.PackageName || packageId,
+      publisher: localeManifest.Publisher || 'Unknown',
+      version: localeManifest.PackageVersion || latestVersion,
+      description: localeManifest.ShortDescription || localeManifest.Description,
+      homepage: localeManifest.PackageUrl || localeManifest.PublisherUrl,
+      license: localeManifest.License || 'Not specified',
+      tags: Array.isArray(localeManifest.Tags) ? localeManifest.Tags : (localeManifest.Tags ? [localeManifest.Tags] : []),
+      installCommand: `winget install --id ${packageId}`,
+      category,
+      icon: iconUrl,
+      lastUpdated: new Date().toISOString()
+    }
   } catch (error) {
     return null
   }
@@ -132,7 +183,7 @@ function extractIconUrl(manifest) {
   
   const { locale, installer } = manifest
   
-  // 1. Tentar buscar do Microsoft Store (mais confi√°vel)
+  // 1. Tentar buscar do Microsoft Store
   if (installer?.PackageFamilyName) {
     const pfn = installer.PackageFamilyName.split('_')[0]
     return `https://store-images.s-microsoft.com/image/apps.${pfn}.png`
@@ -142,33 +193,33 @@ function extractIconUrl(manifest) {
   if (locale?.PackageUrl) {
     try {
       const url = new URL(locale.PackageUrl)
-      // Google Favicon API - mais confi√°vel que clearbit
       return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
     } catch {
-      // URL inv√°lida, ignora
+      // URL inv·lida
     }
   }
   
-  // 3. Usar favicon do site do publisher
+  // 3. Usar favicon do publisher
   if (locale?.PublisherUrl) {
     try {
       const url = new URL(locale.PublisherUrl)
       return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
     } catch {
-      // URL inv√°lida, ignora
+      // URL inv·lida
     }
   }
   
   return null
 }
 
-async function processPackages() {
+async function processAllPackages() {
   console.log('Starting package processing...')
   const startTime = Date.now()
   
-  const folders = await getManifestFolders()
+  const folders = await findAllPackageFolders()
   const packages = []
-  const errors = []
+  let processed = 0
+  let errors = 0
   
   // Processar em lotes paralelos
   for (let i = 0; i < folders.length; i += BATCH_SIZE) {
@@ -176,66 +227,32 @@ async function processPackages() {
     const batchNumber = Math.floor(i / BATCH_SIZE) + 1
     const totalBatches = Math.ceil(folders.length / BATCH_SIZE)
     
-    console.log(`Processing batch ${batchNumber}/${totalBatches} (packages ${i + 1}-${Math.min(i + BATCH_SIZE, folders.length)})...`)
-    
     const batchResults = await Promise.allSettled(
-      batch.map(async (folder) => {
-        try {
-          const manifests = await getPackageManifests(folder.path)
-          
-          if (!manifests || !manifests.locale) {
-            return null
-          }
-          
-          const { locale, installer, version } = manifests
-          const parts = folder.path.split('/')
-          const packageId = locale.PackageIdentifier || `${parts[1]}.${parts[2]}`
-          
-          const iconUrl = extractIconUrl({ locale, installer })
-          
-          const category = locale.Tags && Array.isArray(locale.Tags) && locale.Tags.length > 0
-            ? locale.Tags[0].charAt(0).toUpperCase() + locale.Tags[0].slice(1)
-            : locale.Tags && typeof locale.Tags === 'string'
-            ? locale.Tags.charAt(0).toUpperCase() + locale.Tags.slice(1)
-            : undefined
-          
-          return {
-            id: packageId,
-            name: locale.PackageName || packageId,
-            publisher: locale.Publisher || 'Unknown',
-            version: locale.PackageVersion || version,
-            description: locale.ShortDescription || locale.Description,
-            homepage: locale.PackageUrl || locale.PublisherUrl,
-            license: locale.License || 'Not specified',
-            tags: Array.isArray(locale.Tags) ? locale.Tags : (locale.Tags ? [locale.Tags] : []),
-            installCommand: `winget install --id ${packageId}`,
-            category,
-            icon: iconUrl,
-            lastUpdated: new Date().toISOString()
-          }
-        } catch (error) {
-          errors.push({ folder: folder.path, error: error.message })
-          return null
-        }
-      })
+      batch.map(folder => processPackage(folder))
     )
     
-    // Coletar resultados bem-sucedidos
     for (const result of batchResults) {
+      processed++
       if (result.status === 'fulfilled' && result.value) {
         packages.push(result.value)
+      } else {
+        errors++
       }
     }
     
-    // Pequeno delay entre lotes para evitar rate limiting
-    if (i + BATCH_SIZE < folders.length) {
-      await new Promise(resolve => setTimeout(resolve, 50))
+    // Log de progresso a cada 10 lotes
+    if (batchNumber % 10 === 0 || batchNumber === totalBatches) {
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+      console.log(`Progress: ${batchNumber}/${totalBatches} batches (${packages.length} packages, ${elapsed}s)`)
     }
   }
   
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-  console.log(`Successfully processed ${packages.length} packages in ${elapsed}s`)
-  console.log(`Errors: ${errors.length}`)
+  console.log(`\nProcessing complete!`)
+  console.log(`Total processed: ${processed}`)
+  console.log(`Successful: ${packages.length}`)
+  console.log(`Errors/skipped: ${errors}`)
+  console.log(`Time: ${elapsed}s`)
   
   return packages
 }
@@ -243,22 +260,45 @@ async function processPackages() {
 async function savePackages(packages) {
   await fs.mkdir(OUTPUT_DIR, { recursive: true })
   
+  // Ordenar: pacotes com Ìcone primeiro, depois alfabeticamente por nome
+  const sortedPackages = packages.sort((a, b) => {
+    const aHasIcon = a.icon ? 1 : 0
+    const bHasIcon = b.icon ? 1 : 0
+    if (bHasIcon !== aHasIcon) return bHasIcon - aHasIcon
+    return a.name.localeCompare(b.name)
+  })
+  
   const output = {
     generated: new Date().toISOString(),
-    count: packages.length,
-    packages
+    count: sortedPackages.length,
+    packagesWithIcon: sortedPackages.filter(p => p.icon).length,
+    packages: sortedPackages
   }
   
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2))
-  console.log(`Saved ${packages.length} packages to ${OUTPUT_FILE}`)
+  console.log(`\nSaved ${sortedPackages.length} packages to ${OUTPUT_FILE}`)
+  console.log(`Packages with icons: ${output.packagesWithIcon}`)
 }
 
 async function main() {
   try {
-    console.log('Starting winget package data fetch...')
-    const packages = await processPackages()
+    // Verificar se o repositÛrio existe
+    try {
+      await fs.access(MANIFESTS_PATH)
+    } catch {
+      console.error(`Error: Manifests folder not found at ${MANIFESTS_PATH}`)
+      console.error('Make sure the winget-pkgs repository is cloned.')
+      process.exit(1)
+    }
+    
+    console.log('='.repeat(50))
+    console.log('Winget Package Data Fetcher (Local Processing)')
+    console.log('='.repeat(50))
+    
+    const packages = await processAllPackages()
     await savePackages(packages)
-    console.log('Done!')
+    
+    console.log('\nDone!')
   } catch (error) {
     console.error('Fatal error:', error)
     process.exit(1)
