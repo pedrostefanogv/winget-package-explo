@@ -1,5 +1,4 @@
-import { createContext, useContext, ReactNode, useEffect, useState } from 'react'
-import { useKV } from '@github/spark/hooks'
+import { createContext, useContext, ReactNode, useEffect, useState, useCallback } from 'react'
 import { Language, t as translate } from '@/lib/i18n'
 
 interface LanguageContextType {
@@ -9,6 +8,8 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+const LANGUAGE_STORAGE_KEY = 'app-language'
 
 function detectBrowserLanguage(): Language {
   const browserLang = navigator.language || navigator.languages?.[0]
@@ -33,36 +34,34 @@ function detectBrowserLanguage(): Language {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [isInitialized, setIsInitialized] = useState(false)
-  const [language, setLanguage] = useKV<Language>('app-language', 'pt-BR')
-  
-  useEffect(() => {
-    const initLanguage = async () => {
-      const storedLang = await window.spark.kv.get<Language>('app-language')
-      
-      if (!storedLang) {
-        const detectedLang = detectBrowserLanguage()
-        setLanguage(detectedLang)
+  const [language, setLanguageState] = useState<Language>(() => {
+    // Tentar recuperar do localStorage no estado inicial
+    try {
+      const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY)
+      if (stored && ['pt-BR', 'en-US', 'es-ES', 'fr-FR', 'de-DE'].includes(stored)) {
+        return stored as Language
       }
-      
-      setIsInitialized(true)
+    } catch {
+      // localStorage não disponível
     }
-    
-    initLanguage()
-  }, [setLanguage])
+    return detectBrowserLanguage()
+  })
 
-  const currentLanguage = language || 'pt-BR'
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang)
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, lang)
+    } catch {
+      // localStorage não disponível
+    }
+  }, [])
 
-  const t = (key: string, params?: Record<string, any>) => {
-    return translate(currentLanguage, key, params)
-  }
-
-  if (!isInitialized) {
-    return null
-  }
+  const t = useCallback((key: string, params?: Record<string, any>) => {
+    return translate(language, key, params)
+  }, [language])
 
   return (
-    <LanguageContext.Provider value={{ language: currentLanguage, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   )
