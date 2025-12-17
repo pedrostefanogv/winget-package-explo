@@ -11,12 +11,14 @@ import { PackageCard } from '@/components/PackageCard'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
 import { LanguageSelector } from '@/components/LanguageSelector'
+import { ThemeSelector } from '@/components/ThemeSelector'
 import { Footer } from '@/components/Footer'
 import { WingetPackage } from '@/lib/types'
 import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
-import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/contexts/ThemeContext'
+import { cn, matchesMultiWordSearch } from '@/lib/utils'
 
 const HOME_PACKAGES_LIMIT = 20
 const DEBOUNCE_DELAY = 300 // ms
@@ -72,11 +74,15 @@ function AppContent() {
 
   const filteredPackages = useMemo(() => {
     return packages.filter(pkg => {
-      const matchesSearch = searchQuery === '' || 
-        pkg.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        pkg.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        pkg.publisher.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        pkg.description?.toLowerCase().includes(searchQuery.toLowerCase())
+      // Pesquisa multi-palavra: todas as palavras devem aparecer em algum campo
+      const searchableText = [
+        pkg.name,
+        pkg.id,
+        pkg.publisher,
+        pkg.description || ''
+      ].join(' ')
+      
+      const matchesSearch = matchesMultiWordSearch(searchableText, searchQuery)
 
       // Verificar se alguma tag do pacote corresponde à tag selecionada (case-insensitive)
       const matchesTag = !selectedTag || 
@@ -127,7 +133,10 @@ function AppContent() {
                 {t('app.subtitle')}
               </p>
             </div>
-            <LanguageSelector />
+            <div className="flex items-center gap-2">
+              <ThemeSelector />
+              <LanguageSelector />
+            </div>
           </div>
 
           <div className="space-y-4">
@@ -313,6 +322,7 @@ function AppContent() {
               <PackageCard
                 key={pkg.id}
                 package={pkg}
+                searchQuery={searchQuery}
                 onClick={() => setSelectedPackage(pkg)}
               />
             ))}
@@ -341,9 +351,11 @@ function AppContent() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ThemeProvider>
   )
 }
 

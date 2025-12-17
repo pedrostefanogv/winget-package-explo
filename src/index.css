@@ -7,6 +7,7 @@
   }
 }
 
+/* Tema escuro (padrão) */
 :root {
   --background: oklch(0.15 0.01 252);
   --foreground: oklch(0.95 0.01 252);
@@ -32,6 +33,70 @@
   --ring: oklch(0.75 0.15 195);
 
   --radius: 0.5rem;
+  
+  /* Highlight para pesquisa - tema escuro */
+  --highlight-bg: oklch(0.55 0.20 90);
+  --highlight-fg: oklch(0.15 0.01 252);
+}
+
+/* Tema claro */
+.light {
+  --background: oklch(0.98 0.01 252);
+  --foreground: oklch(0.15 0.01 252);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 252);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 252);
+
+  --primary: oklch(0.45 0.19 252);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.94 0.01 252);
+  --secondary-foreground: oklch(0.15 0.01 252);
+  --muted: oklch(0.94 0.01 252);
+  --muted-foreground: oklch(0.45 0.01 252);
+  --accent: oklch(0.55 0.15 195);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.88 0.01 252);
+  --input: oklch(0.88 0.01 252);
+  --ring: oklch(0.55 0.15 195);
+  
+  /* Highlight para pesquisa - tema claro */
+  --highlight-bg: oklch(0.85 0.18 90);
+  --highlight-fg: oklch(0.15 0.01 252);
+}
+
+/* Tema escuro explícito */
+.dark {
+  --background: oklch(0.15 0.01 252);
+  --foreground: oklch(0.95 0.01 252);
+
+  --card: oklch(0.25 0.01 252);
+  --card-foreground: oklch(0.95 0.01 252);
+  --popover: oklch(0.25 0.01 252);
+  --popover-foreground: oklch(0.95 0.01 252);
+
+  --primary: oklch(0.45 0.19 252);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.30 0.02 252);
+  --secondary-foreground: oklch(0.95 0.01 252);
+  --muted: oklch(0.20 0.01 252);
+  --muted-foreground: oklch(0.60 0.01 252);
+  --accent: oklch(0.75 0.15 195);
+  --accent-foreground: oklch(0.15 0.01 252);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.30 0.01 252);
+  --input: oklch(0.30 0.01 252);
+  --ring: oklch(0.75 0.15 195);
+  
+  /* Highlight para pesquisa - tema escuro */
+  --highlight-bg: oklch(0.55 0.20 90);
+  --highlight-fg: oklch(0.15 0.01 252);
 }
 
 @theme {
@@ -54,6 +119,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-highlight-bg: var(--highlight-bg);
+  --color-highlight-fg: var(--highlight-fg);
 
   --radius-sm: calc(var(--radius) * 0.5);
   --radius-md: var(--radius);
@@ -77,6 +144,7 @@ body {
 .package-card {
   position: relative;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--card);
 }
 
 .package-card::before {
@@ -85,7 +153,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, transparent, oklch(0.75 0.15 195 / 0.3));
+  background: linear-gradient(135deg, transparent, var(--accent));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -94,20 +162,20 @@ body {
 }
 
 .package-card:hover::before {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .package-card:hover {
   transform: translateY(-2px);
-  border-color: oklch(0.75 0.15 195);
+  border-color: var(--accent);
 }
 
 .code-block {
-  background: oklch(0.12 0.01 252);
-  border: 1px solid oklch(0.25 0.01 252);
+  background: var(--muted);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.75rem 1rem;
   font-family: var(--font-mono);
   font-size: 0.875rem;
-  color: oklch(0.75 0.15 195);
+  color: var(--accent);
 }

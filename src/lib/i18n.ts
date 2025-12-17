@@ -127,6 +127,12 @@ export const translations = {
       'fr-FR': 'Français',
       'de-DE': 'Deutsch',
     },
+    theme: {
+      label: 'Theme',
+      system: 'Auto',
+      light: 'Light',
+      dark: 'Dark',
+    },
     footer: {
       about: 'About',
       description: 'Winget Package Explorer is a web interface to search and discover applications available on Windows Package Manager (winget). Data is updated weekly from the official microsoft/winget-pkgs repository.',
@@ -197,6 +203,12 @@ export const translations = {
       'es-ES': 'Español',
       'fr-FR': 'Français',
       'de-DE': 'Deutsch',
+    },
+    theme: {
+      label: 'Tema',
+      system: 'Automático',
+      light: 'Claro',
+      dark: 'Oscuro',
     },
     footer: {
       about: 'Acerca de',
@@ -269,6 +281,12 @@ export const translations = {
       'fr-FR': 'Français',
       'de-DE': 'Deutsch',
     },
+    theme: {
+      label: 'Thème',
+      system: 'Auto',
+      light: 'Clair',
+      dark: 'Sombre',
+    },
     footer: {
       about: 'À propos',
       description: 'L\'Explorateur de Paquets Winget est une interface web pour rechercher et découvrir les applications disponibles sur Windows Package Manager (winget). Les données sont mises à jour chaque semaine depuis le dépôt officiel microsoft/winget-pkgs.',
@@ -339,6 +357,12 @@ export const translations = {
       'es-ES': 'Español',
       'fr-FR': 'Français',
       'de-DE': 'Deutsch',
+    },
+    theme: {
+      label: 'Thema',
+      system: 'Auto',
+      light: 'Hell',
+      dark: 'Dunkel',
     },
     footer: {
       about: 'Über',
