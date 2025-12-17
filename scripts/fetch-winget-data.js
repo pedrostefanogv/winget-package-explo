@@ -156,13 +156,23 @@ async function processPackage(packagePath) {
     
     if (versionDirs.length === 0) return null
     
-    // Ordenar e pegar a vers�o mais recente
+    // Ordenar e pegar a versão mais recente
     versionDirs.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
     const latestVersion = versionDirs[versionDirs.length - 1]
     const versionPath = path.join(packagePath, latestVersion)
     
     // Listar arquivos da versão
     const versionContents = await fs.readdir(versionPath)
+    
+    // Extrair o PackageIdentifier do nome da pasta ou do version manifest
+    // Ex: c:\...\manifests\m\Mozilla\Firefox -> Mozilla.Firefox
+    const pathParts = packagePath.split(path.sep)
+    const manifestsIndex = pathParts.indexOf('manifests')
+    let packageId = null
+    if (manifestsIndex !== -1 && manifestsIndex + 2 < pathParts.length) {
+      // Pular a letra (m, a, etc) e pegar publisher + resto do caminho
+      packageId = pathParts.slice(manifestsIndex + 2).join('.')
+    }
     
     // Encontrar arquivos de manifesto
     // Prioridade para locale:
@@ -180,8 +190,14 @@ async function processPackage(packagePath) {
       )
     }
     
+    // Encontrar o version manifest (arquivo base)
+    const versionManifestFile = versionContents.find(f => 
+      f.endsWith('.yaml') && 
+      !f.includes('.installer.') && 
+      !f.includes('.locale.')
+    )
+    
     // Se não tem arquivo .locale., tentar arquivo principal (formato antigo/simples)
-    // Excluir arquivos .installer. e .yaml que é apenas version manifest
     if (!localeFile) {
       // Primeiro tentar arquivos que NÃO são apenas o version manifest
       const yamlFiles = versionContents.filter(f => 
@@ -210,11 +226,28 @@ async function processPackage(packagePath) {
       f.includes('.installer.') && f.endsWith('.yaml')
     )
     
-    if (!localeFile) return null
+    // Se não temos locale file mas temos version manifest, ainda podemos processar
+    // usando informações do version manifest + installer
+    if (!localeFile && !versionManifestFile) return null
     
     // Ler arquivos
-    const localeYaml = await fs.readFile(path.join(versionPath, localeFile), 'utf-8')
-    const localeManifest = parseYaml(localeYaml)
+    let localeManifest = {}
+    if (localeFile) {
+      const localeYaml = await fs.readFile(path.join(versionPath, localeFile), 'utf-8')
+      localeManifest = parseYaml(localeYaml)
+    }
+    
+    // Ler version manifest para obter PackageIdentifier se disponível
+    let versionManifest = {}
+    if (versionManifestFile) {
+      const versionYaml = await fs.readFile(path.join(versionPath, versionManifestFile), 'utf-8')
+      versionManifest = parseYaml(versionYaml)
+    }
+    
+    // Usar PackageIdentifier do manifest ou deduzir do path
+    if (!packageId) {
+      packageId = localeManifest.PackageIdentifier || versionManifest.PackageIdentifier
+    }
     
     let installerManifest = null
     if (installerFile) {
@@ -222,11 +255,11 @@ async function processPackage(packagePath) {
       installerManifest = parseYaml(installerYaml)
     }
     
-    // Extrair ID do pacote
-    const packageId = localeManifest.PackageIdentifier || 
+    // Garantir que temos um packageId válido
+    const finalPackageId = packageId || localeManifest.PackageIdentifier || versionManifest.PackageIdentifier || 
       packagePath.split(path.sep).slice(-2).join('.')
     
-    // Extrair �cone
+    // Extrair ícone
     const iconUrl = extractIconUrl({ locale: localeManifest, installer: installerManifest })
     
     // Extrair categoria
@@ -236,16 +269,19 @@ async function processPackage(packagePath) {
       ? localeManifest.Tags.charAt(0).toUpperCase() + localeManifest.Tags.slice(1)
       : undefined
     
+    // Se não temos nome do pacote no locale, tentar usar o ID como nome
+    const packageName = localeManifest.PackageName || finalPackageId.split('.').pop() || finalPackageId
+    
     return {
-      id: packageId,
-      name: localeManifest.PackageName || packageId,
-      publisher: localeManifest.Publisher || 'Unknown',
-      version: localeManifest.PackageVersion || latestVersion,
+      id: finalPackageId,
+      name: packageName,
+      publisher: localeManifest.Publisher || versionManifest.Publisher || finalPackageId.split('.')[0] || 'Unknown',
+      version: localeManifest.PackageVersion || versionManifest.PackageVersion || latestVersion,
       description: localeManifest.ShortDescription || localeManifest.Description,
       homepage: localeManifest.PackageUrl || localeManifest.PublisherUrl,
       license: localeManifest.License || 'Not specified',
       tags: Array.isArray(localeManifest.Tags) ? localeManifest.Tags : (localeManifest.Tags ? [localeManifest.Tags] : []),
-      installCommand: `winget install --id ${packageId}`,
+      installCommand: `winget install --id ${finalPackageId}`,
       category,
       icon: iconUrl,
       lastUpdated: new Date().toISOString()
