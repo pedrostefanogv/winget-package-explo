@@ -39,9 +39,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/fetch-winget-data.js
       
-      - name: Get current date
+      - name: Get current date (Brasília GMT-3)
         id: date
-        run: echo "date=$(date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
+        run: |
+          # Data para tag (sem espaços)
+          echo "tag=$(TZ='America/Sao_Paulo' date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
+          # Data formatada para exibição
+          echo "display=$(TZ='America/Sao_Paulo' date +'%d/%m/%Y às %H:%M (Brasília)')" >> $GITHUB_OUTPUT
       
       - name: Commit and push data
         id: commit
@@ -53,7 +57,7 @@ jobs:
             echo "No changes to commit"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "chore: update winget package data (${{ steps.date.outputs.date }})"
+            git commit -m "chore: update winget package data (${{ steps.date.outputs.tag }})"
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
@@ -62,13 +66,14 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: data-${{ steps.date.outputs.date }}
-          name: Package Data ${{ steps.date.outputs.date }}
+          tag_name: data-${{ steps.date.outputs.tag }}
+          name: 📦 Package Data - ${{ steps.date.outputs.display }}
           body: |
-            Automated winget package data update.
+            ## Atualização automática dos dados de pacotes Winget
             
-            - Generated: ${{ steps.date.outputs.date }}
-            - Download `packages.json` to use the data
+            🕐 **Gerado em:** ${{ steps.date.outputs.display }}
+            
+            📥 Baixe o arquivo `packages.json` para usar os dados.
           files: public/data/packages.json
           make_latest: true
         env:
