@@ -43,6 +43,56 @@ function parseYaml(yamlText) {
   return result
 }
 
+// Função recursiva para encontrar pastas que contêm versões
+async function findPackagesRecursively(dirPath, depth = 0, maxDepth = 6) {
+  if (depth > maxDepth) return []
+  
+  const results = []
+  
+  try {
+    const contents = await fs.readdir(dirPath)
+    
+    // Verificar se esta pasta contém diretórios de versão (começam com número)
+    const hasVersionDirs = contents.some(item => /^\d/.test(item))
+    
+    if (hasVersionDirs) {
+      // Esta pasta é um pacote - tem versões diretas
+      results.push(dirPath)
+      
+      // MAS também pode ter subpacotes (como Firefox tem pt-BR, ESR, etc)
+      // Então verificar subpastas que NÃO são versões
+      for (const item of contents) {
+        if (/^\d/.test(item)) continue // Pular versões
+        if (item.endsWith('.yaml')) continue // Pular arquivos
+        
+        const itemPath = path.join(dirPath, item)
+        const stat = await fs.stat(itemPath)
+        if (stat.isDirectory()) {
+          // Recursar para encontrar subpacotes
+          const subPackages = await findPackagesRecursively(itemPath, depth + 1, maxDepth)
+          results.push(...subPackages)
+        }
+      }
+    } else {
+      // Não tem versões diretas - verificar subpastas
+      for (const item of contents) {
+        if (item.endsWith('.yaml')) continue // Pular arquivos
+        
+        const itemPath = path.join(dirPath, item)
+        const stat = await fs.stat(itemPath)
+        if (stat.isDirectory()) {
+          const subPackages = await findPackagesRecursively(itemPath, depth + 1, maxDepth)
+          results.push(...subPackages)
+        }
+      }
+    }
+  } catch (error) {
+    // Ignorar erros de leitura em pastas específicas
+  }
+  
+  return results
+}
+
 async function findAllPackageFolders() {
   console.log(`Scanning manifests in: ${MANIFESTS_PATH}`)
   const packageFolders = []
@@ -72,22 +122,9 @@ async function findAllPackageFolders() {
           const pkgStat = await fs.stat(pkgPath)
           if (!pkgStat.isDirectory()) continue
           
-          // Verificar se � um pacote (tem vers�es) ou subpacote
-          const contents = await fs.readdir(pkgPath)
-          const hasYamlOrVersion = contents.some(c => c.endsWith('.yaml') || /^\d/.test(c))
-          
-          if (hasYamlOrVersion) {
-            packageFolders.push(pkgPath)
-          } else {
-            // � um grupo de subpacotes (ex: Microsoft/VisualStudio/Community)
-            for (const subPkg of contents) {
-              const subPkgPath = path.join(pkgPath, subPkg)
-              const subPkgStat = await fs.stat(subPkgPath)
-              if (subPkgStat.isDirectory()) {
-                packageFolders.push(subPkgPath)
-              }
-            }
-          }
+          // Usar busca recursiva para encontrar todos os pacotes
+          const foundPackages = await findPackagesRecursively(pkgPath, 0, 4)
+          packageFolders.push(...foundPackages)
         }
       }
     }
@@ -104,9 +141,12 @@ async function processPackage(packagePath) {
   try {
     const contents = await fs.readdir(packagePath)
     
-    // Filtrar apenas diret�rios (vers�es)
+    // Filtrar apenas diretórios que são versões (começam com número)
     const versionDirs = []
     for (const item of contents) {
+      // Versões começam com número (ex: 146.0, 1.0.0, 2024.1)
+      if (!/^\d/.test(item)) continue
+      
       const itemPath = path.join(packagePath, item)
       const stat = await fs.stat(itemPath)
       if (stat.isDirectory()) {
