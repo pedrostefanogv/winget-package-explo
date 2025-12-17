@@ -1,6 +1,6 @@
 # Planning Guide
 
-A web application that allows users to search, browse, and view detailed information about Windows Package Manager (winget) application packages from the Microsoft winget-pkgs repository using live GitHub API integration.
+A web application that allows users to search, browse, and view detailed information about Windows Package Manager (winget) application packages. Data is automatically fetched and processed weekly via GitHub Actions from the microsoft/winget-pkgs repository, including package icons for visual identification.
 
 **Experience Qualities**:
 1. **Efficient** - Users should be able to quickly search and find package information without friction
@@ -8,7 +8,7 @@ A web application that allows users to search, browse, and view detailed informa
 3. **Technical** - The design should appeal to developers and system administrators who use winget regularly
 
 **Complexity Level**: Light Application (multiple features with basic state)
-- This is a search and display application with filtering capabilities, package detail views, and live GitHub API integration. It fetches real package data from the microsoft/winget-pkgs repository and falls back gracefully to mock data if the API is unavailable.
+- This is a search and display application with filtering capabilities, package detail views, and automated data processing. A GitHub Actions workflow pre-processes package data weekly from microsoft/winget-pkgs, including package icons. The frontend loads this optimized data with graceful fallbacks to live API or mock data.
 
 ## Essential Features
 
@@ -20,18 +20,18 @@ A web application that allows users to search, browse, and view detailed informa
 - **Success criteria**: Search results update within 100ms and accurately match package names, IDs, and publishers
 
 ### Package List View
-- **Functionality**: Display a scrollable list of winget packages fetched from GitHub API with key metadata (name, ID, publisher, version)
-- **Purpose**: Provide an overview of real winget packages directly from the microsoft/winget-pkgs repository
-- **Trigger**: App loads and fetches data from GitHub API
-- **Progression**: App initializes → GitHub API request → Packages load from API → List renders with cards → User scrolls to browse
-- **Success criteria**: List displays packages from GitHub with smooth scrolling, clear visual hierarchy, and graceful fallback to mock data if API fails
+- **Functionality**: Display a scrollable list of winget packages with key metadata (name, ID, publisher, version) and package icons
+- **Purpose**: Provide an overview of winget packages with visual identification through icons
+- **Trigger**: App loads and fetches pre-processed data from static JSON file
+- **Progression**: App initializes → Load static data → Packages render with icons → User scrolls to browse
+- **Success criteria**: List displays packages with icons, smooth scrolling, clear visual hierarchy, and graceful fallback to API or mock data if static data unavailable
 
 ### Package Detail View
-- **Functionality**: Show comprehensive information about a selected package including description, versions, license, homepage, install commands
-- **Purpose**: Provide all metadata a user needs to understand and install a package
+- **Functionality**: Show comprehensive information about a selected package including description, versions, license, homepage, install commands, and package icon
+- **Purpose**: Provide all metadata a user needs to understand and install a package with visual confirmation via icon
 - **Trigger**: User clicks on a package card from the list
-- **Progression**: User clicks package → Detail panel/modal opens → Full metadata displays → User can copy install command
-- **Success criteria**: All relevant package manifest fields are displayed with copy-to-clipboard functionality for install commands
+- **Progression**: User clicks package → Detail panel/modal opens → Full metadata displays with icon → User can copy install command
+- **Success criteria**: All relevant package manifest fields are displayed with icon (when available) and copy-to-clipboard functionality for install commands
 
 ### Category/Publisher Filtering
 - **Functionality**: Filter packages by category tags or publisher name from live GitHub data
@@ -40,23 +40,26 @@ A web application that allows users to search, browse, and view detailed informa
 - **Progression**: User clicks filter → List updates to show only matching packages → User can clear filter to reset
 - **Success criteria**: Filters apply immediately and can be combined with search queries
 
-### GitHub API Integration
-- **Functionality**: Fetch real package manifests from microsoft/winget-pkgs repository on GitHub
-- **Purpose**: Provide live, up-to-date package information directly from the official source
-- **Trigger**: App initialization
-- **Progression**: App loads → API request to GitHub → Parse YAML manifests → Display packages → Show success indicator
-- **Success criteria**: Successfully fetch and parse at least 50 packages within 10 seconds, with clear loading states and error handling
+### Automated Data Processing
+- **Functionality**: GitHub Actions workflow that runs weekly to fetch, process, and store package data with icons from microsoft/winget-pkgs
+- **Purpose**: Provide optimized, up-to-date package data without relying on real-time API calls, including visual identification through icons
+- **Trigger**: Automated weekly schedule (Sundays at midnight UTC), manual workflow dispatch, or workflow file updates
+- **Progression**: Workflow triggers → Fetch manifests from GitHub → Parse YAML → Extract metadata and icons → Generate JSON → Commit to repository
+- **Success criteria**: Successfully processes 500+ packages weekly with metadata and icon URLs, commits updated JSON file, completes within GitHub Actions time limits
 
 ## Edge Case Handling
 
 - **No Search Results**: Display a helpful empty state with suggestions to try different search terms or clear filters
 - **Package Without Description**: Show a placeholder message indicating description is unavailable in the manifest
+- **Package Without Icon**: Display a default package icon when no icon URL is available or image fails to load
 - **Long Package Names/IDs**: Truncate with ellipsis and show full text on hover with tooltip
 - **Missing Package Metadata**: Gracefully handle missing fields by showing "Not specified" or hiding the field entirely
 - **Slow Network**: Show loading skeletons while data fetches to maintain perceived performance
+- **Static Data Unavailable**: Automatically fall back to live GitHub API, then mock data if necessary
 - **GitHub API Errors**: Display error alert with retry button, automatically fall back to mock data for demo purposes
 - **Rate Limiting**: Handle GitHub API rate limits gracefully with informative error messages
-- **Invalid YAML Manifests**: Skip packages with malformed manifests and continue loading others
+- **Invalid YAML Manifests**: Skip packages with malformed manifests and continue processing others
+- **CORS Issues with Icons**: Handle image loading errors and display fallback icon
 
 ## Design Direction
 

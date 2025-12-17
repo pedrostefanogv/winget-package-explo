@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Package } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 interface PackageCardProps {
   package: WingetPackage
@@ -10,6 +11,9 @@ interface PackageCardProps {
 }
 
 export function PackageCard({ package: pkg, onClick }: PackageCardProps) {
+  const [imageError, setImageError] = useState(false)
+  const showIcon = pkg.icon && !imageError
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -21,8 +25,17 @@ export function PackageCard({ package: pkg, onClick }: PackageCardProps) {
         onClick={onClick}
       >
         <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-            <Package size={24} weight="duotone" className="text-primary" />
+          <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
+            {showIcon ? (
+              <img 
+                src={pkg.icon} 
+                alt={`${pkg.name} icon`}
+                className="w-full h-full object-cover"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <Package size={24} weight="duotone" className="text-primary" />
+            )}
           </div>
           
           <div className="flex-1 min-w-0">

@@ -1,44 +1,137 @@
 # Winget Package Explorer
 
-A modern web application for searching and exploring Windows Package Manager (winget) packages with live data from the official microsoft/winget-pkgs GitHub repository.
+A modern web application for browsing and searching Windows Package Manager (winget) packages from the official microsoft/winget-pkgs repository.
 
 ## 🚀 Features
 
-- **Live GitHub API Integration**: Fetches real package data directly from microsoft/winget-pkgs
-- **Real-time Search**: Search packages by name, ID, publisher, or description
-- **Category Filtering**: Browse packages by category with interactive filter chips
-- **Detailed Package View**: View comprehensive information including install commands, licenses, and metadata
-- **Graceful Fallbacks**: Automatically falls back to sample data if GitHub API is unavailable
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
-- **Modern UI**: Built with shadcn components and Tailwind CSS with a technical, developer-focused aesthetic
+- 🔍 **Fast Search**: Real-time search across package names, IDs, publishers, and descriptions
+- 🏷️ **Category Filtering**: Browse packages by category tags
+- 🎨 **Package Icons**: Visual identification with automatically fetched package icons
+- 📦 **Detailed Package Info**: View comprehensive metadata including descriptions, licenses, tags, and homepage links
+- 📋 **One-Click Install**: Copy winget install commands to clipboard
+- 🔄 **Automated Data Updates**: GitHub Actions workflow refreshes package data weekly
+- ⚡ **Optimized Performance**: Pre-processed data for instant loading
+- 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 19 with TypeScript
-- **Styling**: Tailwind CSS with custom theme
-- **Components**: shadcn/ui v4
+- **Frontend**: React 19 with TypeScript
+- **UI Components**: shadcn/ui v4 with Radix UI primitives
+- **Styling**: Tailwind CSS v4
 - **Icons**: Phosphor Icons
-- **Animations**: Framer Motion
+- **Animation**: Framer Motion
 - **Build Tool**: Vite
-- **API**: GitHub REST API
+- **Data Processing**: Node.js script with Octokit (GitHub API)
+- **Automation**: GitHub Actions
 
 ## 📦 How It Works
 
-The app fetches package manifests from the microsoft/winget-pkgs repository using the GitHub API:
+### Data Processing
 
-1. **On Load**: Fetches up to 100 package manifests from the repository tree
-2. **Parsing**: Extracts YAML manifest data (PackageIdentifier, PackageName, Publisher, etc.)
-3. **Display**: Renders searchable, filterable package cards with full details
-4. **Error Handling**: If API fails or rate limits are hit, gracefully falls back to mock data
+This application uses an automated GitHub Actions workflow to:
+
+1. Fetch package manifests from microsoft/winget-pkgs repository
+2. Parse YAML manifest files for metadata
+3. Extract package icons from Microsoft Store and Clearbit Logo API
+4. Generate a consolidated JSON file with all package data
+5. Automatically update the data weekly
+
+The frontend loads this pre-processed data for optimal performance, with graceful fallbacks to:
+- Live GitHub API fetching (if static data unavailable)
+- Mock data (if both previous methods fail)
+
+For detailed information, see [WINGET_DATA_SYSTEM.md](./WINGET_DATA_SYSTEM.md).
+
+### GitHub Actions Workflow
+
+The automated data fetching workflow runs:
+
+- **Weekly**: Every Sunday at midnight (UTC)
+- **Manually**: Via workflow dispatch in GitHub Actions tab
+- **On Update**: When the workflow file is modified
 
 ## 🔧 Development
 
-This Spark template comes pre-configured with all dependencies. Simply start editing:
+### Getting Started
 
-- `src/App.tsx` - Main application component
-- `src/lib/wingetApi.ts` - GitHub API integration logic
-- `src/hooks/use-winget-packages.ts` - Custom hook for package data
-- `src/components/` - Reusable UI components
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Manual Data Refresh
+
+To manually fetch and process winget package data:
+
+```bash
+# Install script dependencies
+npm install js-yaml octokit
+
+# Optional: Set GitHub token for higher rate limits
+export GITHUB_TOKEN=your_github_token_here
+
+# Run the data fetching script
+node scripts/fetch-winget-data.js
+```
+
+This will update `public/data/packages.json`.
+
+## 📁 Project Structure
+
+```
+.
+├── .github/
+│   └── workflows/
+│       └── fetch-winget-data.yml    # Automated data fetching workflow
+├── public/
+│   └── data/
+│       └── packages.json            # Pre-processed package data
+├── scripts/
+│   └── fetch-winget-data.js         # Data fetching and processing script
+├── src/
+│   ├── components/
+│   │   ├── ui/                      # shadcn components
+│   │   ├── PackageCard.tsx          # Package list item with icon
+│   │   ├── PackageDetail.tsx        # Package detail view
+│   │   └── EmptyState.tsx           # Empty search results state
+│   ├── hooks/
+│   │   └── use-winget-packages.ts   # Data loading hook
+│   ├── lib/
+│   │   ├── staticDataApi.ts         # Static JSON data loader
+│   │   ├── wingetApi.ts             # Live GitHub API client
+│   │   ├── types.ts                 # TypeScript interfaces
+│   │   └── mockData.ts              # Fallback mock data
+│   └── App.tsx                      # Main application component
+└── WINGET_DATA_SYSTEM.md            # Detailed system documentation
+```
+
+## ⚙️ Configuration
+
+### Adjust Package Count
+
+Edit `scripts/fetch-winget-data.js`:
+
+```javascript
+const MAX_PACKAGES = 500  // Change this number
+```
+
+### Change Update Schedule
+
+Edit `.github/workflows/fetch-winget-data.yml`:
+
+```yaml
+schedule:
+  - cron: '0 0 * * 0'  # Current: weekly on Sunday
+  # Examples:
+  # '0 0 * * *'   - Daily at midnight
+  # '0 0 * * 1'   - Weekly on Monday
+  # '0 0 1 * *'   - Monthly on the 1st
+```
 
 ## 📄 License
 

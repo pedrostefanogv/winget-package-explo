@@ -9,4 +9,12 @@ export interface WingetPackage {
   tags?: string[]
   installCommand: string
   category?: string
+  icon?: string
+  lastUpdated?: string
+}
+
+export interface PackageDataResponse {
+  generated: string
+  count: number
+  packages: WingetPackage[]
 }

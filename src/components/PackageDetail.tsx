@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Copy, Check, Globe, Download, X } from '@phosphor-icons/react'
+import { Copy, Check, Globe, Download, X, Package } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -14,6 +14,8 @@ interface PackageDetailProps {
 
 export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
   const [copied, setCopied] = useState(false)
+  const [imageError, setImageError] = useState(false)
+  const showIcon = pkg.icon && !imageError
 
   const copyCommand = () => {
     navigator.clipboard.writeText(pkg.installCommand)
@@ -25,7 +27,20 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
   return (
     <div className="h-full flex flex-col bg-card">
       <div className="p-6 border-b border-border">
-        <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="flex items-start gap-4 mb-4">
+          <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
+            {showIcon ? (
+              <img 
+                src={pkg.icon} 
+                alt={`${pkg.name} icon`}
+                className="w-full h-full object-cover"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <Package size={32} weight="duotone" className="text-primary" />
+            )}
+          </div>
+          
           <div className="flex-1 min-w-0">
             <h2 className="text-2xl font-semibold text-foreground mb-1 break-words">
               {pkg.name}
@@ -34,6 +49,7 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
               {pkg.id}
             </p>
           </div>
+          
           <Button
             variant="ghost"
             size="icon"

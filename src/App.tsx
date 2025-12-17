@@ -18,7 +18,7 @@ function App() {
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   
-  const { packages, isLoading, error, usingMockData, retry } = useWingetPackages(100)
+  const { packages, isLoading, error, dataSource, retry } = useWingetPackages(100)
 
   const categories = useMemo(() => {
     const cats = new Set(packages.map(pkg => pkg.category).filter(Boolean))
@@ -118,26 +118,33 @@ function App() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-        {error && usingMockData && (
+        {error && dataSource === 'mock' && (
           <Alert className="mb-6 border-accent/50 bg-accent/5">
             <Warning size={20} className="text-accent" />
             <AlertDescription className="ml-2">
               {error}
-              {!usingMockData && (
-                <Button
-                  variant="link"
-                  size="sm"
-                  onClick={retry}
-                  className="ml-2 h-auto p-0 text-accent"
-                >
-                  Retry
-                </Button>
-              )}
+              <Button
+                variant="link"
+                size="sm"
+                onClick={retry}
+                className="ml-2 h-auto p-0 text-accent"
+              >
+                Retry
+              </Button>
             </AlertDescription>
           </Alert>
         )}
 
-        {!isLoading && !usingMockData && packages.length > 0 && (
+        {!isLoading && dataSource === 'static' && (
+          <Alert className="mb-6 border-primary/50 bg-primary/5">
+            <CloudArrowDown size={20} className="text-primary" />
+            <AlertDescription className="ml-2">
+              Showing pre-processed package data - updated weekly
+            </AlertDescription>
+          </Alert>
+        )}
+
+        {!isLoading && dataSource === 'api' && (
           <Alert className="mb-6 border-primary/50 bg-primary/5">
             <CloudArrowDown size={20} className="text-primary" />
             <AlertDescription className="ml-2">
