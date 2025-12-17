@@ -12,6 +12,9 @@ import { Language } from '@/lib/i18n'
 const languages: { code: Language; label: string; flag: string }[] = [
   { code: 'pt-BR', label: 'Português (Brasil)', flag: '🇧🇷' },
   { code: 'en-US', label: 'English (USA)', flag: '🇺🇸' },
+  { code: 'es-ES', label: 'Español', flag: '🇪🇸' },
+  { code: 'fr-FR', label: 'Français', flag: '🇫🇷' },
+  { code: 'de-DE', label: 'Deutsch', flag: '🇩🇪' },
 ]
 
 export function LanguageSelector() {

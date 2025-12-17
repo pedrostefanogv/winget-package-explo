@@ -20,11 +20,11 @@ A web application that allows users to search, browse, and view detailed informa
 - **Success criteria**: Search results update within 100ms and accurately match package names, IDs, and publishers
 
 ### Multi-Language Support
-- **Functionality**: Switch between Portuguese (Brazil) and English (USA) interface languages with persistent preference
-- **Purpose**: Make the application accessible to international users, with Portuguese as the default for Brazilian developers
-- **Trigger**: User clicks language selector in header or loads app for first time
-- **Progression**: User clicks language selector → Dropdown shows available languages → User selects language → All UI text updates → Preference saved for future visits
-- **Success criteria**: All interface text translates instantly, user preference persists across sessions via KV storage, no page reload required
+- **Functionality**: Switch between Portuguese (Brazil), English (USA), Spanish, French, and German interface languages with persistent preference and automatic browser language detection
+- **Purpose**: Make the application accessible to international users across multiple languages, with Portuguese as the default for Brazilian developers
+- **Trigger**: User clicks language selector in header or loads app for first time (auto-detects browser language)
+- **Progression**: User clicks language selector → Dropdown shows 5 available languages with flags → User selects language → All UI text updates instantly → Preference saved for future visits
+- **Success criteria**: All interface text translates instantly across 5 languages, user preference persists across sessions via KV storage, browser language auto-detected on first visit, no page reload required
 
 ### Package List View
 - **Functionality**: Display a scrollable list of winget packages with key metadata (name, ID, publisher, version) and package icons
@@ -56,7 +56,7 @@ A web application that allows users to search, browse, and view detailed informa
 
 ## Edge Case Handling
 
-- **Language Not Set**: Default to Portuguese (Brazil) on first visit
+- **Language Not Set**: Auto-detect browser language (supports Portuguese, English, Spanish, French, German) and fall back to Portuguese (Brazil) if no match
 - **No Search Results**: Display a helpful empty state with suggestions to try different search terms or clear filters (translated)
 - **Package Without Description**: Show a placeholder message indicating description is unavailable in the manifest (translated)
 - **Package Without Icon**: Display a default package icon when no icon URL is available or image fails to load

@@ -17,6 +17,18 @@ function detectBrowserLanguage(): Language {
     return 'pt-BR'
   }
   
+  if (browserLang.startsWith('es')) {
+    return 'es-ES'
+  }
+  
+  if (browserLang.startsWith('fr')) {
+    return 'fr-FR'
+  }
+  
+  if (browserLang.startsWith('de')) {
+    return 'de-DE'
+  }
+  
   return 'en-US'
 }
 
