@@ -1,4 +1,4 @@
-import { GithubLogo, Heart, Database, Globe } from '@phosphor-icons/react'
+import { GithubLogo, Database, Globe } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 // Data do build gerada em tempo de compilação pelo Vite
@@ -69,8 +69,8 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
           )}
         </div>
 
-        {/* Links e Copyright */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-border">
+        {/* Links */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-border">
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/pedrostefanogv/winget-package-explo"
@@ -88,20 +88,6 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.wingetPkgs')}
-            </a>
-          </div>
-
-          <div className="flex items-center gap-1 text-sm text-muted-foreground">
-            <span>{t('footer.madeWith')}</span>
-            <Heart size={16} className="text-red-500" weight="fill" />
-            <span>{t('footer.by')}</span>
-            <a
-              href="https://github.com/pedrostefanogv"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium hover:text-foreground transition-colors"
-            >
-              Pedro Stefano
             </a>
           </div>
         </div>
