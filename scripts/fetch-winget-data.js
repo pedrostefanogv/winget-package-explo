@@ -164,38 +164,62 @@ async function processPackage(packagePath) {
     // Listar arquivos da versão
     const versionContents = await fs.readdir(versionPath)
     
-    // Extrair o PackageIdentifier do nome da pasta ou do version manifest
-    // Ex: c:\...\manifests\m\Mozilla\Firefox -> Mozilla.Firefox
-    const pathParts = packagePath.split(path.sep)
-    const manifestsIndex = pathParts.indexOf('manifests')
-    let packageId = null
-    if (manifestsIndex !== -1 && manifestsIndex + 2 < pathParts.length) {
-      // Pular a letra (m, a, etc) e pegar publisher + resto do caminho
-      packageId = pathParts.slice(manifestsIndex + 2).join('.')
-    }
-    
-    // Encontrar arquivos de manifesto
-    // Prioridade para locale:
-    // 1. .locale.en-US.yaml (padrão em inglês)
-    // 2. Qualquer outro .locale.*.yaml
-    // 3. Arquivo principal sem .installer. ou .locale. (formato antigo)
-    let localeFile = versionContents.find(f => 
-      f.includes('.locale.en-US.') && f.endsWith('.yaml')
-    )
-    
-    // Se não tem en-US, tentar defaultLocale ou qualquer locale
-    if (!localeFile) {
-      localeFile = versionContents.find(f => 
-        f.includes('.locale.') && f.endsWith('.yaml')
-      )
-    }
-    
-    // Encontrar o version manifest (arquivo base)
+    // Encontrar o version manifest (arquivo base) - PRIORIDADE para obter o PackageIdentifier correto
     const versionManifestFile = versionContents.find(f => 
       f.endsWith('.yaml') && 
       !f.includes('.installer.') && 
       !f.includes('.locale.')
     )
+    
+    // Ler version manifest PRIMEIRO para obter o PackageIdentifier correto
+    let versionManifest = {}
+    if (versionManifestFile) {
+      const versionYaml = await fs.readFile(path.join(versionPath, versionManifestFile), 'utf-8')
+      versionManifest = parseYaml(versionYaml)
+    }
+    
+    // O PackageIdentifier do version manifest é a fonte de verdade
+    let packageId = versionManifest.PackageIdentifier
+    
+    // Fallback: extrair do nome do arquivo do version manifest
+    if (!packageId && versionManifestFile) {
+      // O arquivo tem o formato "Publisher.PackageName.yaml"
+      packageId = versionManifestFile.replace('.yaml', '')
+    }
+    
+    // Fallback final: deduzir do caminho da pasta
+    if (!packageId) {
+      const pathParts = packagePath.split(path.sep)
+      const manifestsIndex = pathParts.indexOf('manifests')
+      if (manifestsIndex !== -1 && manifestsIndex + 2 < pathParts.length) {
+        packageId = pathParts.slice(manifestsIndex + 2).join('.')
+      }
+    }
+    
+    // Encontrar arquivos de manifesto locale
+    // Prioridade para locale:
+    // 1. .locale.en-US.yaml (padrão em inglês)
+    // 2. Locale que corresponde ao defaultLocale do version manifest
+    // 3. Qualquer outro .locale.*.yaml
+    // 4. Arquivo principal sem .installer. ou .locale. (formato antigo)
+    let localeFile = versionContents.find(f => 
+      f.includes('.locale.en-US.') && f.endsWith('.yaml')
+    )
+    
+    // Se não tem en-US, tentar locale baseado no defaultLocale do version manifest
+    if (!localeFile && versionManifest.DefaultLocale) {
+      const defaultLocale = versionManifest.DefaultLocale
+      localeFile = versionContents.find(f => 
+        f.includes(`.locale.${defaultLocale}.`) && f.endsWith('.yaml')
+      )
+    }
+    
+    // Se ainda não tem, tentar qualquer locale
+    if (!localeFile) {
+      localeFile = versionContents.find(f => 
+        f.includes('.locale.') && f.endsWith('.yaml')
+      )
+    }
     
     // Se não tem arquivo .locale., tentar arquivo principal (formato antigo/simples)
     if (!localeFile) {
@@ -230,23 +254,16 @@ async function processPackage(packagePath) {
     // usando informações do version manifest + installer
     if (!localeFile && !versionManifestFile) return null
     
-    // Ler arquivos
+    // Ler locale manifest
     let localeManifest = {}
     if (localeFile) {
       const localeYaml = await fs.readFile(path.join(versionPath, localeFile), 'utf-8')
       localeManifest = parseYaml(localeYaml)
     }
     
-    // Ler version manifest para obter PackageIdentifier se disponível
-    let versionManifest = {}
-    if (versionManifestFile) {
-      const versionYaml = await fs.readFile(path.join(versionPath, versionManifestFile), 'utf-8')
-      versionManifest = parseYaml(versionYaml)
-    }
-    
-    // Usar PackageIdentifier do manifest ou deduzir do path
-    if (!packageId) {
-      packageId = localeManifest.PackageIdentifier || versionManifest.PackageIdentifier
+    // Atualizar packageId se o locale tem um diferente (não deveria acontecer, mas por segurança)
+    if (!packageId && localeManifest.PackageIdentifier) {
+      packageId = localeManifest.PackageIdentifier
     }
     
     let installerManifest = null
@@ -256,7 +273,7 @@ async function processPackage(packagePath) {
     }
     
     // Garantir que temos um packageId válido
-    const finalPackageId = packageId || localeManifest.PackageIdentifier || versionManifest.PackageIdentifier || 
+    const finalPackageId = packageId || 
       packagePath.split(path.sep).slice(-2).join('.')
     
     // Extrair ícone
