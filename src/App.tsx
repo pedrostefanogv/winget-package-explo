@@ -6,8 +6,10 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
-import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, Package, CaretUpDown, Check } from '@phosphor-icons/react'
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, Package, CaretUpDown, Check, SquaresFour, List } from '@phosphor-icons/react'
 import { PackageCard } from '@/components/PackageCard'
+import { PackageListItem } from '@/components/PackageListItem'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
 import { LanguageSelector } from '@/components/LanguageSelector'
@@ -20,7 +22,7 @@ import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import { cn, matchesMultiWordSearch } from '@/lib/utils'
 
-const HOME_PACKAGES_LIMIT = 20
+const HOME_PACKAGES_LIMIT = 21 // Múltiplo de 3 para preencher todas as colunas
 const DEBOUNCE_DELAY = 300 // ms
 
 // Função para embaralhar array (Fisher-Yates)
@@ -40,6 +42,7 @@ function AppContent() {
   const [selectedPackage, setSelectedPackage] = useState<WingetPackage | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [tagOpen, setTagOpen] = useState(false)
+  const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards')
   
   const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
 
@@ -237,6 +240,23 @@ function AppContent() {
                   {t('search.clear')}
                 </Button>
               )}
+
+              <div className="ml-auto flex items-center gap-2">
+                <span className="text-sm text-muted-foreground hidden sm:inline">{t('viewMode.label')}:</span>
+                <ToggleGroup 
+                  type="single" 
+                  value={viewMode} 
+                  onValueChange={(value) => value && setViewMode(value as 'cards' | 'list')}
+                  className="border rounded-md"
+                >
+                  <ToggleGroupItem value="cards" aria-label={t('viewMode.cards')} className="px-3">
+                    <SquaresFour size={18} />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="list" aria-label={t('viewMode.list')} className="px-3">
+                    <List size={18} />
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
             </div>
           </div>
         </div>
@@ -316,10 +336,21 @@ function AppContent() {
           </div>
         ) : filteredPackages.length === 0 ? (
           <EmptyState searchQuery={searchQuery} />
-        ) : (
+        ) : viewMode === 'cards' ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {displayedPackages.map((pkg) => (
               <PackageCard
+                key={pkg.id}
+                package={pkg}
+                searchQuery={searchQuery}
+                onClick={() => setSelectedPackage(pkg)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-3">
+            {displayedPackages.map((pkg) => (
+              <PackageListItem
                 key={pkg.id}
                 package={pkg}
                 searchQuery={searchQuery}

@@ -62,6 +62,11 @@ export const translations = {
       light: 'Claro',
       dark: 'Escuro',
     },
+    viewMode: {
+      label: 'Visualização',
+      cards: 'Cards',
+      list: 'Lista',
+    },
     footer: {
       about: 'Sobre',
       description: 'O Explorador de Pacotes Winget é uma interface web para pesquisar e descobrir aplicativos disponíveis no Windows Package Manager (winget). Os dados são atualizados semanalmente a partir do repositório oficial microsoft/winget-pkgs.',
@@ -138,6 +143,11 @@ export const translations = {
       system: 'Auto',
       light: 'Light',
       dark: 'Dark',
+    },
+    viewMode: {
+      label: 'View',
+      cards: 'Cards',
+      list: 'List',
     },
     footer: {
       about: 'About',
@@ -216,6 +226,11 @@ export const translations = {
       light: 'Claro',
       dark: 'Oscuro',
     },
+    viewMode: {
+      label: 'Vista',
+      cards: 'Tarjetas',
+      list: 'Lista',
+    },
     footer: {
       about: 'Acerca de',
       description: 'El Explorador de Paquetes Winget es una interfaz web para buscar y descubrir aplicaciones disponibles en Windows Package Manager (winget). Los datos se actualizan semanalmente desde el repositorio oficial microsoft/winget-pkgs.',
@@ -293,6 +308,11 @@ export const translations = {
       light: 'Clair',
       dark: 'Sombre',
     },
+    viewMode: {
+      label: 'Affichage',
+      cards: 'Cartes',
+      list: 'Liste',
+    },
     footer: {
       about: 'À propos',
       description: 'L\'Explorateur de Paquets Winget est une interface web pour rechercher et découvrir les applications disponibles sur Windows Package Manager (winget). Les données sont mises à jour chaque semaine depuis le dépôt officiel microsoft/winget-pkgs.',
@@ -369,6 +389,11 @@ export const translations = {
       system: 'Auto',
       light: 'Hell',
       dark: 'Dunkel',
+    },
+    viewMode: {
+      label: 'Ansicht',
+      cards: 'Karten',
+      list: 'Liste',
     },
     footer: {
       about: 'Über',
