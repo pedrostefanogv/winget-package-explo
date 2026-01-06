@@ -22,6 +22,7 @@ export const translations = {
       showingLimited: 'Exibindo {{showing}} de {{total}} pacotes. Use a busca para ver mais.',
       totalCataloged: 'pacotes catalogados disponíveis para busca',
       loading: 'Carregando pacotes...',
+      minCharacters: 'Digite pelo menos {{min}} caracteres para pesquisar',
     },
     packageCard: {
       noDescription: 'Sem descrição disponível',
@@ -104,6 +105,7 @@ export const translations = {
       showingLimited: 'Showing {{showing}} of {{total}} packages. Use search to see more.',
       totalCataloged: 'packages cataloged and available for search',
       loading: 'Loading packages...',
+      minCharacters: 'Type at least {{min}} characters to search',
     },
     packageCard: {
       noDescription: 'No description available',
@@ -186,6 +188,7 @@ export const translations = {
       showingLimited: 'Mostrando {{showing}} de {{total}} paquetes. Use la búsqueda para ver más.',
       totalCataloged: 'paquetes catalogados disponibles para búsqueda',
       loading: 'Cargando paquetes...',
+      minCharacters: 'Escribe al menos {{min}} caracteres para buscar',
     },
     packageCard: {
       noDescription: 'Sin descripción disponible',
@@ -268,6 +271,7 @@ export const translations = {
       showingLimited: 'Affichage de {{showing}} sur {{total}} paquets. Utilisez la recherche pour en voir plus.',
       totalCataloged: 'paquets catalogués disponibles pour la recherche',
       loading: 'Chargement des paquets...',
+      minCharacters: 'Tapez au moins {{min}} caractères pour rechercher',
     },
     packageCard: {
       noDescription: 'Aucune description disponible',
@@ -350,6 +354,7 @@ export const translations = {
       showingLimited: 'Zeige {{showing}} von {{total}} Paketen. Verwenden Sie die Suche, um mehr zu sehen.',
       totalCataloged: 'Pakete katalogisiert und durchsuchbar',
       loading: 'Pakete werden geladen...',
+      minCharacters: 'Geben Sie mindestens {{min}} Zeichen ein, um zu suchen',
     },
     packageCard: {
       noDescription: 'Keine Beschreibung verfügbar',

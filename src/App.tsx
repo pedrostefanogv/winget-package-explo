@@ -24,6 +24,7 @@ import { cn, matchesMultiWordSearch } from '@/lib/utils'
 
 const HOME_PACKAGES_LIMIT = 21 // Múltiplo de 3 para preencher todas as colunas
 const DEBOUNCE_DELAY = 300 // ms
+const MIN_SEARCH_LENGTH = 3 // Mínimo de caracteres para pesquisar
 
 // Função para embaralhar array (Fisher-Yates)
 function shuffleArray<T>(array: T[]): T[] {
@@ -46,10 +47,14 @@ function AppContent() {
   
   const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
 
-  // Debounce para pesquisa
+  // Debounce para pesquisa - só pesquisa com 3+ caracteres
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSearchQuery(searchInput)
+      if (searchInput.length >= MIN_SEARCH_LENGTH || searchInput.length === 0) {
+        setSearchQuery(searchInput)
+      } else {
+        setSearchQuery('') // Limpa a busca se tiver menos de 3 caracteres
+      }
     }, DEBOUNCE_DELAY)
     
     return () => clearTimeout(timer)
@@ -312,6 +317,8 @@ function AppContent() {
         <div className="mb-4 text-sm text-muted-foreground">
           {isLoading ? (
             t('search.loading')
+          ) : searchInput.length > 0 && searchInput.length < MIN_SEARCH_LENGTH ? (
+            t('search.minCharacters', { min: MIN_SEARCH_LENGTH })
           ) : isShowingLimited ? (
             t('search.showingLimited', { showing: HOME_PACKAGES_LIMIT, total: filteredPackages.length })
           ) : (
