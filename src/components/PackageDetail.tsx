@@ -18,6 +18,17 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
   const [copied, setCopied] = useState(false)
   const [imageError, setImageError] = useState(false)
   const showIcon = pkg.icon && !imageError
+  const installerEntries = pkg.installerDetailsByArch
+    ? Object.entries(pkg.installerDetailsByArch).map(([arch, info]) => ({
+        arch,
+        url: info.url,
+        installerType: info.installerType,
+      }))
+    : Object.entries(pkg.installerUrlsByArch ?? {}).map(([arch, url]) => ({
+        arch,
+        url,
+        installerType: inferInstallerTypeFromUrl(url),
+      }))
 
   const copyCommand = () => {
     navigator.clipboard.writeText(pkg.installCommand)
@@ -103,6 +114,45 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
             </>
           )}
 
+          {installerEntries.length > 0 && (
+            <>
+              <Separator />
+              <div>
+                <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground mb-3">
+                  {t('packageDetail.downloadUrls')}
+                </h3>
+                <div className="space-y-2">
+                  {installerEntries.map(({ arch, url, installerType }) => (
+                    <div
+                      key={`${arch}-${url}`}
+                      className="rounded-md border border-border p-3 bg-muted/30"
+                    >
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <Badge variant="outline" className="text-xs uppercase">
+                          {arch}
+                        </Badge>
+                        {installerType && (
+                          <Badge variant="secondary" className="text-xs uppercase">
+                            {t('packageDetail.installerType')}: {installerType}
+                          </Badge>
+                        )}
+                      </div>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-accent hover:underline"
+                      >
+                        <Download size={16} />
+                        <span className="break-all">{url}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
           {pkg.tags && pkg.tags.length > 0 && (
             <>
               <Separator />
@@ -157,4 +207,30 @@ export function PackageDetail({ package: pkg, onClose }: PackageDetailProps) {
       </div>
     </div>
   )
+}
+
+function inferInstallerTypeFromUrl(url: string): string | undefined {
+  try {
+    const pathname = new URL(url).pathname.toLowerCase()
+    const extension = pathname.split('.').pop()
+    if (!extension) return undefined
+
+    const knownTypes = new Set([
+      'msi',
+      'exe',
+      'zip',
+      'msix',
+      'msixbundle',
+      'appx',
+      'appxbundle',
+      'wix',
+      'inno',
+      'nullsoft',
+      'burn',
+    ])
+
+    return knownTypes.has(extension) ? extension : undefined
+  } catch {
+    return undefined
+  }
 }
