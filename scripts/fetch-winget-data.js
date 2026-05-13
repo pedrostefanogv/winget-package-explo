@@ -55,6 +55,7 @@ function extractInstallerDetailsByArch(installerYamlText) {
   const lines = installerYamlText.split("\n");
   let currentArch = "neutral";
   let currentType;
+  let currentSha256;
   let insideInstallers = false;
 
   for (const rawLine of lines) {
@@ -65,6 +66,7 @@ function extractInstallerDetailsByArch(installerYamlText) {
       insideInstallers = true;
       currentArch = "neutral";
       currentType = undefined;
+      currentSha256 = undefined;
       continue;
     }
 
@@ -73,6 +75,7 @@ function extractInstallerDetailsByArch(installerYamlText) {
     if (line.startsWith("- ")) {
       currentArch = "neutral";
       currentType = undefined;
+      currentSha256 = undefined;
 
       const archOnSameLine = line.match(/Architecture:\s*([^,]+)$/i);
       if (archOnSameLine?.[1]) {
@@ -84,6 +87,11 @@ function extractInstallerDetailsByArch(installerYamlText) {
         currentType = cleanYamlScalar(typeOnSameLine[1]).toLowerCase();
       }
 
+      const shaOnSameLine = line.match(/InstallerSha256:\s*([^,]+)$/i);
+      if (shaOnSameLine?.[1]) {
+        currentSha256 = cleanYamlScalar(shaOnSameLine[1]);
+      }
+
       const urlOnSameLine = line.match(/InstallerUrl:\s*(.+)$/i);
       if (urlOnSameLine?.[1]) {
         const url = cleanYamlScalar(urlOnSameLine[1]);
@@ -91,6 +99,7 @@ function extractInstallerDetailsByArch(installerYamlText) {
           detailsByArch[currentArch] = {
             url,
             ...(currentType ? { installerType: currentType } : {}),
+            ...(currentSha256 ? { installerSha256: currentSha256 } : {}),
           };
         }
       }
@@ -112,12 +121,19 @@ function extractInstallerDetailsByArch(installerYamlText) {
       continue;
     }
 
+    if (line.startsWith("InstallerSha256:")) {
+      currentSha256 =
+        cleanYamlScalar(line.replace("InstallerSha256:", "")) || undefined;
+      continue;
+    }
+
     if (line.startsWith("InstallerUrl:")) {
       const url = cleanYamlScalar(line.replace("InstallerUrl:", ""));
       if (url && !detailsByArch[currentArch]) {
         detailsByArch[currentArch] = {
           url,
           ...(currentType ? { installerType: currentType } : {}),
+          ...(currentSha256 ? { installerSha256: currentSha256 } : {}),
         };
       }
       continue;

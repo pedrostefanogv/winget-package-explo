@@ -17,6 +17,7 @@ export interface WingetPackage {
     {
       url: string;
       installerType?: string;
+      installerSha256?: string;
     }
   >;
 }
