@@ -1,9 +1,9 @@
 /* Temas do Winget Package Explorer - importado por main.css */
 
-@layer base {
-  * {
-    @apply border-border
-  }
+/* Fontes */
+:root {
+  --font-space: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 /* Tema escuro (padrão) */
@@ -68,69 +68,13 @@
   --highlight-fg: oklch(0.15 0.01 252);
 }
 
-/* Tema escuro explícito */
-.dark {
-  --background: oklch(0.15 0.01 252);
-  --foreground: oklch(0.95 0.01 252);
+/*
+ * O tema escuro é o padrão via :root, portanto .dark não precisa redefinir variáveis.
+ * O ThemeContext aplica a classe .dark ao <html> via resolvedTheme.
+ */
+.dark {}
 
-  --card: oklch(0.25 0.01 252);
-  --card-foreground: oklch(0.95 0.01 252);
-  --popover: oklch(0.25 0.01 252);
-  --popover-foreground: oklch(0.95 0.01 252);
-
-  --primary: oklch(0.45 0.19 252);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.30 0.02 252);
-  --secondary-foreground: oklch(0.95 0.01 252);
-  --muted: oklch(0.20 0.01 252);
-  --muted-foreground: oklch(0.60 0.01 252);
-  --accent: oklch(0.75 0.15 195);
-  --accent-foreground: oklch(0.15 0.01 252);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
-
-  --border: oklch(0.30 0.01 252);
-  --input: oklch(0.30 0.01 252);
-  --ring: oklch(0.75 0.15 195);
-
-  /* Highlight para pesquisa - tema escuro */
-  --highlight-bg: oklch(0.55 0.20 90);
-  --highlight-fg: oklch(0.15 0.01 252);
-}
-
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-highlight-bg: var(--highlight-bg);
-  --color-highlight-fg: var(--highlight-fg);
-
-  --radius-sm: calc(var(--radius) * 0.5);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) * 1.5);
-  --radius-xl: calc(var(--radius) * 2);
-  --radius-2xl: calc(var(--radius) * 3);
-  --radius-full: 9999px;
-
-  --font-space: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-}
+/* Estilos de componentes */
 
 body {
   font-family: var(--font-space);

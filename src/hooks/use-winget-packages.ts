@@ -4,6 +4,7 @@ import { fetchPackageDataWithMeta } from '@/lib/staticDataApi'
 import { fetchWingetPackages } from '@/lib/wingetApi'
 import { mockPackages } from '@/lib/mockData'
 import { toast } from 'sonner'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface UseWingetPackagesResult {
   packages: WingetPackage[]
@@ -21,6 +22,7 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
   const [dataSource, setDataSource] = useState<'static' | 'api' | 'mock'>('mock')
   const [dataGenerated, setDataGenerated] = useState<string | null>(null)
   const mountedRef = useRef(true)
+  const { t } = useLanguage()
 
   const loadPackages = useCallback(async () => {
     setIsLoading(true)
@@ -32,10 +34,10 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
       setPackages(result.packages)
       setDataGenerated(result.generated)
       setDataSource('static')
-      toast.success(`Loaded ${result.packages.length} packages from pre-processed data`)
-    } catch (staticErr) {
+      toast.success(t('alerts.dataLoaded'))
+    } catch (_staticErr) {
       if (!mountedRef.current) return
-      console.error('Failed to load static data, trying GitHub API:', staticErr)
+      console.error('Failed to load static data, trying GitHub API:', _staticErr)
 
       try {
         const data = await fetchWingetPackages(limit)
@@ -43,21 +45,21 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
         setPackages(data)
         setDataGenerated(null)
         setDataSource('api')
-        toast.success(`Loaded ${data.length} packages from GitHub API`)
-      } catch (apiErr) {
+        toast.success(t('alerts.dataLoaded'))
+      } catch (_apiErr) {
         if (!mountedRef.current) return
-        console.error('Failed to load from GitHub API, using mock data:', apiErr)
+        console.error('Failed to load from GitHub API, using mock data:', _apiErr)
         setPackages(mockPackages)
         setDataGenerated(null)
         setDataSource('mock')
-        setError('Could not load package data. Showing sample data.')
+        setError(t('alerts.mockData'))
       }
     } finally {
       if (mountedRef.current) {
         setIsLoading(false)
       }
     }
-  }, [limit])
+  }, [limit, t])
 
   const retry = useCallback(async () => {
     setIsLoading(true)
@@ -69,8 +71,8 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
       setPackages(result.packages)
       setDataGenerated(result.generated)
       setDataSource('static')
-      toast.success(`Loaded ${result.packages.length} packages from pre-processed data`)
-    } catch (staticErr) {
+      toast.success(t('alerts.dataLoaded'))
+    } catch (_staticErr) {
       if (!mountedRef.current) return
       try {
         const data = await fetchWingetPackages(limit)
@@ -78,18 +80,18 @@ export function useWingetPackages(limit: number = 100): UseWingetPackagesResult 
         setPackages(data)
         setDataGenerated(null)
         setDataSource('api')
-        toast.success(`Loaded ${data.length} packages from GitHub API`)
-      } catch (apiErr) {
+        toast.success(t('alerts.dataLoaded'))
+      } catch (_apiErr) {
         if (!mountedRef.current) return
-        setError('Could not load package data. Please try again later.')
-        toast.error('Failed to load packages')
+        setError(t('alerts.retry'))
+        toast.error(t('alerts.retry'))
       }
     } finally {
       if (mountedRef.current) {
         setIsLoading(false)
       }
     }
-  }, [limit])
+  }, [limit, t])
 
   useEffect(() => {
     mountedRef.current = true

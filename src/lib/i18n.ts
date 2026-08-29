@@ -56,6 +56,7 @@ export const translations = {
         "Conectado à API do GitHub - exibindo dados ao vivo de microsoft/winget-pkgs",
       retry: "Tentar novamente",
       copied: "Comando de instalação copiado para a área de transferência",
+      dataLoaded: "Pacotes carregados",
     },
     language: {
       label: "Idioma",
@@ -145,6 +146,7 @@ export const translations = {
         "Connected to GitHub API - showing live data from microsoft/winget-pkgs",
       retry: "Retry",
       copied: "Install command copied to clipboard",
+      dataLoaded: "Packages loaded",
     },
     language: {
       label: "Language",
@@ -237,6 +239,7 @@ export const translations = {
         "Conectado a la API de GitHub - mostrando datos en vivo de microsoft/winget-pkgs",
       retry: "Reintentar",
       copied: "Comando de instalación copiado al portapapeles",
+      dataLoaded: "Paquetes cargados",
     },
     language: {
       label: "Idioma",
@@ -330,6 +333,7 @@ export const translations = {
         "Connecté à l'API GitHub - affichage de données en direct de microsoft/winget-pkgs",
       retry: "Réessayer",
       copied: "Commande d'installation copiée dans le presse-papiers",
+      dataLoaded: "Paquets chargés",
     },
     language: {
       label: "Langue",
@@ -421,6 +425,7 @@ export const translations = {
         "Verbunden mit GitHub-API - zeigt Live-Daten von microsoft/winget-pkgs",
       retry: "Erneut versuchen",
       copied: "Installationsbefehl in die Zwischenablage kopiert",
+      dataLoaded: "Pakete geladen",
     },
     language: {
       label: "Sprache",
