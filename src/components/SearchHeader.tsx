@@ -8,6 +8,7 @@ import { LanguageSelector } from '@/components/LanguageSelector'
 import { ThemeSelector } from '@/components/ThemeSelector'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { cn } from '@/lib/utils'
+import { memo } from 'react'
 
 interface TagCount {
   name: string
@@ -24,11 +25,12 @@ interface SearchHeaderProps {
   tagOpen: boolean
   onTagOpenChange: (open: boolean) => void
   tagsWithCount: TagCount[]
+  totalTagCount: number
   viewMode: 'cards' | 'list'
   onViewModeChange: (mode: 'cards' | 'list') => void
 }
 
-export function SearchHeader({
+export const SearchHeader = memo(function SearchHeader({
   searchInput,
   onSearchInputChange,
   onClearSearch,
@@ -38,6 +40,7 @@ export function SearchHeader({
   tagOpen,
   onTagOpenChange,
   tagsWithCount,
+  totalTagCount,
   viewMode,
   onViewModeChange,
 }: SearchHeaderProps) {
@@ -125,7 +128,7 @@ export function SearchHeader({
                             !selectedTag ? "opacity-100" : "opacity-0"
                           )}
                         />
-                        {t('search.allTags')} ({tagsWithCount.length})
+                        {t('search.allTags')} ({totalTagCount.toLocaleString()})
                       </CommandItem>
                       {tagsWithCount.map((tag) => (
                         <CommandItem
@@ -142,6 +145,11 @@ export function SearchHeader({
                           {tag.name} ({tag.count})
                         </CommandItem>
                       ))}
+                      {totalTagCount > tagsWithCount.length && (
+                        <div className="px-2 py-2 text-xs text-muted-foreground border-t">
+                          {t('search.showingTopTags', { shown: tagsWithCount.length, total: totalTagCount })}
+                        </div>
+                      )}
                     </CommandGroup>
                   </CommandList>
                 </Command>
@@ -181,4 +189,4 @@ export function SearchHeader({
       </div>
     </div>
   )
-}
+})

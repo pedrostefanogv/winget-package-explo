@@ -20,6 +20,7 @@ import { matchesMultiWordSearch } from '@/lib/utils'
 const HOME_PACKAGES_LIMIT = 21 // Múltiplo de 3 para preencher todas as colunas
 const DEBOUNCE_DELAY = 300 // ms
 const MIN_SEARCH_LENGTH = 3 // Mínimo de caracteres para pesquisar
+const MAX_VISIBLE_TAGS = 300 // Máximo de tags exibidas no dropdown (performance)
 
 // Função para embaralhar array (Fisher-Yates)
 function shuffleArray<T>(array: T[]): T[] {
@@ -56,7 +57,7 @@ function AppContent() {
   }, [searchInput])
 
   // Tags com contagem de pacotes, normalizadas e ordenadas por quantidade
-  const tagsWithCount = useMemo(() => {
+  const { tagsWithCount, totalTagCount } = useMemo(() => {
     const tagMap = new Map<string, number>()
     packages.forEach(pkg => {
       if (pkg.tags && Array.isArray(pkg.tags)) {
@@ -70,9 +71,14 @@ function AppContent() {
         })
       }
     })
-    return Array.from(tagMap.entries())
+    const allTags = Array.from(tagMap.entries())
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count) // Ordenar por quantidade (maior primeiro)
+
+    return {
+      tagsWithCount: allTags.slice(0, MAX_VISIBLE_TAGS),
+      totalTagCount: allTags.length,
+    }
   }, [packages])
 
   const filteredPackages = useMemo(() => {
@@ -139,6 +145,7 @@ function AppContent() {
         tagOpen={tagOpen}
         onTagOpenChange={setTagOpen}
         tagsWithCount={tagsWithCount}
+        totalTagCount={totalTagCount}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
       />

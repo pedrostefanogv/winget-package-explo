@@ -25,6 +25,7 @@ export const translations = {
       totalCataloged: "pacotes catalogados disponíveis para busca",
       loading: "Carregando pacotes...",
       minCharacters: "Digite pelo menos {{min}} caracteres para pesquisar",
+      showingTopTags: "Exibindo as {{shown}} tags mais populares de {{total}}",
     },
     packageCard: {
       noDescription: "Sem descrição disponível",
@@ -117,6 +118,7 @@ export const translations = {
       totalCataloged: "packages cataloged and available for search",
       loading: "Loading packages...",
       minCharacters: "Type at least {{min}} characters to search",
+      showingTopTags: "Showing top {{shown}} of {{total}} tags",
     },
     packageCard: {
       noDescription: "No description available",
@@ -208,6 +210,7 @@ export const translations = {
       totalCataloged: "paquetes catalogados disponibles para búsqueda",
       loading: "Cargando paquetes...",
       minCharacters: "Escribe al menos {{min}} caracteres para buscar",
+      showingTopTags: "Mostrando las {{shown}} tags más populares de {{total}}",
     },
     packageCard: {
       noDescription: "Sin descripción disponible",
@@ -301,6 +304,7 @@ export const translations = {
       totalCataloged: "paquets catalogués disponibles pour la recherche",
       loading: "Chargement des paquets...",
       minCharacters: "Tapez au moins {{min}} caractères pour rechercher",
+      showingTopTags: "Affichage des {{shown}} tags les plus populaires sur {{total}}",
     },
     packageCard: {
       noDescription: "Aucune description disponible",
@@ -394,6 +398,7 @@ export const translations = {
       totalCataloged: "Pakete katalogisiert und durchsuchbar",
       loading: "Pakete werden geladen...",
       minCharacters: "Geben Sie mindestens {{min}} Zeichen ein, um zu suchen",
+      showingTopTags: "Zeige die {{shown}} beliebtesten von {{total}} Tags",
     },
     packageCard: {
       noDescription: "Keine Beschreibung verfügbar",
