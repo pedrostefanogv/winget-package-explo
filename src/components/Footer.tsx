@@ -17,7 +17,7 @@ interface FooterProps {
 
 export function Footer({ dataGenerated, packageCount }: FooterProps) {
   const { t } = useLanguage()
-  
+
   const formatDate = (dateString: string) => {
     try {
       return new Date(dateString).toLocaleDateString(undefined, {
@@ -106,8 +106,8 @@ export function Footer({ dataGenerated, packageCount }: FooterProps) {
             title={t('footer.workflowStatus')}
             className="flex items-center"
           >
-            <img 
-              src={WORKFLOW_BADGE_URL} 
+            <img
+              src={WORKFLOW_BADGE_URL}
               alt="Fetch Winget Package Data"
               className="h-5"
             />

@@ -1,26 +1,21 @@
 import { useState, useMemo, useEffect } from 'react'
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import { MagnifyingGlass, X, FunnelSimple, Warning, CloudArrowDown, Package, CaretUpDown, Check, SquaresFour, List } from '@phosphor-icons/react'
+import { Warning, CloudArrowDown, Package } from '@phosphor-icons/react'
 import { PackageCard } from '@/components/PackageCard'
 import { PackageListItem } from '@/components/PackageListItem'
 import { PackageDetail } from '@/components/PackageDetail'
 import { EmptyState } from '@/components/EmptyState'
-import { LanguageSelector } from '@/components/LanguageSelector'
-import { ThemeSelector } from '@/components/ThemeSelector'
+import { SearchHeader } from '@/components/SearchHeader'
 import { Footer } from '@/components/Footer'
 import { WingetPackage } from '@/lib/types'
 import { useWingetPackages } from '@/hooks/use-winget-packages'
 import { Toaster } from 'sonner'
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext'
 import { ThemeProvider } from '@/contexts/ThemeContext'
-import { cn, matchesMultiWordSearch } from '@/lib/utils'
+import { matchesMultiWordSearch } from '@/lib/utils'
 
 const HOME_PACKAGES_LIMIT = 21 // Múltiplo de 3 para preencher todas as colunas
 const DEBOUNCE_DELAY = 300 // ms
@@ -44,7 +39,7 @@ function AppContent() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [tagOpen, setTagOpen] = useState(false)
   const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards')
-  
+
   const { packages, isLoading, error, dataSource, dataGenerated, retry } = useWingetPackages(100)
 
   // Debounce para pesquisa - só pesquisa com 3+ caracteres
@@ -56,7 +51,7 @@ function AppContent() {
         setSearchQuery('') // Limpa a busca se tiver menos de 3 caracteres
       }
     }, DEBOUNCE_DELAY)
-    
+
     return () => clearTimeout(timer)
   }, [searchInput])
 
@@ -89,12 +84,12 @@ function AppContent() {
         pkg.publisher,
         pkg.description || ''
       ].join(' ')
-      
+
       const matchesSearch = matchesMultiWordSearch(searchableText, searchQuery)
 
       // Verificar se alguma tag do pacote corresponde à tag selecionada (case-insensitive)
-      const matchesTag = !selectedTag || 
-        (pkg.tags && pkg.tags.some(tag => 
+      const matchesTag = !selectedTag ||
+        (pkg.tags && pkg.tags.some(tag =>
           tag.toLowerCase().trim() === selectedTag.toLowerCase()
         ))
 
@@ -126,146 +121,27 @@ function AppContent() {
     setTagOpen(false)
   }
 
+  const handleTagClear = () => {
+    setSelectedTag(null)
+  }
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Toaster position="top-right" />
-      
-      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-          <div className="flex items-start justify-between gap-4 mb-6">
-            <div className="flex-1">
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-2" style={{ letterSpacing: '-0.02em' }}>
-                {t('app.title')}
-              </h1>
-              <p className="text-muted-foreground">
-                {t('app.subtitle')}
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <ThemeSelector />
-              <LanguageSelector />
-            </div>
-          </div>
 
-          <div className="space-y-4">
-            <div className="relative">
-              <MagnifyingGlass 
-                size={20} 
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
-              />
-              <Input
-                type="text"
-                placeholder={t('search.placeholder')}
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                className="pl-10 pr-10 h-12 text-base"
-              />
-              {searchInput && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={clearSearch}
-                  className="absolute right-1 top-1/2 -translate-y-1/2"
-                >
-                  <X size={16} />
-                </Button>
-              )}
-            </div>
-
-            <div className="flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <FunnelSimple size={16} />
-                <span className="font-medium">{t('search.tags')}:</span>
-              </div>
-              
-              <Popover open={tagOpen} onOpenChange={setTagOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={tagOpen}
-                    className="w-[280px] justify-between"
-                  >
-                    {selectedTag
-                      ? `${selectedTag} (${tagsWithCount.find(t => t.name === selectedTag)?.count || 0})`
-                      : t('search.allTags')}
-                    <CaretUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[280px] p-0">
-                  <Command>
-                    <CommandInput placeholder={t('search.searchTag')} />
-                    <CommandList>
-                      <CommandEmpty>{t('search.noTagFound')}</CommandEmpty>
-                      <CommandGroup>
-                        <CommandItem
-                          value="all"
-                          onSelect={() => {
-                            setSelectedTag(null)
-                            setTagOpen(false)
-                          }}
-                        >
-                          <Check
-                            className={cn(
-                              "mr-2 h-4 w-4",
-                              !selectedTag ? "opacity-100" : "opacity-0"
-                            )}
-                          />
-                          {t('search.allTags')} ({tagsWithCount.length})
-                        </CommandItem>
-                        {tagsWithCount.map((tag) => (
-                          <CommandItem
-                            key={tag.name}
-                            value={tag.name}
-                            onSelect={() => handleTagSelect(tag.name)}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                selectedTag === tag.name ? "opacity-100" : "opacity-0"
-                              )}
-                            />
-                            {tag.name} ({tag.count})
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              
-              {selectedTag && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setSelectedTag(null)}
-                  className="text-xs"
-                >
-                  <X size={14} className="mr-1" />
-                  {t('search.clear')}
-                </Button>
-              )}
-
-              <div className="ml-auto flex items-center gap-2">
-                <span className="text-sm text-muted-foreground hidden sm:inline">{t('viewMode.label')}:</span>
-                <ToggleGroup 
-                  type="single" 
-                  value={viewMode} 
-                  onValueChange={(value) => value && setViewMode(value as 'cards' | 'list')}
-                  className="border rounded-md"
-                >
-                  <ToggleGroupItem value="cards" aria-label={t('viewMode.cards')} className="px-3">
-                    <SquaresFour size={18} />
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="list" aria-label={t('viewMode.list')} className="px-3">
-                    <List size={18} />
-                  </ToggleGroupItem>
-                </ToggleGroup>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SearchHeader
+        searchInput={searchInput}
+        onSearchInputChange={setSearchInput}
+        onClearSearch={clearSearch}
+        selectedTag={selectedTag}
+        onTagSelect={handleTagSelect}
+        onTagClear={handleTagClear}
+        tagOpen={tagOpen}
+        onTagOpenChange={setTagOpen}
+        tagsWithCount={tagsWithCount}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1">
         {/* Total de pacotes catalogados */}
@@ -297,21 +173,17 @@ function AppContent() {
         )}
 
         {!isLoading && dataSource === 'static' && (
-          <Alert className="mb-6 border-primary/50 bg-primary/5">
-            <CloudArrowDown size={20} className="text-primary" />
-            <AlertDescription className="ml-2">
-              {t('alerts.staticData')}
-            </AlertDescription>
-          </Alert>
+          <div className="mb-4 text-xs text-muted-foreground flex items-center gap-1">
+            <CloudArrowDown size={12} />
+            <span>{t('alerts.staticData')}</span>
+          </div>
         )}
 
         {!isLoading && dataSource === 'api' && (
-          <Alert className="mb-6 border-primary/50 bg-primary/5">
-            <CloudArrowDown size={20} className="text-primary" />
-            <AlertDescription className="ml-2">
-              {t('alerts.apiData')}
-            </AlertDescription>
-          </Alert>
+          <div className="mb-4 text-xs text-muted-foreground flex items-center gap-1">
+            <CloudArrowDown size={12} />
+            <span>{t('alerts.apiData')}</span>
+          </div>
         )}
 
         <div className="mb-4 text-sm text-muted-foreground">
@@ -379,9 +251,9 @@ function AppContent() {
         </SheetContent>
       </Sheet>
 
-      <Footer 
-        dataGenerated={dataGenerated || undefined} 
-        packageCount={packages.length} 
+      <Footer
+        dataGenerated={dataGenerated || undefined}
+        packageCount={packages.length}
       />
     </div>
   )

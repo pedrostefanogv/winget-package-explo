@@ -27,12 +27,15 @@ export function PackageCard({ package: pkg, searchQuery = '', onClick }: Package
       <Card
         className="package-card p-5 cursor-pointer border-border hover:shadow-lg"
         onClick={onClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}
       >
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
             {showIcon ? (
-              <img 
-                src={pkg.icon} 
+              <img
+                src={pkg.icon}
                 alt={`${pkg.name} icon`}
                 className="w-full h-full object-cover"
                 onError={() => setImageError(true)}
@@ -41,7 +44,7 @@ export function PackageCard({ package: pkg, searchQuery = '', onClick }: Package
               <Package size={24} weight="duotone" className="text-primary" />
             )}
           </div>
-          
+
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-3 mb-2">
               <div className="min-w-0 flex-1">
@@ -56,14 +59,14 @@ export function PackageCard({ package: pkg, searchQuery = '', onClick }: Package
                 {t('packageCard.version', { version: pkg.version })}
               </Badge>
             </div>
-            
+
             <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-              <HighlightText 
-                text={pkg.description || t('packageCard.noDescription')} 
-                query={searchQuery} 
+              <HighlightText
+                text={pkg.description || t('packageCard.noDescription')}
+                query={searchQuery}
               />
             </p>
-            
+
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <span className="font-medium">
                 <HighlightText text={pkg.publisher} query={searchQuery} />

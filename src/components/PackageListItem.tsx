@@ -26,11 +26,14 @@ export function PackageListItem({ package: pkg, searchQuery = '', onClick }: Pac
       <div
         className="flex items-center gap-4 p-4 cursor-pointer border border-border rounded-lg hover:bg-muted/50 hover:shadow-md transition-all"
         onClick={onClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}
       >
         <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
           {showIcon ? (
-            <img 
-              src={pkg.icon} 
+            <img
+              src={pkg.icon}
               alt={`${pkg.name} icon`}
               className="w-full h-full object-cover"
               onError={() => setImageError(true)}
@@ -39,7 +42,7 @@ export function PackageListItem({ package: pkg, searchQuery = '', onClick }: Pac
             <Package size={20} weight="duotone" className="text-primary" />
           )}
         </div>
-        
+
         <div className="flex-1 min-w-0 flex items-center gap-4">
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
@@ -51,13 +54,13 @@ export function PackageListItem({ package: pkg, searchQuery = '', onClick }: Pac
               </span>
             </div>
             <p className="text-sm text-muted-foreground truncate">
-              <HighlightText 
-                text={pkg.description || t('packageCard.noDescription')} 
-                query={searchQuery} 
+              <HighlightText
+                text={pkg.description || t('packageCard.noDescription')}
+                query={searchQuery}
               />
             </p>
           </div>
-          
+
           <div className="flex items-center gap-3 flex-shrink-0">
             <span className="text-xs text-muted-foreground hidden md:inline">
               <HighlightText text={pkg.publisher} query={searchQuery} />
