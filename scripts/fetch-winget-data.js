@@ -11,7 +11,7 @@ const WINGET_REPO_PATH =
 const MANIFESTS_PATH = path.join(WINGET_REPO_PATH, "manifests");
 const OUTPUT_DIR = path.join(process.cwd(), "public", "data");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "packages.json");
-const BATCH_SIZE = 100; // Processar 100 pacotes em paralelo (� local, pode ser mais r�pido)
+const BATCH_SIZE = 500; // Processar 500 pacotes em paralelo (mais rápido no CI)
 
 function parseYaml(yamlText) {
   const lines = yamlText.split("\n");
@@ -150,10 +150,12 @@ async function findPackagesRecursively(dirPath, depth = 0, maxDepth = 6) {
   const results = [];
 
   try {
-    const contents = await fs.readdir(dirPath);
+    const contents = await fs.readdir(dirPath, { withFileTypes: true });
 
     // Verificar se esta pasta contém diretórios de versão (começam com número)
-    const hasVersionDirs = contents.some((item) => /^\d/.test(item));
+    const hasVersionDirs = contents.some(
+      (item) => item.isDirectory() && /^\d/.test(item.name),
+    );
 
     if (hasVersionDirs) {
       // Esta pasta é um pacote - tem versões diretas
@@ -162,36 +164,29 @@ async function findPackagesRecursively(dirPath, depth = 0, maxDepth = 6) {
       // MAS também pode ter subpacotes (como Firefox tem pt-BR, ESR, etc)
       // Então verificar subpastas que NÃO são versões
       for (const item of contents) {
-        if (/^\d/.test(item)) continue; // Pular versões
-        if (item.endsWith(".yaml")) continue; // Pular arquivos
+        if (!item.isDirectory()) continue;
+        if (/^\d/.test(item.name)) continue; // Pular versões
 
-        const itemPath = path.join(dirPath, item);
-        const stat = await fs.stat(itemPath);
-        if (stat.isDirectory()) {
-          // Recursar para encontrar subpacotes
-          const subPackages = await findPackagesRecursively(
-            itemPath,
-            depth + 1,
-            maxDepth,
-          );
-          results.push(...subPackages);
-        }
+        const itemPath = path.join(dirPath, item.name);
+        const subPackages = await findPackagesRecursively(
+          itemPath,
+          depth + 1,
+          maxDepth,
+        );
+        results.push(...subPackages);
       }
     } else {
       // Não tem versões diretas - verificar subpastas
       for (const item of contents) {
-        if (item.endsWith(".yaml")) continue; // Pular arquivos
+        if (!item.isDirectory()) continue;
 
-        const itemPath = path.join(dirPath, item);
-        const stat = await fs.stat(itemPath);
-        if (stat.isDirectory()) {
-          const subPackages = await findPackagesRecursively(
-            itemPath,
-            depth + 1,
-            maxDepth,
-          );
-          results.push(...subPackages);
-        }
+        const itemPath = path.join(dirPath, item.name);
+        const subPackages = await findPackagesRecursively(
+          itemPath,
+          depth + 1,
+          maxDepth,
+        );
+        results.push(...subPackages);
       }
     }
   } catch (error) {
@@ -207,28 +202,25 @@ async function findAllPackageFolders() {
 
   try {
     // Listar letras (a, b, c, ..., 0, 1, ...)
-    const letters = await fs.readdir(MANIFESTS_PATH);
+    const letters = await fs.readdir(MANIFESTS_PATH, { withFileTypes: true });
 
     for (const letter of letters) {
-      const letterPath = path.join(MANIFESTS_PATH, letter);
-      const letterStat = await fs.stat(letterPath);
-      if (!letterStat.isDirectory()) continue;
+      if (!letter.isDirectory()) continue;
+      const letterPath = path.join(MANIFESTS_PATH, letter.name);
 
       // Listar publishers
-      const publishers = await fs.readdir(letterPath);
+      const publishers = await fs.readdir(letterPath, { withFileTypes: true });
 
       for (const publisher of publishers) {
-        const publisherPath = path.join(letterPath, publisher);
-        const publisherStat = await fs.stat(publisherPath);
-        if (!publisherStat.isDirectory()) continue;
+        if (!publisher.isDirectory()) continue;
+        const publisherPath = path.join(letterPath, publisher.name);
 
         // Listar pacotes do publisher
-        const packages = await fs.readdir(publisherPath);
+        const packages = await fs.readdir(publisherPath, { withFileTypes: true });
 
         for (const pkg of packages) {
-          const pkgPath = path.join(publisherPath, pkg);
-          const pkgStat = await fs.stat(pkgPath);
-          if (!pkgStat.isDirectory()) continue;
+          if (!pkg.isDirectory()) continue;
+          const pkgPath = path.join(publisherPath, pkg.name);
 
           // Usar busca recursiva para encontrar todos os pacotes
           const foundPackages = await findPackagesRecursively(pkgPath, 0, 4);
@@ -247,19 +239,15 @@ async function findAllPackageFolders() {
 
 async function processPackage(packagePath) {
   try {
-    const contents = await fs.readdir(packagePath);
+    const contents = await fs.readdir(packagePath, { withFileTypes: true });
 
     // Filtrar apenas diretórios que são versões (começam com número)
     const versionDirs = [];
     for (const item of contents) {
+      if (!item.isDirectory()) continue;
       // Versões começam com número (ex: 146.0, 1.0.0, 2024.1)
-      if (!/^\d/.test(item)) continue;
-
-      const itemPath = path.join(packagePath, item);
-      const stat = await fs.stat(itemPath);
-      if (stat.isDirectory()) {
-        versionDirs.push(item);
-      }
+      if (!/^\d/.test(item.name)) continue;
+      versionDirs.push(item.name);
     }
 
     if (versionDirs.length === 0) return null;

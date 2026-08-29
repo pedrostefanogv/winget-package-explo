@@ -20,13 +20,14 @@ jobs:
     timeout-minutes: 60  # 1 hora deve ser suficiente para processamento local
     outputs:
       data_changed: ${{ steps.commit.outputs.changed }}
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+          fetch-depth: 0  # Necessário para git pull --rebase funcionar corretamente
+
       - name: Clone winget-pkgs repository (sparse checkout - manifests only)
         run: |
           git clone --filter=blob:none --sparse https://github.com/microsoft/winget-pkgs.git winget-pkgs
@@ -34,20 +35,20 @@ jobs:
           git sparse-checkout set manifests
           echo "Manifests folder cloned successfully"
           ls -la manifests | head -20
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          
+
       - name: Fetch and process winget packages (local)
         env:
           WINGET_REPO_PATH: ./winget-pkgs
         run: node scripts/fetch-winget-data.js
-      
+
       - name: Cleanup winget-pkgs
         run: rm -rf winget-pkgs
-      
+
       - name: Get current date (Brasília GMT-3)
         id: date
         run: |
@@ -55,7 +56,7 @@ jobs:
           echo "tag=$(TZ='America/Sao_Paulo' date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
           # Data formatada para exibição: DD/MM/YYYY - HH:MM - GMT-3
           echo "display=$(TZ='America/Sao_Paulo' date +'%d/%m/%Y - %H:%M - GMT-3')" >> $GITHUB_OUTPUT
-      
+
       - name: Commit and push data
         id: commit
         run: |
@@ -67,10 +68,16 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "chore: update winget package data (${{ steps.date.outputs.tag }})"
-            git push
+            # Retry loop: pull --rebase + push, até 3 tentativas
+            for i in 1 2 3; do
+              echo "Push attempt $i/3..."
+              git pull --rebase origin main && git push && break
+              echo "Attempt $i failed, retrying in 5s..."
+              sleep 5
+            done
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
-          
+
       - name: Create release
         if: steps.commit.outputs.changed == 'true'
         uses: softprops/action-gh-release@v2
@@ -79,9 +86,9 @@ jobs:
           name: 📦 Package Data - ${{ steps.date.outputs.display }}
           body: |
             ## Atualização automática dos dados de pacotes Winget
-            
+
             🕐 **Gerado em:** ${{ steps.date.outputs.display }}
-            
+
             📥 Baixe o arquivo `packages.json` para usar os dados.
           files: public/data/packages.json
           make_latest: true
@@ -96,7 +103,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -122,7 +129,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
