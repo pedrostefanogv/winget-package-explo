@@ -20,6 +20,24 @@ export interface WingetPackage {
       installerSha256?: string;
     }
   >;
+  /**
+   * Switches de instalação silenciosa por arquitetura.
+   * Extraídos da seção InstallerSwitches do manifesto installer do winget-pkgs.
+   * Ex: { x64: { Silent: "/S /PreventRebootRequired=true", SilentWithProgress: "/S" } }
+   */
+  installerSwitches?: Record<
+    string,
+    {
+      Silent?: string;
+      SilentWithProgress?: string;
+      Interactive?: string;
+      InstallLocation?: string;
+      Upgrade?: string;
+      Custom?: string;
+      Log?: string;
+      Repair?: string;
+    }
+  >;
 }
 
 export interface PackageDataResponse {

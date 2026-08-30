@@ -9,11 +9,13 @@ This application uses a GitHub Actions workflow to automatically fetch and proce
 ### 1. Data Collection (GitHub Actions)
 
 The GitHub Action (`.github/workflows/fetch-winget-data.yml`) runs:
+
 - **Weekly**: Every Sunday at midnight (UTC)
 - **Manually**: Via workflow dispatch in GitHub Actions tab
 - **On Push**: When the workflow file itself is updated
 
 The workflow:
+
 1. Checks out the repository
 2. Sets up Node.js environment
 3. Installs required dependencies (js-yaml, octokit)
@@ -23,6 +25,7 @@ The workflow:
 ### 2. Data Processing Script
 
 The `scripts/fetch-winget-data.js` script:
+
 - Connects to the GitHub API using an authenticated token
 - Fetches up to 500 package manifests from `microsoft/winget-pkgs`
 - Parses YAML manifest files (locale and installer files)
@@ -31,6 +34,10 @@ The `scripts/fetch-winget-data.js` script:
   - Description, homepage, license, tags
   - Category (derived from first tag)
   - Install command
+  - Installer switches per architecture (`installerSwitches`): silent
+    installation switches (`Silent`, `SilentWithProgress`, etc.) extracted from
+    the `InstallerSwitches` section of the installer manifest — useful for
+    automated/agent-based installation flows
 - **Attempts to find package icons** from:
   - Microsoft Store images (for Store packages)
   - Clearbit Logo API (using package homepage domain)
@@ -121,7 +128,7 @@ This will create/update `public/data/packages.json`.
 Edit `scripts/fetch-winget-data.js`:
 
 ```javascript
-const MAX_PACKAGES = 500  // Change this number
+const MAX_PACKAGES = 500; // Change this number
 ```
 
 ### Change Schedule
@@ -130,22 +137,23 @@ Edit `.github/workflows/fetch-winget-data.yml`:
 
 ```yaml
 schedule:
-  - cron: '0 0 * * 0'  # Cron expression (current: weekly on Sunday at midnight)
+  - cron: "0 0 * * 0" # Cron expression (current: weekly on Sunday at midnight)
 ```
 
 Cron schedule examples:
+
 - `'0 0 * * *'` - Daily at midnight
 - `'0 0 * * 1'` - Weekly on Monday
 - `'0 0 1 * *'` - Monthly on the 1st
 
 ## Benefits
 
-✅ **Fast Load Times**: Pre-processed data loads instantly  
-✅ **Reduced API Calls**: Minimizes GitHub API usage and rate limits  
-✅ **Package Icons**: Visual identification of packages  
-✅ **Automatic Updates**: Data refreshes weekly without manual intervention  
-✅ **Offline Support**: Static data works without internet connection  
-✅ **Graceful Degradation**: Multiple fallback strategies ensure reliability  
+✅ **Fast Load Times**: Pre-processed data loads instantly
+✅ **Reduced API Calls**: Minimizes GitHub API usage and rate limits
+✅ **Package Icons**: Visual identification of packages
+✅ **Automatic Updates**: Data refreshes weekly without manual intervention
+✅ **Offline Support**: Static data works without internet connection
+✅ **Graceful Degradation**: Multiple fallback strategies ensure reliability
 
 ## Troubleshooting
 
@@ -153,7 +161,8 @@ Cron schedule examples:
 
 **Issue**: "Nothing to commit" or permission errors
 
-**Solution**: 
+**Solution**:
+
 - Ensure the workflow has `contents: write` permission (already configured)
 - Check that data actually changed before committing
 
@@ -162,6 +171,7 @@ Cron schedule examples:
 **Issue**: GitHub API rate limit exceeded
 
 **Solution**:
+
 - The script includes 100ms delay between requests
 - Authenticated requests have higher rate limits (5000/hour vs 60/hour)
 - Reduce `MAX_PACKAGES` if needed
@@ -171,6 +181,7 @@ Cron schedule examples:
 **Issue**: Package icons show fallback icon
 
 **Reasons**:
+
 - Package doesn't have a Microsoft Store listing
 - Homepage domain not recognized by Clearbit
 - CORS issues with external image sources
@@ -180,6 +191,7 @@ Cron schedule examples:
 ## Future Enhancements
 
 Potential improvements:
+
 - Implement icon caching/proxying to avoid CORS issues
 - Add search indexing for better search performance
 - Include download counts and popularity metrics

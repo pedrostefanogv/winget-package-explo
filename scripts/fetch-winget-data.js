@@ -47,7 +47,121 @@ function parseYaml(yamlText) {
 function cleanYamlScalar(value) {
   if (!value) return "";
   const withoutComment = value.split(" #")[0].trim();
-  return withoutComment.replace(/^"|"$/g, "").replace(/^'|'$/g, "");
+  // Só remove aspas de abertura/fechamento se forem um par envolvente
+  // (não remover aspas internas de valores como /TASKS="startmenufolder")
+  if (
+    (withoutComment.startsWith('"') && withoutComment.endsWith('"') && withoutComment.length >= 2) ||
+    (withoutComment.startsWith("'") && withoutComment.endsWith("'") && withoutComment.length >= 2)
+  ) {
+    return withoutComment.slice(1, -1);
+  }
+  return withoutComment;
+}
+
+// Extrai os InstallerSwitches (Silent, SilentWithProgress, etc.) do manifesto installer.
+// Suporta switches globais (nível do pacote) e switches específicos por arquitetura
+// (definidos dentro de cada item de installer, ex: Silent: /S em um bloco x64).
+function extractInstallerSwitches(installerYamlText) {
+  const lines = installerYamlText.split("\n");
+  const globalSwitches = {};
+  const switchesByArch = {};
+  let currentArch = "neutral";
+  let currentSwitchKey = null;
+  let insideInstallers = false;
+  let insideSwitches = false;
+  let insideArchSwitches = false;
+  let switchesIndent = 0; // indentação da linha "InstallerSwitches:" (0 = global, maior = por arch)
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) continue;
+
+    const indent = rawLine.length - rawLine.trimStart().length;
+
+    if (line.startsWith("Installers:")) {
+      insideInstallers = true;
+      insideSwitches = false;
+      insideArchSwitches = false;
+      currentSwitchKey = null;
+      currentArch = "neutral";
+      continue;
+    }
+
+    if (line.startsWith("InstallerSwitches:")) {
+      insideSwitches = true;
+      insideArchSwitches = false;
+      currentSwitchKey = null;
+      switchesIndent = indent;
+      continue;
+    }
+
+    if (insideSwitches) {
+      // Novo bloco de nível igual ou superior encerra a seção de switches
+      if (indent <= switchesIndent && !line.startsWith("- ")) {
+        insideSwitches = false;
+        insideArchSwitches = false;
+        currentSwitchKey = null;
+      } else {
+        // Dentro de InstallerSwitches, um bloco "Architecture:" contém switches por arch
+        const archBlockMatch = line.match(/^Architecture:\s*(.+)$/i);
+        if (archBlockMatch && indent === switchesIndent + 2) {
+          insideArchSwitches = true;
+          currentArch =
+            cleanYamlScalar(archBlockMatch[1]).toLowerCase() || "neutral";
+          currentSwitchKey = null;
+        } else {
+          const switchMatch = line.match(/^(Silent|SilentWithProgress|Interactive|InstallLocation|Upgrade|Custom|Log|Repair):\s*(.+)$/i);
+          if (switchMatch) {
+            const key = switchMatch[1];
+            const value = cleanYamlScalar(switchMatch[2]);
+            if (value) {
+              // Switches aninhados dentro de um item de installer (indent > 0)
+              // pertencem à arquitetura daquele item; no nível raiz são globais
+              const isPerArch =
+                switchesIndent > 0 || insideArchSwitches;
+              if (isPerArch) {
+                if (!switchesByArch[currentArch])
+                  switchesByArch[currentArch] = {};
+                switchesByArch[currentArch][key] = value;
+              } else {
+                globalSwitches[key] = value;
+              }
+            }
+            currentSwitchKey = key;
+          } else if (currentSwitchKey && line.startsWith("- ") && indent > switchesIndent + 2) {
+            // Continuação de valor multilinha (ex: listas YAML com "- ")
+            // Só se a indentação for maior que a dos switches (não é novo item de installer)
+            const extra = cleanYamlScalar(line.substring(2));
+            if (extra) {
+              const isPerArch = switchesIndent > 0 || insideArchSwitches;
+              const target = isPerArch
+                ? switchesByArch[currentArch] ||
+                  (switchesByArch[currentArch] = {})
+                : globalSwitches;
+              target[currentSwitchKey] =
+                `${target[currentSwitchKey]} ${extra}`.trim();
+            }
+          }
+        }
+      }
+    }
+
+    // Rastrear a arquitetura atual dentro da seção Installers
+    // (linhas "Architecture:" no nível do item de installer, fora do bloco de switches)
+    if (
+      insideInstallers &&
+      (!insideSwitches || indent <= switchesIndent)
+    ) {
+      // Item de lista: "- Architecture: x64" (arch na mesma linha do traço)
+      const itemArchMatch = line.match(/^-\s*Architecture:\s*(.+)$/i);
+      const archMatch = itemArchMatch || line.match(/^Architecture:\s*(.+)$/i);
+      if (archMatch) {
+        currentArch = cleanYamlScalar(archMatch[1]).toLowerCase() || "neutral";
+      }
+    }
+  }
+
+  return { globalSwitches, switchesByArch };
 }
 
 function extractInstallerDetailsByArch(installerYamlText) {
@@ -381,6 +495,7 @@ async function processPackage(packagePath) {
     let installerManifest = null;
     let installerDetailsByArch;
     let installerUrlsByArch;
+    let installerSwitches;
     if (installerFile) {
       const installerYaml = await fs.readFile(
         path.join(versionPath, installerFile),
@@ -395,6 +510,29 @@ async function processPackage(packagePath) {
             info.url,
           ]),
         );
+      }
+      // Extrair switches silenciosos (Silent / SilentWithProgress) por arquitetura
+      const { globalSwitches, switchesByArch } =
+        extractInstallerSwitches(installerYaml);
+
+      // Mesclar switches globais com os específicos por arch (específicos têm prioridade)
+      const mergedSwitches = {};
+      const archs = new Set([
+        ...Object.keys(globalSwitches.length ? { global: 1 } : {}),
+        ...Object.keys(installerDetailsByArch || {}),
+        ...Object.keys(switchesByArch),
+      ]);
+      for (const arch of archs) {
+        const merged = {
+          ...globalSwitches,
+          ...(switchesByArch[arch] || {}),
+        };
+        if (Object.keys(merged).length > 0) {
+          mergedSwitches[arch] = merged;
+        }
+      }
+      if (Object.keys(mergedSwitches).length > 0) {
+        installerSwitches = mergedSwitches;
       }
     }
 
@@ -453,6 +591,7 @@ async function processPackage(packagePath) {
       lastUpdated: new Date().toISOString(),
       ...(installerUrlsByArch ? { installerUrlsByArch } : {}),
       ...(installerDetailsByArch ? { installerDetailsByArch } : {}),
+      ...(installerSwitches ? { installerSwitches } : {}),
     };
   } catch (error) {
     return null;
